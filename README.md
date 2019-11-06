@@ -1,4 +1,4 @@
 # Gift-Buddy
 
-Šef: Ožbej
-Fizikalca: Gal in Jan
+##Šef: Ožbej
+##Fizikalca: Gal in Jan
