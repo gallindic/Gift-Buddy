@@ -41,6 +41,18 @@ const styles = StyleSheet.create({
       borderWidth: 1.5,
       paddingHorizontal: '10%'
     },
+    containerSelect: {
+      backgroundColor: 'white',
+      borderColor: PRIMARY_COLOR,
+      borderRadius: 8,
+      borderWidth: 1.5,
+      width: '100%',
+      padding: 0,
+      margin: 0,
+      marginLeft: 0,
+      marginTop: 0,
+      marginBottom: 0
+    },
     containerSecondaryOutline: {
       backgroundColor: 'transparent',
     },
@@ -122,7 +134,7 @@ const getStyles = ({
         containerStyles.push(styles.containerSecondaryOutline);
         textStyles.push(styles.textSecondaryOutline);
     }
-    } else {
+    } else if (theme === 'primary') {
         containerStyles.push(styles.containerPrimary);
         textStyles.push(styles.textPrimary);
 
@@ -131,6 +143,15 @@ const getStyles = ({
         textStyles.push(styles.textPrimaryOutline);
     }
     }
+
+    else {
+      containerStyles.push(styles.containerSelect);
+      textStyles.push(styles.textSecondary);
+      if (outline) {
+          containerStyles.push(styles.containerPrimaryOutline);
+          textStyles.push(styles.textPrimaryOutline);
+      }
+  }
 
     if (disabled) {
         containerStyles.push(styles.containerDisabled);

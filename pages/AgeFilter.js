@@ -96,20 +96,20 @@ export default class AgeFilter extends Component {
             markerStyle={{borderColor: '#FF304F', borderWidth: 3, backgroundColor: 'white'}}
             onValuesChange={this.changeBudget.bind(this)}
             />
-            <View style={styles.buttons}>
-                <Button
-                text={budgetValueOne}
-                theme='secondary'
-                size='small'
-                disabled={true}
-                />
-                <Button
-                text={budgetValueTwo}
-                theme='secondary'
-                size='small'
-                disabled={true}    
-                />
-            </View>
+        </View>
+        <View style={styles.buttons}>
+            <Button
+            text={budgetValueOne + ' EUR'}
+            theme='secondary'
+            size='small'
+            disabled={true}
+            />
+            <Button
+            text={budgetValueTwo + ' EUR'}
+            theme='secondary'
+            size='small'
+            disabled={true}    
+            />
         </View>
         <FooterNavigation nextScreen={'GenderFilter'} />
       </View>
@@ -139,6 +139,6 @@ const styles = StyleSheet.create({
       width: WIDTH,
       display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'space-between'
+      justifyContent: 'space-evenly',
   },
 });

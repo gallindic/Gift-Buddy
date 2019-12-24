@@ -9,6 +9,7 @@ import GenderFilter from './pages/GenderFilter'
 import Header from './components/Header'
 import FooterNavigation from './components/FooterNavigation'
 import OccasionFilter from './pages/OccasionFilter'
+import HobbiesFilter from './pages/HobbiesFilter'
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -43,6 +44,12 @@ const AppNavigator = createStackNavigator({
   },
   OccasionFilter: {
     screen: OccasionFilter,
+    navigationOptions: {
+      header: null
+    }
+  },
+  HobbiesFilter: {
+    screen: HobbiesFilter,
     navigationOptions: {
       header: null
     }
