@@ -6,62 +6,12 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons'
 
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
+import Global from '../components/Global'
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
 const loop = [1]
-
-const items = [
-    {
-      name: 'Holidays',
-      id: 0,
-      children: [
-        {
-          name: 'Halloween',
-          id: 1,
-        },
-        {
-          name: 'Christmas',
-          id: 2,
-        },
-        {
-          name: 'Valentine\'s day',
-          id: 3,
-        },
-        {
-          name: 'Mother\s day',
-          id: 4,
-        },
-        {
-          name: 'Easter',
-          id: 5,
-        },
-      ],
-    },
-    {
-      name: 'Birthday',
-      id: 10,
-      children: [
-        {
-          name: '18',
-          id: 11,
-        },
-        {
-          name: '20',
-          id: 12,
-        },
-        {
-          name: '30',
-          id: 13,
-        },
-        {
-          name: '50',
-          id: 14,
-        },
-      ],
-    }
-  ];
 
 export default class OccasionFilter extends Component {
 
@@ -69,13 +19,17 @@ export default class OccasionFilter extends Component {
     super();
     this.state = {
         selectedItems: [],
-        single: true,
+        selectedItemObjects: [],
         item: 'None'
     };
   }
 
   onSelectedItemsChange = (selectedItems) => {
     this.setState({ selectedItems });
+  };
+
+  onSelectedItemObjectsChange = (selectedItemObjects) => {
+    this.setState({ selectedItemObjects });
   };
 
   icon = ({ name, size = 18, style }) => {
@@ -106,13 +60,32 @@ export default class OccasionFilter extends Component {
     return <Icon style={style} size={size} name={iconName}/>
   }
 
+  componentDidMount() {
+    this.load();
+  }
+
+  load = () => this.SectionedMultiSelect._toggleSelector();
+
   render() {
+    Global.Occasion = this;
     return (
       <View style={{height: '100%'}}>
         <Header />
         <View style={styles.body}>
             <Text style={styles.text}>Select the occasion</Text>
             <SectionedMultiSelect
+            ref={SectionedMultiSelect => (this.SectionedMultiSelect = SectionedMultiSelect)}
+            headerComponent={
+              <View style={{backgroundColor: '#FF304F'}}>
+                <Text style={{
+                  fontSize: RFValue(20, 580),
+                  textAlign: 'center',
+                  fontWeight: '700',
+                  padding: RFValue(15, 580),
+                  color: 'white'
+                }}>Select the occasion</Text>
+              </View>
+            }
             iconRenderer={this.icon}
             items={items}
             uniqueKey="id"
@@ -122,6 +95,7 @@ export default class OccasionFilter extends Component {
             readOnlyHeadings={true}
             single={true}
             onSelectedItemsChange={this.onSelectedItemsChange}
+            onSelectedItemObjectsChange={this.onSelectedItemObjectsChange}
             selectedItems={this.state.selectedItems}
             styles={{
               itemText: {
@@ -157,18 +131,13 @@ export default class OccasionFilter extends Component {
               <Text style={styles.text}>Currently selected</Text>
               <TouchableOpacity style={styles.button} disabled={true}>
                 <Text style={styles.buttonText}>{
-                  loop.map(item => {
-                    if (this.state.selectedItems.length === 0) return 'None'
-                  })
-                }
-                {items.map(item => item.children.map(subitem => {
-                  if (subitem.id == this.state.selectedItems) return subitem.name
-                }))}
+                  (this.state.selectedItemObjects.length === 0) ? 'None' : this.state.selectedItemObjects[0].name
+                  }
                 </Text>
               </TouchableOpacity>
             </View>
         </View>
-        <FooterNavigation nextScreen={'HobbiesFilter'} />
+        <FooterNavigation mainText='Skip' nextScreen={'HobbiesFilter'} />
       </View>
     );
   }
@@ -220,3 +189,54 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.2
     },
 });
+
+const items = [
+  {
+    name: 'Holidays',
+    id: 0,
+    children: [
+      {
+        name: 'Halloween',
+        id: 1,
+      },
+      {
+        name: 'Christmas',
+        id: 2,
+      },
+      {
+        name: 'Valentine\'s day',
+        id: 3,
+      },
+      {
+        name: 'Mother\s day',
+        id: 4,
+      },
+      {
+        name: 'Easter',
+        id: 5,
+      },
+    ],
+  },
+  {
+    name: 'Birthday',
+    id: 10,
+    children: [
+      {
+        name: '18',
+        id: 11,
+      },
+      {
+        name: '20',
+        id: 12,
+      },
+      {
+        name: '30',
+        id: 13,
+      },
+      {
+        name: '50',
+        id: 14,
+      },
+    ],
+  }
+];

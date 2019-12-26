@@ -1,17 +1,16 @@
-import React, { Component, ReactDOM } from 'react';
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
 
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
-import { ScrollView } from 'react-native-gesture-handler';
+import Global from '../components/Global'
+import Hobbies from '../components/Hobbies'
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
-
-const loop = [1]
 
 export default class OccasionFilter extends Component {
 
@@ -19,12 +18,106 @@ export default class OccasionFilter extends Component {
     super();
     this.state = {
         selectedItemsSport: [],
-        single: true,
+        selectedItemObjectsSport: [],
+        selectedItemsTechnology: [],
+        selectedItemObjectsTechnology: [],
+        selectedItemsCooking: [],
+        selectedItemObjectsCooking: [],
+        selectedItemsArts: [],
+        selectedItemObjectsArts: [],
+        selectedItemsMusic: [],
+        selectedItemObjectsMusic: [],
+        selectedItemsDancing: [],
+        selectedItemObjectsDancing: [],
+        selectedItemsFashion: [],
+        selectedItemObjectsFashion: [],
+        selectedItemsCars: [],
+        selectedItemObjectsCars: [],
+        selectedItemsGames: [],
+        selectedItemObjectsGames: [],
+        selectedItemsReading: [],
+        selectedItemObjectsReading: [],
     };
   }
 
+  //SPORT
   onSelectedItemsChangeSport = (selectedItemsSport) => {
     this.setState({ selectedItemsSport });
+  };
+  onSelectedItemObjectsChangeSport = (selectedItemObjectsSport) => {
+    this.setState({ selectedItemObjectsSport });
+  };
+
+  //TECHNOLOGY
+  onSelectedItemsChangeTechnology = (selectedItemsTechnology) => {
+    this.setState({ selectedItemsTechnology });
+  };
+  onSelectedItemObjectsChangeTechnology = (selectedItemObjectsTechnology) => {
+    this.setState({ selectedItemObjectsTechnology });
+  };
+
+  //COOKING
+  onSelectedItemsChangeCooking = (selectedItemsCooking) => {
+    this.setState({ selectedItemsCooking });
+  };
+  onSelectedItemObjectsChangeCooking = (selectedItemObjectsCooking) => {
+    this.setState({ selectedItemObjectsCooking });
+  };
+
+  //ARTS
+  onSelectedItemsChangeArts = (selectedItemsArts) => {
+    this.setState({ selectedItemsArts });
+  };
+  onSelectedItemObjectsChangeArts = (selectedItemObjectsArts) => {
+    this.setState({ selectedItemObjectsArts });
+  };
+
+   //MUSIC
+   onSelectedItemsChangeMusic = (selectedItemsMusic) => {
+    this.setState({ selectedItemsMusic });
+  };
+  onSelectedItemObjectsChangeMusic = (selectedItemObjectsMusic) => {
+    this.setState({ selectedItemObjectsMusic });
+  };
+
+  //DANCING
+  onSelectedItemsChangeDancing = (selectedItemsDancing) => {
+    this.setState({ selectedItemsDancing });
+  };
+  onSelectedItemObjectsChangeDancing = (selectedItemObjectsDancing) => {
+    this.setState({ selectedItemObjectsDancing });
+  };
+
+  //FASHION
+  onSelectedItemsChangeFashion = (selectedItemsFashion) => {
+    this.setState({ selectedItemsFashion });
+  };
+  onSelectedItemObjectsChangeFashion = (selectedItemObjectsFashion) => {
+    this.setState({ selectedItemObjectsFashion });
+  };
+
+  //CARS
+  onSelectedItemsChangeCars = (selectedItemsCars) => {
+    this.setState({ selectedItemsCars });
+  };
+  onSelectedItemObjectsChangeCars = (selectedItemObjectsCars) => {
+    this.setState({ selectedItemObjectsCars });
+  };
+
+  //GAMES
+  onSelectedItemsChangeGames = (selectedItemsGames) => {
+    this.setState({ selectedItemsGames });
+  };
+  onSelectedItemObjectsChangeGames = (selectedItemObjectsGames) => {
+    this.setState({ selectedItemObjectsGames });
+  };
+
+  //READING
+  onSelectedItemsChangeReading = (selectedItemsReading) => {
+    this.setState({ selectedItemsReading });
+  };
+  onSelectedItemObjectsChangeReading = (selectedItemObjectsReading) => {
+    this.setState({ selectedItemObjectsReading });
   };
 
   icon = ({ name, size = 18, style }) => {
@@ -56,6 +149,7 @@ export default class OccasionFilter extends Component {
   }
 
   render() {
+    Global.Hobbies = this;
     return (
       <View style={{height: '100%'}}>
         <Header />
@@ -67,110 +161,222 @@ export default class OccasionFilter extends Component {
         style={styles.body}
         >
             <Text style={styles.text}>Select hobbies</Text>
-            <SectionedMultiSelect
-            ref={SectionedMultiSelect => (this.SectionedMultiSelectSport = SectionedMultiSelect)}
-            iconRenderer={this.icon}
-            items={sport}
-            uniqueKey="id"
-            subKey="children"
-            renderSelectText={() => ' '}
-            selectToggleIconComponent={<Icon name={null} />}
-            customChipsRenderer={() => null}
-            showDropDowns={true}
-            readOnlyHeadings={true}
-            onSelectedItemsChange={this.onSelectedItemsChangeSport}
-            selectedItems={this.state.selectedItemsSport}
-            styles={multipleSelect}
-            />
-            <SectionedMultiSelect
-            ref={SectionedMultiSelect => (this.SectionedMultiSelectTechnology = SectionedMultiSelect)}
-            iconRenderer={this.icon}
-            items={technology}
-            uniqueKey="id"
-            subKey="children"
-            renderSelectText={() => ' '}
-            selectToggleIconComponent={<Icon name={null} />}
-            customChipsRenderer={() => null}
-            showDropDowns={true}
-            readOnlyHeadings={true}
-            onSelectedItemsChange={this.onSelectedItemsChange}
-            selectedItems={this.state.selectedItems}
-            styles={multipleSelect}
-            />
-            <View style={styles.buttons}>
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectSport._toggleSelector()} >
+            <ScrollView style={styles.buttons} contentContainerStyle={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'row',
+              flexWrap: 'wrap'
+            }}>
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectSport._toggleSelector()}>
                     <Text style={styles.buttonText}>Sports</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectTechnology._toggleSelector()} >
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectSport = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={sport}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeSport}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeSport}
+                selectedItems={this.state.selectedItemsSport}
+                styles={multipleSelect}
+                />
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectTechnology._toggleSelector()}>
                     <Text style={styles.buttonText}>Technology</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} >
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectTechnology = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={technology}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeTechnology}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeTechnology}
+                selectedItems={this.state.selectedItemsTechnology}
+                styles={multipleSelect}
+                />
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectCooking._toggleSelector()}>
                     <Text style={styles.buttonText}>Cooking</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} >
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectCooking = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={cooking}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeCooking}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeCooking}
+                selectedItems={this.state.selectedItemsCooking}
+                styles={multipleSelect}
+                />
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectArts._toggleSelector()}>
                     <Text style={styles.buttonText}>Arts</Text>
                 </TouchableOpacity>
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectArts = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={arts}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeArts}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeArts}
+                selectedItems={this.state.selectedItemsArts}
+                styles={multipleSelect}
+                />
                 <TouchableOpacity style={styles.button} >
-                    <Text style={styles.buttonText}>Music</Text>
+                    <Text style={styles.buttonText} onPress={() => this.SectionedMultiSelectMusic._toggleSelector()}>
+                      Music</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} >
-                    <Text style={styles.buttonText}>Dancing</Text>
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectMusic = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={music}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeMusic}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeMusic}
+                selectedItems={this.state.selectedItemsMusic}
+                styles={multipleSelect}
+                />
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectDancing._toggleSelector()}>
+                    <Text style={styles.buttonText}>
+                      Dancing</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} >
-                    <Text style={styles.buttonText}>Fashion</Text>
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectDancing = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={dancing}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeDancing}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeDancing}
+                selectedItems={this.state.selectedItemsDancing}
+                styles={multipleSelect}
+                />
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectFashion._toggleSelector()}>
+                    <Text style={styles.buttonText}>
+                      Fashion</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} >
-                    <Text style={styles.buttonText}>Cars</Text>
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectFashion = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={fashion}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeFashion}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeFashion}
+                selectedItems={this.state.selectedItemsFashion}
+                styles={multipleSelect}
+                />
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectCars._toggleSelector()}>
+                    <Text style={styles.buttonText}>
+                      Cars</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} >
-                    <Text style={styles.buttonText}>Games</Text>
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectCars = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={cars}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeCars}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeCars}
+                selectedItems={this.state.selectedItemsCars}
+                styles={multipleSelect}
+                />
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectGames._toggleSelector()}>
+                    <Text style={styles.buttonText}>
+                      Games</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} >
-                    <Text style={styles.buttonText}>Reading</Text>
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectGames = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={games}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeGames}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeGames}
+                selectedItems={this.state.selectedItemsGames}
+                styles={multipleSelect}
+                />
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectTechnology._toggleSelector()}>
+                    <Text style={styles.buttonText}>
+                      Reading</Text>
                 </TouchableOpacity>
-            </View>
-            <ScrollView contentContainerStyle={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-            }} style={styles.tags}> 
-                {sport.map(item => item.children.map(subitem => {
-                  if (this.state.selectedItemsSport.includes(subitem.id))
-                    return (
-                        <View style={styles.tag}>
-                            <Text style={{color: 'white'}}>{subitem.name}</Text>
-                            <TouchableOpacity onPress={() => {
-                                let index = this.state.selectedItemsSport.indexOf(subitem.id);
-                                if (index > -1) {
-                                    this.state.selectedItemsSport.splice(index, 1);
-                                    return null;
-                                }
-                            }}>
-                                <Icon style={{paddingLeft: WIDTH * 0.02, color: 'white'}} size={RFValue(15, 580)} name="close"/>
-                            </TouchableOpacity>
-                        </View>
-                    )
-                }))}
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectDancing = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={dancing}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={true}
+                onSelectedItemsChange={this.onSelectedItemsChangeDancing}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeDancing}
+                selectedItems={this.state.selectedItemsDancing}
+                styles={multipleSelect}
+                />
+                <Hobbies selected={this.state.selectedItemsSport}/>
             </ScrollView>
         </ScrollView>
-        <FooterNavigation nextScreen={'GenderFilter'} />
+        <FooterNavigation mainText='Done' nextScreen={'SelectedParameters'} />
       </View>
     );
   }
 }
 
+//General CSS
 const styles = StyleSheet.create({
     body: {
         marginVertical: HEIGHT * 0.05,
         paddingVertical: HEIGHT * 0.02,
         marginHorizontal: WIDTH * 0.05,
     },
+    text: {
+      fontSize: RFValue(15, 580),
+      textAlign: 'center',
+      fontWeight: '500'
+    },
     buttons: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
+        marginBottom: HEIGHT * 0.07,
     },
     button: {
         alignItems: 'center',
@@ -196,27 +402,9 @@ const styles = StyleSheet.create({
         shadowRadius: 1,
         shadowOpacity: 0.2,
       },
-      tags: {
-        width: '100%',
-        backgroundColor: 'lightblue',
-        marginVertical: HEIGHT * 0.05,
-        padding: HEIGHT * 0.02,
-        marginHorizontal: WIDTH * 0.05,
-      },
-      tag: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: '#FF304F',
-        paddingHorizontal: WIDTH * 0.02,
-        paddingVertical: WIDTH * 0.01,
-        margin: WIDTH * 0.01,
-        borderColor: '#6E6263',
-        borderRadius: 40,
-        borderWidth: 1.5,
-      },
 });
 
+//CSS for modals
 const multipleSelect = 
   {
     itemText: {
@@ -246,9 +434,23 @@ const multipleSelect =
       backgroundColor: 'red',
       height: 0,
       width: 0,
-    }
+    },
+    chipsWrapper: {
+      width: WIDTH * 0.8,
+      padding: WIDTH * 0.01
+    },
+    chipContainer: {
+      backgroundColor: '#FF304F'
+    },
+    chipText: {
+      color: 'white'
+    },
+    chipIcon: {
+      color: 'white'
+    },
   }
 
+//Dropdowns generate from arrays here
 const sport = [
     {
       name: 'Football',
@@ -256,41 +458,41 @@ const sport = [
       children: [
         {
           name: 'Hoodies',
-          id: 1,
+          id: 'Football 1',
         },
         {
           name: 'Shorts',
-          id: 2,
+          id: 'Football 2',
         },
         {
           name: 'Shoes',
-          id: 3,
+          id: 'Football 3',
         },
         {
           name: 'Accessories',
-          id: 4,
+          id: 'Football 4',
         },
       ],
     },
     {
       name: 'Basketball',
-      id: 10,
+      id: 1,
       children: [
         {
           name: 'Hoodies',
-          id: 11,
+          id: 'Basketball 1',
         },
         {
           name: 'Shorts',
-          id: 12,
+          id: 'Basketball 2',
         },
         {
           name: 'Shoes',
-          id: 13,
+          id: 'Basketball 3',
         },
         {
           name: 'Accessories',
-          id: 14,
+          id: 'Basketball 4',
         },
       ],
     },
@@ -300,7 +502,7 @@ const sport = [
       children: [
         {
           name: 'Accessories',
-          id: 21,
+          id: 'Volleyball 1',
         }
       ]
     },
@@ -310,7 +512,7 @@ const sport = [
         children: [
         {
             name: 'Bikes',
-            id: 31,
+            id: 'Cycling 1',
         }
         ]
     },
@@ -320,10 +522,10 @@ const sport = [
         children: [
         {
             name: 'Shoes',
-            id: 41,
+            id: 'Running 1',
         }
         ]
-    }
+    },
   ];
 
   const technology = [
@@ -374,3 +576,288 @@ const sport = [
       ]
     },
   ];
+
+  const cooking = [
+    {
+      name: 'Recipies',
+      id: 0,
+      children: [
+        {
+          name: 'Books',
+          id: 1,
+        },
+        {
+          name: 'Courses',
+          id: 2,
+        },
+        {
+          name: 'Videos',
+          id: 4,
+        },
+      ],
+    },
+    {
+      name: 'Clothing',
+      id: 10,
+      children: [
+        {
+          name: 'Hats',
+          id: 11,
+        },
+        {
+          name: 'Aprons',
+          id: 12,
+        },
+      ],
+    },
+    {
+    name: 'Accessories',
+      id: 20,
+      children: [
+        {
+          name: 'Dishes',
+          id: 21,
+        },
+        {
+          name: 'Cutlery',
+          id: 22,
+        },
+        {
+          name: 'Machines',
+          id: 23,
+        }
+      ]
+    },
+  ];
+
+  const arts = [
+    {
+      name: 'Accessories',
+      id: 0,
+      children: [
+        {
+          name: 'Colors',
+          id: 1,
+        },
+        {
+          name: 'Brushes',
+          id: 2,
+        },
+        {
+          name: 'Other',
+          id: 4,
+        },
+      ],
+    },
+  ];
+
+  const music = [
+    {
+      name: 'Songs',
+      id: 0,
+      children: [
+        {
+          name: 'CDs',
+          id: 1,
+        },
+        {
+          name: 'Vinyl',
+          id: 2,
+        },
+        {
+          name: 'CLoud songs',
+          id: 4,
+        },
+      ],
+    },
+    {
+      name: 'Accessories',
+      id: 10,
+      children: [
+        {
+          name: 'Microphones',
+          id: 11,
+        },
+        {
+          name: 'Mixers',
+          id: 12,
+        },
+      ],
+    },
+  ];
+
+  const dancing = [
+    {
+      name: 'Clothing',
+      id: 0,
+      children: [
+        {
+          name: 'Shirts',
+          id: 1,
+        },
+        {
+          name: 'Pants',
+          id: 2,
+        },
+        {
+          name: 'Shoes',
+          id: 4,
+        },
+      ],
+    },
+    {
+      name: 'Accessories',
+      id: 10,
+      children: [
+        {
+          name: 'Requisites',
+          id: 11,
+        },
+        {
+          name: 'Speakers',
+          id: 12,
+        },
+      ],
+    },
+  ];
+
+  const fashion = [
+    {
+      name: 'Clothing',
+      id: 0,
+      children: [
+        {
+          name: 'Suits',
+          id: 1,
+        },
+        {
+          name: 'Shirts',
+          id: 2,
+        },
+        {
+          name: 'Pants',
+          id: 4,
+        },
+      ],
+    },
+    {
+      name: 'Footwear',
+      id: 10,
+      children: [
+        {
+          name: 'Shoes',
+          id: 11,
+        },
+        {
+          name: 'Trainers',
+          id: 12,
+        },
+      ],
+    },
+    {
+    name: 'Accesories',
+      id: 20,
+      children: [
+        {
+          name: 'Watches',
+          id: 21,
+        },
+        {
+          name: 'Belts',
+          id: 22,
+        },
+        {
+          name: 'Bags',
+          id: 23,
+        }
+      ]
+    },
+  ];
+
+  const cars = [
+    {
+      name: 'Tools',
+      id: 0,
+      children: [
+        {
+          name: 'Machines',
+          id: 1,
+        },
+        {
+          name: 'Hand tools',
+          id: 2,
+        },
+      ],
+    },
+    {
+      name: 'Parts',
+      id: 10,
+      children: [
+        {
+          name: 'Windows',
+          id: 11,
+        },
+        {
+          name: 'Exhausters',
+          id: 12,
+        },
+      ],
+    },
+  ];
+
+  const games = [
+    {
+      name: 'Board games',
+      id: 0,
+      children: [
+        {
+          name: 'Social',
+          id: 1,
+        },
+        {
+          name: 'Drinking',
+          id: 2,
+        },
+        {
+          name: 'Kids',
+          id: 4,
+        },
+      ],
+    },
+    {
+      name: 'Outside games',
+      id: 10,
+      children: [
+        {
+          name: 'Kids',
+          id: 11,
+        },
+        {
+          name: 'Adult',
+          id: 12,
+        },
+      ],
+    },
+  ];
+
+  const reading = [
+    {
+      name: 'Books',
+      id: 0,
+      children: [
+        {
+          name: 'Digital books',
+          id: 1,
+        },
+        {
+          name: 'Physical books',
+          id: 2,
+        },
+        {
+          name: 'Kurba IDK kdo se bere knjige LMAO',
+          id: 4,
+        },
+      ],
+    },
+  ];
+  

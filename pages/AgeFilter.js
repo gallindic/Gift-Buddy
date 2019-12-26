@@ -6,6 +6,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import FooterNavigation from '../components/FooterNavigation';
+import Global from '../components/Global'
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -53,6 +54,7 @@ export default class AgeFilter extends Component {
 }
 
   render() {
+    Global.AgeFilter = this;
     const { ageValueOne, ageValueTwo, budgetValueOne, budgetValueTwo } = this.state;
     return (
       <View style={{height: '100%'}}>
@@ -111,7 +113,7 @@ export default class AgeFilter extends Component {
             disabled={true}    
             />
         </View>
-        <FooterNavigation nextScreen={'GenderFilter'} />
+        <FooterNavigation age={{minAge: this.state.ageValueOne, maxAge: this.state.ageValueTwo}} mainText='Skip' nextScreen={'GenderFilter'} />
       </View>
     );
   }

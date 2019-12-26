@@ -10,6 +10,9 @@ import Header from './components/Header'
 import FooterNavigation from './components/FooterNavigation'
 import OccasionFilter from './pages/OccasionFilter'
 import HobbiesFilter from './pages/HobbiesFilter'
+import SelectedParameters from './pages/SelectedParameters'
+
+global.gender = 'None'
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -50,6 +53,12 @@ const AppNavigator = createStackNavigator({
   },
   HobbiesFilter: {
     screen: HobbiesFilter,
+    navigationOptions: {
+      header: null
+    }
+  },
+  SelectedParameters: {
+    screen: SelectedParameters,
     navigationOptions: {
       header: null
     }

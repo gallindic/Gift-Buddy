@@ -4,6 +4,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
+import Global from '../components/Global'
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -12,10 +13,11 @@ export default class GenderFilter extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             pressedMale: false,
             pressedFemale: false,
-            pressedOther: false
+            pressedOther: false,
+            gender: 'None'
         }
     }
 
@@ -23,21 +25,26 @@ export default class GenderFilter extends Component {
         this.setState({ pressedFemale: false });
         this.setState({ pressedOther: false });
         this.setState({ pressedMale: !this.state.pressedMale });
+        this.setState({ gender: 'Male' });
     }
 
     changePressedFemale() {
         this.setState({ pressedMale: false });
         this.setState({ pressedOther: false });
         this.setState({ pressedFemale: !this.state.pressedFemale })
+        this.setState({ gender: 'Female' });
     }
 
     changePressedOther() {
         this.setState({ pressedMale: false });
         this.setState({ pressedFemale: false });
         this.setState({ pressedOther: !this.state.pressedOther })
+        this.setState({ gender: 'Other' });
     }
 
   render() {
+    Global.Gender = this;
+
     return (
       <View style={{height: '100%'}}>
         <Header />
@@ -64,7 +71,7 @@ export default class GenderFilter extends Component {
                     </TouchableOpacity>
                 </View>
             </View>
-        <FooterNavigation nextScreen='OccasionFilter' />
+        <FooterNavigation mainText='Skip' nextScreen='OccasionFilter' />
       </View>
     );
   }

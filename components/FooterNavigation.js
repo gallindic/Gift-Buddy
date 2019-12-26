@@ -9,6 +9,13 @@ const HEIGHT = Dimensions.get('window').height;
 
 class FooterNavigation extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+        age: null
+    };
+  }
+
   render() {
     return (
       <View style={styles.footer}>
@@ -19,14 +26,17 @@ class FooterNavigation extends Component {
           />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
-            <Text style={styles.text}>Skip</Text>
+            <Text style={styles.text}>{this.props.mainText}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
-          <Image
-            source={require('../sources/next-icon.png')}
-            style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
-          />
-          </TouchableOpacity>
+          {(this.props.mainText === 'Skip') ? (
+            <TouchableOpacity onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
+            <Image
+              source={require('../sources/next-icon.png')}
+              style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
+            />
+            </TouchableOpacity>)
+            : <Text></Text>
+          }
       </View>
     );
   }
@@ -47,9 +57,9 @@ const styles = StyleSheet.create({
     },
     text: {
         marginLeft: '3%',
-        fontSize: RFValue(14, 580),
+        fontSize: RFValue(18, 580),
         color: 'white',
-        fontWeight: '500',
+        fontWeight: '600',
     }
 });
 
