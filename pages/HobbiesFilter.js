@@ -7,7 +7,6 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons'
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
 import Global from '../components/Global'
-import Hobbies from '../components/Hobbies'
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -37,10 +36,24 @@ export default class OccasionFilter extends Component {
         selectedItemObjectsGames: [],
         selectedItemsReading: [],
         selectedItemObjectsReading: [],
+        hobbiesSport: [],
+        hobbiesTechnology: [],
+        hobbiesCooking: [],
+        hobbiesArts: [],
+        hobbiesMusic: [],
+        hobbiesDancing: [],
+        hobbiesFashion: [],
+        hobbiesCars: [],
+        hobbiesGames: [],
+        hobbiesReading: [],
     };
   }
 
   //SPORT
+  addToHobbiesSport = (item) => {
+    let array = this.state.hobbiesSport.concat(item);
+    this.setState({ hobbiesSport: array })
+  }
   onSelectedItemsChangeSport = (selectedItemsSport) => {
     this.setState({ selectedItemsSport });
   };
@@ -49,6 +62,10 @@ export default class OccasionFilter extends Component {
   };
 
   //TECHNOLOGY
+  addToHobbiesTechnology = (item) => {
+    let array = this.state.hobbiesTechnology.concat(item);
+    this.setState({ hobbiesTechnology: array })
+  }
   onSelectedItemsChangeTechnology = (selectedItemsTechnology) => {
     this.setState({ selectedItemsTechnology });
   };
@@ -57,6 +74,10 @@ export default class OccasionFilter extends Component {
   };
 
   //COOKING
+  addToHobbiesCooking = (item) => {
+    let array = this.state.hobbiesCooking.concat(item);
+    this.setState({ hobbiesCooking: array })
+  }
   onSelectedItemsChangeCooking = (selectedItemsCooking) => {
     this.setState({ selectedItemsCooking });
   };
@@ -65,6 +86,10 @@ export default class OccasionFilter extends Component {
   };
 
   //ARTS
+  addToHobbiesArts = (item) => {
+    let array = this.state.hobbiesArts.concat(item);
+    this.setState({ hobbiesArts: array })
+  }
   onSelectedItemsChangeArts = (selectedItemsArts) => {
     this.setState({ selectedItemsArts });
   };
@@ -73,6 +98,10 @@ export default class OccasionFilter extends Component {
   };
 
    //MUSIC
+   addToHobbiesMusic = (item) => {
+    let array = this.state.hobbiesMusic.concat(item);
+    this.setState({ hobbiesMusic: array })
+  }
    onSelectedItemsChangeMusic = (selectedItemsMusic) => {
     this.setState({ selectedItemsMusic });
   };
@@ -81,6 +110,10 @@ export default class OccasionFilter extends Component {
   };
 
   //DANCING
+  addToHobbiesDancing = (item) => {
+    let array = this.state.hobbiesDancing.concat(item);
+    this.setState({ hobbiesDancing: array })
+  }
   onSelectedItemsChangeDancing = (selectedItemsDancing) => {
     this.setState({ selectedItemsDancing });
   };
@@ -89,6 +122,10 @@ export default class OccasionFilter extends Component {
   };
 
   //FASHION
+  addToHobbiesFashion = (item) => {
+    let array = this.state.hobbiesFashion.concat(item);
+    this.setState({ hobbiesFashion: array })
+  }
   onSelectedItemsChangeFashion = (selectedItemsFashion) => {
     this.setState({ selectedItemsFashion });
   };
@@ -97,6 +134,10 @@ export default class OccasionFilter extends Component {
   };
 
   //CARS
+  addToHobbiesCars = (item) => {
+    let array = this.state.hobbiesCars.concat(item);
+    this.setState({ hobbiesCars: array })
+  }
   onSelectedItemsChangeCars = (selectedItemsCars) => {
     this.setState({ selectedItemsCars });
   };
@@ -105,6 +146,10 @@ export default class OccasionFilter extends Component {
   };
 
   //GAMES
+  addToHobbiesGames = (item) => {
+    let array = this.state.hobbiesGames.concat(item);
+    this.setState({ hobbiesGames: array })
+  }
   onSelectedItemsChangeGames = (selectedItemsGames) => {
     this.setState({ selectedItemsGames });
   };
@@ -113,6 +158,10 @@ export default class OccasionFilter extends Component {
   };
 
   //READING
+  addToHobbiesReading = (item) => {
+    let array = this.state.hobbiesReading.concat(item);
+    this.setState({ hobbiesReading: array })
+  }
   onSelectedItemsChangeReading = (selectedItemsReading) => {
     this.setState({ selectedItemsReading });
   };
@@ -168,8 +217,19 @@ export default class OccasionFilter extends Component {
               flexDirection: 'row',
               flexWrap: 'wrap'
             }}>
+                <Text style={{display: 'none'}}>{Global.hobbiesSport = []}</Text>
+                {this.state.hobbiesSport.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsSport.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesSport.push(hobby)
+                })}
+                {this.state.selectedItemObjectsSport.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesSport.includes(category)) ? this.addToHobbiesSport(category) : null})}
                 <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectSport._toggleSelector()}>
-                    <Text style={styles.buttonText}>Sports</Text>
+                  <Text style={styles.buttonText}>Sport</Text>
                 </TouchableOpacity>
                 <SectionedMultiSelect
                 ref={SectionedMultiSelect => (this.SectionedMultiSelectSport = SectionedMultiSelect)}
@@ -186,8 +246,19 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsSport}
                 styles={multipleSelect}
                 />
+                <Text style={{display: 'none'}}>{Global.hobbiesTechnology = []}</Text>
+                {this.state.hobbiesTechnology.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsTechnology.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                if (found) Global.hobbiesTechnology.push(hobby)
+                })}
+                {this.state.selectedItemObjectsTechnology.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesTechnology.includes(category)) ? this.addToHobbiesTechnology(category) : null})}
                 <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectTechnology._toggleSelector()}>
-                    <Text style={styles.buttonText}>Technology</Text>
+                  <Text style={styles.buttonText}>Technology</Text>
                 </TouchableOpacity>
                 <SectionedMultiSelect
                 ref={SectionedMultiSelect => (this.SectionedMultiSelectTechnology = SectionedMultiSelect)}
@@ -204,6 +275,17 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsTechnology}
                 styles={multipleSelect}
                 />
+                <Text style={{display: 'none'}}>{Global.hobbiesCooking = []}</Text>
+                {this.state.hobbiesCooking.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsCooking.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesCooking.push(hobby)
+                })}
+                {this.state.selectedItemObjectsCooking.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesCooking.includes(category)) ? this.addToHobbiesCooking(category) : null})}
                 <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectCooking._toggleSelector()}>
                     <Text style={styles.buttonText}>Cooking</Text>
                 </TouchableOpacity>
@@ -222,6 +304,17 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsCooking}
                 styles={multipleSelect}
                 />
+                <Text style={{display: 'none'}}>{Global.hobbiesArts = []}</Text>
+                {this.state.hobbiesArts.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsArts.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesArts.push(hobby)
+                })}
+                {this.state.selectedItemObjectsArts.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesArts.includes(category)) ? this.addToHobbiesArts(category) : null})}
                 <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectArts._toggleSelector()}>
                     <Text style={styles.buttonText}>Arts</Text>
                 </TouchableOpacity>
@@ -240,6 +333,17 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsArts}
                 styles={multipleSelect}
                 />
+                <Text style={{display: 'none'}}>{Global.hobbiesMusic = []}</Text>
+                {this.state.hobbiesMusic.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsMusic.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesMusic.push(hobby)
+                })}
+                {this.state.selectedItemObjectsMusic.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesMusic.includes(category)) ? this.addToHobbiesMusic(category) : null})}
                 <TouchableOpacity style={styles.button} >
                     <Text style={styles.buttonText} onPress={() => this.SectionedMultiSelectMusic._toggleSelector()}>
                       Music</Text>
@@ -259,6 +363,17 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsMusic}
                 styles={multipleSelect}
                 />
+                <Text style={{display: 'none'}}>{Global.hobbiesDancing = []}</Text>
+                {this.state.hobbiesDancing.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsDancing.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesDancing.push(hobby)
+                })}
+                {this.state.selectedItemObjectsDancing.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesDancing.includes(category)) ? this.addToHobbiesDancing(category) : null})}
                 <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectDancing._toggleSelector()}>
                     <Text style={styles.buttonText}>
                       Dancing</Text>
@@ -278,6 +393,17 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsDancing}
                 styles={multipleSelect}
                 />
+                <Text style={{display: 'none'}}>{Global.hobbiesFashion = []}</Text>
+                {this.state.hobbiesFashion.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsFashion.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesFashion.push(hobby)
+                })}
+                {this.state.selectedItemObjectsFashion.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesFashion.includes(category)) ? this.addToHobbiesFashion(category) : null})}
                 <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectFashion._toggleSelector()}>
                     <Text style={styles.buttonText}>
                       Fashion</Text>
@@ -297,6 +423,17 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsFashion}
                 styles={multipleSelect}
                 />
+                <Text style={{display: 'none'}}>{Global.hobbiesCars = []}</Text>
+                {this.state.hobbiesCars.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsCars.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesCars.push(hobby)
+                })}
+                {this.state.selectedItemObjectsCars.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesCars.includes(category)) ? this.addToHobbiesCars(category) : null})}
                 <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectCars._toggleSelector()}>
                     <Text style={styles.buttonText}>
                       Cars</Text>
@@ -316,6 +453,17 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsCars}
                 styles={multipleSelect}
                 />
+                <Text style={{display: 'none'}}>{Global.hobbiesGames = []}</Text>
+                {this.state.hobbiesGames.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsGames.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesGames.push(hobby)
+                })}
+                {this.state.selectedItemObjectsGames.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesGames.includes(category)) ? this.addToHobbiesGames(category) : null})}
                 <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectGames._toggleSelector()}>
                     <Text style={styles.buttonText}>
                       Games</Text>
@@ -335,26 +483,36 @@ export default class OccasionFilter extends Component {
                 selectedItems={this.state.selectedItemsGames}
                 styles={multipleSelect}
                 />
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectTechnology._toggleSelector()}>
+                <Text style={{display: 'none'}}>{Global.hobbiesReading = []}</Text>
+                {this.state.hobbiesReading.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsReading.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesReading.push(hobby)
+                })}
+                {this.state.selectedItemObjectsReading.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesReading.includes(category)) ? this.addToHobbiesReading(category) : null})}
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectReading._toggleSelector()}>
                     <Text style={styles.buttonText}>
                       Reading</Text>
                 </TouchableOpacity>
                 <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectDancing = SectionedMultiSelect)}
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectReading = SectionedMultiSelect)}
                 iconRenderer={this.icon}
-                items={dancing}
+                items={reading}
                 uniqueKey="id"
                 subKey="children"
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
                 readOnlyHeadings={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeDancing}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeDancing}
-                selectedItems={this.state.selectedItemsDancing}
+                onSelectedItemsChange={this.onSelectedItemsChangeReading}
+                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeReading}
+                selectedItems={this.state.selectedItemsReading}
                 styles={multipleSelect}
                 />
-                <Hobbies selected={this.state.selectedItemsSport}/>
             </ScrollView>
         </ScrollView>
         <FooterNavigation mainText='Done' nextScreen={'SelectedParameters'} />
@@ -454,7 +612,7 @@ const multipleSelect =
 const sport = [
     {
       name: 'Football',
-      id: 0,
+      id: 'Football',
       children: [
         {
           name: 'Hoodies',
@@ -476,7 +634,7 @@ const sport = [
     },
     {
       name: 'Basketball',
-      id: 1,
+      id: 'Basketball',
       children: [
         {
           name: 'Hoodies',
@@ -498,7 +656,7 @@ const sport = [
     },
     {
     name: 'Volleyball',
-      id: 20,
+      id: 'Volleyball',
       children: [
         {
           name: 'Accessories',
@@ -508,7 +666,7 @@ const sport = [
     },
     {
     name: 'Cycling',
-        id: 30,
+        id: 'Cycling',
         children: [
         {
             name: 'Bikes',
@@ -518,7 +676,7 @@ const sport = [
     },
     {
     name: 'Running',
-        id: 40,
+        id: 'Running',
         children: [
         {
             name: 'Shoes',
@@ -531,47 +689,47 @@ const sport = [
   const technology = [
     {
       name: 'Gaming',
-      id: 0,
+      id: 'Gaming',
       children: [
         {
           name: 'Computers',
-          id: 1,
+          id: 'Gaming 1',
         },
         {
           name: 'Games',
-          id: 2,
+          id: 'Gaming 2',
         },
         {
           name: 'Accessories',
-          id: 4,
+          id: 'Gaming 3',
         },
       ],
     },
     {
       name: 'Audio',
-      id: 10,
+      id: 'Audio',
       children: [
         {
           name: 'Microphones',
-          id: 11,
+          id: 'Audio 1',
         },
         {
           name: 'Headphones',
-          id: 12,
+          id: 'Audio 2',
         },
         {
           name: 'Accessories',
-          id: 14,
+          id: 'Audio 3',
         },
       ],
     },
     {
     name: 'Video',
-      id: 20,
+      id: 'Video',
       children: [
         {
           name: 'Accessories',
-          id: 21,
+          id: 'Video 1',
         }
       ]
     },
@@ -580,51 +738,51 @@ const sport = [
   const cooking = [
     {
       name: 'Recipies',
-      id: 0,
+      id: 'Recipies',
       children: [
         {
           name: 'Books',
-          id: 1,
+          id: 'Recipies 1',
         },
         {
           name: 'Courses',
-          id: 2,
+          id: 'Recipies 2',
         },
         {
           name: 'Videos',
-          id: 4,
+          id: 'Recipies 3',
         },
       ],
     },
     {
       name: 'Clothing',
-      id: 10,
+      id: 'Clothing',
       children: [
         {
           name: 'Hats',
-          id: 11,
+          id: 'Clothing 1',
         },
         {
           name: 'Aprons',
-          id: 12,
+          id: 'Clothing 2',
         },
       ],
     },
     {
     name: 'Accessories',
-      id: 20,
+      id: 'Accessories',
       children: [
         {
           name: 'Dishes',
-          id: 21,
+          id: 'Accessories 1',
         },
         {
           name: 'Cutlery',
-          id: 22,
+          id: 'Accessories 2',
         },
         {
           name: 'Machines',
-          id: 23,
+          id: 'Accessories 3',
         }
       ]
     },
@@ -633,19 +791,19 @@ const sport = [
   const arts = [
     {
       name: 'Accessories',
-      id: 0,
+      id: 'Accessories',
       children: [
         {
           name: 'Colors',
-          id: 1,
+          id: 'Accessories 1',
         },
         {
           name: 'Brushes',
-          id: 2,
+          id: 'Accessories 2',
         },
         {
           name: 'Other',
-          id: 4,
+          id: 'Accessories 3',
         },
       ],
     },
@@ -654,33 +812,33 @@ const sport = [
   const music = [
     {
       name: 'Songs',
-      id: 0,
+      id: 'Songs',
       children: [
         {
           name: 'CDs',
-          id: 1,
+          id: 'Songs 1',
         },
         {
           name: 'Vinyl',
-          id: 2,
+          id: 'Songs 2',
         },
         {
           name: 'CLoud songs',
-          id: 4,
+          id: 'Songs 3',
         },
       ],
     },
     {
       name: 'Accessories',
-      id: 10,
+      id: 'Accessories',
       children: [
         {
           name: 'Microphones',
-          id: 11,
+          id: 'Accessories 1',
         },
         {
           name: 'Mixers',
-          id: 12,
+          id: 'Accessories 2',
         },
       ],
     },
@@ -689,33 +847,33 @@ const sport = [
   const dancing = [
     {
       name: 'Clothing',
-      id: 0,
+      id: 'Clothing',
       children: [
         {
           name: 'Shirts',
-          id: 1,
+          id: 'Clothing 1',
         },
         {
           name: 'Pants',
-          id: 2,
+          id: 'Clothing 2',
         },
         {
           name: 'Shoes',
-          id: 4,
+          id: 'Clothing 3',
         },
       ],
     },
     {
       name: 'Accessories',
-      id: 10,
+      id: 'Accessories',
       children: [
         {
           name: 'Requisites',
-          id: 11,
+          id: 'Accessories 1',
         },
         {
           name: 'Speakers',
-          id: 12,
+          id: 'Accessories 2',
         },
       ],
     },
@@ -724,51 +882,51 @@ const sport = [
   const fashion = [
     {
       name: 'Clothing',
-      id: 0,
+      id: 'Clothing',
       children: [
         {
           name: 'Suits',
-          id: 1,
+          id: 'Clothing 1',
         },
         {
           name: 'Shirts',
-          id: 2,
+          id: 'Clothing 2',
         },
         {
           name: 'Pants',
-          id: 4,
+          id: 'Clothing 3',
         },
       ],
     },
     {
       name: 'Footwear',
-      id: 10,
+      id: 'Footwear',
       children: [
         {
           name: 'Shoes',
-          id: 11,
+          id: 'Footwear 1',
         },
         {
           name: 'Trainers',
-          id: 12,
+          id: 'Footwear 2',
         },
       ],
     },
     {
     name: 'Accesories',
-      id: 20,
+      id: 'Accesories',
       children: [
         {
           name: 'Watches',
-          id: 21,
+          id: 'Accesories 1',
         },
         {
           name: 'Belts',
-          id: 22,
+          id: 'Accesories 2',
         },
         {
           name: 'Bags',
-          id: 23,
+          id: 'Accesories 3',
         }
       ]
     },
@@ -777,29 +935,29 @@ const sport = [
   const cars = [
     {
       name: 'Tools',
-      id: 0,
+      id: 'Tools',
       children: [
         {
           name: 'Machines',
-          id: 1,
+          id: 'Tools 1',
         },
         {
           name: 'Hand tools',
-          id: 2,
+          id: 'Tools 2',
         },
       ],
     },
     {
       name: 'Parts',
-      id: 10,
+      id: 'Parts',
       children: [
         {
           name: 'Windows',
-          id: 11,
+          id: 'Parts 1',
         },
         {
           name: 'Exhausters',
-          id: 12,
+          id: 'Parts 2',
         },
       ],
     },
@@ -808,33 +966,33 @@ const sport = [
   const games = [
     {
       name: 'Board games',
-      id: 0,
+      id: 'Board games',
       children: [
         {
           name: 'Social',
-          id: 1,
+          id: 'Board games 1',
         },
         {
           name: 'Drinking',
-          id: 2,
+          id: 'Board games 2',
         },
         {
           name: 'Kids',
-          id: 4,
+          id: 'Board games 3',
         },
       ],
     },
     {
       name: 'Outside games',
-      id: 10,
+      id: 'Outside games',
       children: [
         {
           name: 'Kids',
-          id: 11,
+          id: 'Outside games 1',
         },
         {
           name: 'Adult',
-          id: 12,
+          id: 'Outside games 2',
         },
       ],
     },
@@ -843,19 +1001,19 @@ const sport = [
   const reading = [
     {
       name: 'Books',
-      id: 0,
+      id: 'Books',
       children: [
         {
           name: 'Digital books',
-          id: 1,
+          id: 'Books 1',
         },
         {
           name: 'Physical books',
-          id: 2,
+          id: 'Books 2',
         },
         {
           name: 'Kurba IDK kdo se bere knjige LMAO',
-          id: 4,
+          id: 'Books 3',
         },
       ],
     },

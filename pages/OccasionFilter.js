@@ -11,8 +11,6 @@ import Global from '../components/Global'
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
-const loop = [1]
-
 export default class OccasionFilter extends Component {
 
   constructor() {
@@ -20,7 +18,6 @@ export default class OccasionFilter extends Component {
     this.state = {
         selectedItems: [],
         selectedItemObjects: [],
-        item: 'None'
     };
   }
 
@@ -125,16 +122,17 @@ export default class OccasionFilter extends Component {
                 backgroundColor: 'brown',
                 padding: '50%'
               },
+              separator  : {
+                backgroundColor: 'green'
+              }
             }}
             />
             <View style={styles.currentlySelected}>
               <Text style={styles.text}>Currently selected</Text>
-              <TouchableOpacity style={styles.button} disabled={true}>
-                <Text style={styles.buttonText}>{
+                <Text style={styles.text}>{
                   (this.state.selectedItemObjects.length === 0) ? 'None' : this.state.selectedItemObjects[0].name
                   }
                 </Text>
-              </TouchableOpacity>
             </View>
         </View>
         <FooterNavigation mainText='Skip' nextScreen={'HobbiesFilter'} />

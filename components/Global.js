@@ -2,5 +2,15 @@ module.exports = {
     AgeFilter: null,
     Gender: null,
     Occasion: null,
-    Hobbies: null
+    Hobbies: null,
+    hobbiesSport: [],
+    hobbiesTechnology: [],
+    hobbiesCooking: [],
+    hobbiesArts: [],
+    hobbiesMusic: [],
+    hobbiesDancing: [],
+    hobbiesFashion: [],
+    hobbiesCars: [],
+    hobbiesGames: [],
+    hobbiesReading: [],
 }
