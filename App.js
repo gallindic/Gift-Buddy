@@ -3,6 +3,8 @@ import { View, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import Global from './components/Global'
+
 import LandingPage from './pages/LandingPage'
 import AgeFilter from './pages/AgeFilter'
 import GenderFilter from './pages/GenderFilter'
@@ -11,8 +13,6 @@ import FooterNavigation from './components/FooterNavigation'
 import OccasionFilter from './pages/OccasionFilter'
 import HobbiesFilter from './pages/HobbiesFilter'
 import SelectedParameters from './pages/SelectedParameters'
-
-global.gender = 'None'
 
 const AppNavigator = createStackNavigator({
   Home: {

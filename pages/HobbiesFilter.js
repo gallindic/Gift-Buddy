@@ -198,7 +198,6 @@ export default class OccasionFilter extends Component {
   }
 
   render() {
-    Global.Hobbies = this;
     return (
       <View style={{height: '100%'}}>
         <Header />
@@ -240,7 +239,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeSport}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeSport}
                 selectedItems={this.state.selectedItemsSport}
@@ -582,6 +582,12 @@ const multipleSelect =
     searchTextInput: {
       color: 'black'
     },
+    selectedItem: {
+      backgroundColor: '#6c757d'
+    },
+    selectedItemText: {
+      color: 'white'
+    },
     selectedSubItem: {
       backgroundColor: '#6c757d'
     },
@@ -612,7 +618,7 @@ const multipleSelect =
 const sport = [
     {
       name: 'Football',
-      id: 'Football',
+      id: 'Football00',
       children: [
         {
           name: 'Hoodies',
@@ -634,7 +640,7 @@ const sport = [
     },
     {
       name: 'Basketball',
-      id: 'Basketball',
+      id: 'Basketball00',
       children: [
         {
           name: 'Hoodies',
@@ -656,7 +662,7 @@ const sport = [
     },
     {
     name: 'Volleyball',
-      id: 'Volleyball',
+      id: 'Volleyball00',
       children: [
         {
           name: 'Accessories',
@@ -666,7 +672,7 @@ const sport = [
     },
     {
     name: 'Cycling',
-        id: 'Cycling',
+        id: 'Cycling00',
         children: [
         {
             name: 'Bikes',
@@ -676,7 +682,7 @@ const sport = [
     },
     {
     name: 'Running',
-        id: 'Running',
+        id: 'Running00',
         children: [
         {
             name: 'Shoes',

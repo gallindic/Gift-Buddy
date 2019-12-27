@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons'
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
 import Global from '../components/Global'
+import Button from '../components/Button'
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -69,7 +70,8 @@ export default class OccasionFilter extends Component {
       <View style={{height: '100%'}}>
         <Header />
         <View style={styles.body}>
-            <Text style={styles.text}>Select the occasion</Text>
+          <Text style={styles.text}>Select the occasion</Text>
+            <Button text='Select' theme='secondary' onPress={() => this.SectionedMultiSelect._toggleSelector()} />
             <SectionedMultiSelect
             ref={SectionedMultiSelect => (this.SectionedMultiSelect = SectionedMultiSelect)}
             headerComponent={
@@ -83,6 +85,7 @@ export default class OccasionFilter extends Component {
                 }}>Select the occasion</Text>
               </View>
             }
+            ref={SectionedMultiSelect => (this.SectionedMultiSelect = SectionedMultiSelect)}
             iconRenderer={this.icon}
             items={items}
             uniqueKey="id"
@@ -90,6 +93,7 @@ export default class OccasionFilter extends Component {
             selectText="Choose some things..."
             showDropDowns={true}
             readOnlyHeadings={true}
+            selectToggleIconComponent={<Icon name={null} />}
             single={true}
             onSelectedItemsChange={this.onSelectedItemsChange}
             onSelectedItemObjectsChange={this.onSelectedItemObjectsChange}
@@ -129,7 +133,7 @@ export default class OccasionFilter extends Component {
             />
             <View style={styles.currentlySelected}>
               <Text style={styles.text}>Currently selected</Text>
-                <Text style={styles.text}>{
+                <Text style={styles.currentlySelectedText}>{
                   (this.state.selectedItemObjects.length === 0) ? 'None' : this.state.selectedItemObjects[0].name
                   }
                 </Text>
@@ -155,36 +159,13 @@ const styles = StyleSheet.create({
         fontWeight: '500'
     },
     currentlySelected: {
-      margin: RFValue(30, 580)
     },
     currentlySelectedText: {
       fontSize: RFValue(15, 580),
       textAlign: 'center',
       fontWeight: '500',
+      color: '#FF304F',
       paddingVertical: RFValue(10, 580)
-    },
-    button: {
-      alignItems: 'center',
-      padding: '3%',
-      marginHorizontal: '10%',
-      marginVertical: '5%',
-      backgroundColor: 'white',
-      borderColor: '#6E6263',
-      borderRadius: 8,
-      borderWidth: 1.5,
-      paddingHorizontal: '10%'
-    },
-    buttonText: {
-      color: '#6E6263',
-      fontSize: RFValue(15, 580),
-      fontWeight: '500',
-      shadowColor: '#000000',
-      shadowOffset: {
-        width: 1,
-        height: 1
-      },
-      shadowRadius: 1,
-      shadowOpacity: 0.2
     },
 });
 
