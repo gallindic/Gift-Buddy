@@ -71,7 +71,7 @@ export default class OccasionFilter extends Component {
         <Header />
         <View style={styles.body}>
           <Text style={styles.text}>Select the occasion</Text>
-            <Button text='Select' theme='secondary' onPress={() => this.SectionedMultiSelect._toggleSelector()} />
+            <Button text='Choose' theme='secondary' onPress={() => this.SectionedMultiSelect._toggleSelector()} />
             <SectionedMultiSelect
             ref={SectionedMultiSelect => (this.SectionedMultiSelect = SectionedMultiSelect)}
             headerComponent={

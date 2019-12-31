@@ -35,7 +35,7 @@ class FooterNavigation extends Component {
               style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
             />
             </TouchableOpacity>)
-            : <Text></Text>
+            : <Text style={{width: normalize(30, 'width')}}></Text>
           }
       </View>
     );
