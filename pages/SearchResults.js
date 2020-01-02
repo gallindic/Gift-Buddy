@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Image } from 'react-native';
-import { RFValue } from 'react-native-responsive-fontsize';
 
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
