@@ -58,12 +58,6 @@ export default class OccasionFilter extends Component {
     return <Icon style={style} size={size} name={iconName}/>
   }
 
-  componentDidMount() {
-    this.load();
-  }
-
-  load = () => this.SectionedMultiSelect._toggleSelector();
-
   render() {
     Global.Occasion = this;
     return (
@@ -217,5 +211,89 @@ const items = [
         id: 14,
       },
     ],
-  }
+  },
+  {
+    name: 'Anniversary',
+    id: 20,
+    children: [
+      {
+        name: 'Wedding anniversary',
+        id: 21,
+      },
+      {
+        name: 'Relationship anniversary',
+        id: 22,
+      },
+      {
+        name: 'Years of service',
+        id: 23,
+      },
+      {
+        name: 'Other',
+        id: 24,
+      },
+    ],
+  },
+  {
+    name: 'Wedding',
+    id: 30,
+    children: [
+      {
+        name: 'Bachelor party',
+        id: 31,
+      },
+      {
+        name: 'Bachelorette party',
+        id: 32,
+      },
+      {
+        name: 'Silly gifts',
+        id: 33,
+      },
+      {
+        name: 'Other',
+        id: 34,
+      },
+    ],
+  },
+  {
+    name: 'Childbirth',
+    id: 40,
+    children: [
+      {
+        name: 'Babyshower',
+        id: 41,
+      },
+      {
+        name: 'Boy',
+        id: 42,
+      },
+      {
+        name: 'Girl',
+        id: 43,
+      },
+      {
+        name: 'Twins',
+        id: 44,
+      },
+    ],
+  },
+  {
+    name: 'Sacred rites',
+    id: 50,
+    children: [
+      {
+        name: 'Baptism',
+        id: 51,
+      },
+      {
+        name: 'Holy Communion',
+        id: 52,
+      },
+      {
+        name: 'Confirmation',
+        id: 53,
+      },
+    ],
+  },
 ];

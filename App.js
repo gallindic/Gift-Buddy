@@ -13,6 +13,7 @@ import FooterNavigation from './components/FooterNavigation'
 import OccasionFilter from './pages/OccasionFilter'
 import HobbiesFilter from './pages/HobbiesFilter'
 import SelectedParameters from './pages/SelectedParameters'
+import SearchResults from './pages/SearchResults'
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -59,6 +60,12 @@ const AppNavigator = createStackNavigator({
   },
   SelectedParameters: {
     screen: SelectedParameters,
+    navigationOptions: {
+      header: null
+    }
+  },
+  SearchResults: {
+    screen: SearchResults,
     navigationOptions: {
       header: null
     }

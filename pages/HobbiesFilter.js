@@ -269,7 +269,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeTechnology}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeTechnology}
                 selectedItems={this.state.selectedItemsTechnology}
@@ -298,7 +299,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeCooking}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeCooking}
                 selectedItems={this.state.selectedItemsCooking}
@@ -327,7 +329,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeArts}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeArts}
                 selectedItems={this.state.selectedItemsArts}
@@ -344,9 +347,8 @@ export default class OccasionFilter extends Component {
                 {this.state.selectedItemObjectsMusic.map(item => {
                   let category = item.id.substring(0, item.id.length - 2);
                   (!this.state.hobbiesMusic.includes(category)) ? this.addToHobbiesMusic(category) : null})}
-                <TouchableOpacity style={styles.button} >
-                    <Text style={styles.buttonText} onPress={() => this.SectionedMultiSelectMusic._toggleSelector()}>
-                      Music</Text>
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectMusic._toggleSelector()}>
+                    <Text style={styles.buttonText}>Music</Text>
                 </TouchableOpacity>
                 <SectionedMultiSelect
                 ref={SectionedMultiSelect => (this.SectionedMultiSelectMusic = SectionedMultiSelect)}
@@ -357,7 +359,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeMusic}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeMusic}
                 selectedItems={this.state.selectedItemsMusic}
@@ -387,7 +390,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeDancing}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeDancing}
                 selectedItems={this.state.selectedItemsDancing}
@@ -417,7 +421,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeFashion}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeFashion}
                 selectedItems={this.state.selectedItemsFashion}
@@ -447,7 +452,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeCars}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeCars}
                 selectedItems={this.state.selectedItemsCars}
@@ -477,7 +483,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeGames}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeGames}
                 selectedItems={this.state.selectedItemsGames}
@@ -507,7 +514,8 @@ export default class OccasionFilter extends Component {
                 renderSelectText={() => ' '}
                 selectToggleIconComponent={<Icon name={null} />}
                 showDropDowns={true}
-                readOnlyHeadings={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
                 onSelectedItemsChange={this.onSelectedItemsChangeReading}
                 onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeReading}
                 selectedItems={this.state.selectedItemsReading}
@@ -526,7 +534,7 @@ const styles = StyleSheet.create({
     body: {
         marginVertical: HEIGHT * 0.05,
         paddingVertical: HEIGHT * 0.02,
-        marginHorizontal: WIDTH * 0.05,
+        marginHorizontal: WIDTH * 0.02,
     },
     text: {
       fontSize: RFValue(15, 580),
@@ -600,7 +608,7 @@ const multipleSelect =
       width: 0,
     },
     chipsWrapper: {
-      width: WIDTH * 0.8,
+      width: WIDTH * 0.9,
       padding: WIDTH * 0.01
     },
     chipContainer: {
@@ -616,412 +624,783 @@ const multipleSelect =
 
 //Dropdowns generate from arrays here
 const sport = [
-    {
-      name: 'Football',
-      id: 'Football00',
+  {
+    name: 'Football',
+    id: 'Football00',
+    children: [
+      {
+        name: 'Football Footwear',
+        id: 'Football 1',
+      },
+      {
+        name: 'Football Clothing',
+        id: 'Football 2',
+      },
+      {
+        name: 'Football Accessories',
+        id: 'Football 3',
+      },
+      {
+        name: 'Football Brands',
+        id: 'Football 4',
+      },
+      {
+        name: 'Football Fanbase',
+        id: 'Football 5',
+      },
+    ],
+  },
+  {
+    name: 'Basketball',
+    id: 'Basketball00',
+    children: [
+      {
+        name: 'Basketball Footwear',
+        id: 'Basketball 1',
+      },
+      {
+        name: 'Basketball Clothing',
+        id: 'Basketball 2',
+      },
+      {
+        name: 'Basketball Accessories',
+        id: 'Basketball 3',
+      },
+      {
+        name: 'Basketball Brands',
+        id: 'Basketball 4',
+      },
+      {
+        name: 'Basketball By player',
+        id: 'Basketball 5',
+      },
+      {
+        name: 'Basketball Fanbase',
+        id: 'Basketball 6',
+      },
+    ],
+  },
+  {
+  name: 'Volleyball',
+    id: 'Volleyball00',
+    children: [
+      {
+        name: 'Volleyball Clothing',
+        id: 'Volleyball 1',
+      },
+      {
+        name: 'Volleyball Footwear',
+        id: 'Volleyball 2',
+      },
+      {
+        name: 'Volleyball Accessories',
+        id: 'Volleyball 3',
+      },
+      {
+        name: 'Volleyball Brands',
+        id: 'Volleyball 4',
+      },
+      {
+        name: 'Volleyball Fanbase',
+        id: 'Volleyball 5',
+      },
+    ]
+  },
+  {
+  name: 'Cycling',
+      id: 'Cycling00',
       children: [
+      {
+          name: 'Bikes',
+          id: 'Cycling 1',
+      },
+      {
+        name: 'Cycling Clothing',
+        id: 'Cycling 2',
+      },
+      {
+        name: 'Cycling Footwear',
+        id: 'Cycling 3',
+      },
+      {
+        name: 'Cycling Accessories',
+        id: 'Cycling 4',
+      },
+    ]
+  },
+  {
+  name: 'Running',
+      id: 'Running00',
+      children: [
+      {
+          name: 'Running Footwear',
+          id: 'Running 1',
+      },
+      {
+        name: 'Running Clothing',
+        id: 'Running 2',
+      },
+      {
+        name: 'Running Accessories',
+        id: 'Running 3',
+      },
+    ]
+  },
+  {
+    name: 'Fishing',
+        id: 'Fishing00',
+        children: [
         {
-          name: 'Hoodies',
-          id: 'Football 1',
+            name: 'Fishing rods',
+            id: 'Fishing 1',
         },
         {
-          name: 'Shorts',
-          id: 'Football 2',
+          name: 'Harpunes',
+          id: 'Fishing 2',
         },
         {
-          name: 'Shoes',
-          id: 'Football 3',
+          name: 'Fishing Accessories',
+          id: 'Fishing 3',
         },
-        {
-          name: 'Accessories',
-          id: 'Football 4',
-        },
-      ],
+      ]
     },
-    {
-      name: 'Basketball',
-      id: 'Basketball00',
+];
+
+const technology = [
+  {
+    name: 'Gaming',
+    id: 'Gaming00',
+    children: [
+      {
+        name: 'Gaming computers',
+        id: 'Gaming 1',
+      },
+      {
+        name: 'Gaming keyboards',
+        id: 'Gaming 2',
+      },
+      {
+        name: 'Gaming mouses',
+        id: 'Gaming 7',
+      },
+      {
+        name: 'Gaming accessories',
+        id: 'Gaming 3',
+      },
+      {
+        name: 'Gaming consoles',
+        id: 'Gaming 4',
+      },
+    ],
+  },
+  {
+    name: 'Audio',
+    id: 'Audio00',
+    children: [
+      {
+        name: 'Microphones',
+        id: 'Audio 1',
+      },
+      {
+        name: 'Headphones',
+        id: 'Audio 2',
+      },
+      {
+        name: 'Speakers',
+        id: 'Audio 3',
+      },
+      {
+        name: 'Audio accessories',
+        id: 'Audio 6',
+      },
+    ],
+  },
+  {
+  name: 'Video',
+    id: 'Video00',
+    children: [
+      {
+        name: 'TVs',
+        id: 'Video 1',
+      },
+      {
+        name: 'Monitors',
+        id: 'Video 2',
+      },
+      {
+        name: 'Cameras',
+        id: 'Video 3',
+      },
+      {
+        name: 'Camera accessories',
+        id: 'Video 4',
+      },
+      {
+        name: 'Projectors',
+        id: 'Video 5',
+      },
+      {
+        name: 'Photo frames',
+        id: 'Video 6',
+      },
+    ]
+  },
+  {
+    name: 'Mobile',
+      id: 'Mobile00',
       children: [
         {
-          name: 'Hoodies',
-          id: 'Basketball 1',
+          name: 'Apple',
+          id: 'Mobile 1',
         },
         {
-          name: 'Shorts',
-          id: 'Basketball 2',
+          name: 'Huawei',
+          id: 'Mobile 2',
         },
         {
-          name: 'Shoes',
-          id: 'Basketball 3',
+          name: 'LG',
+          id: 'Mobile 3',
         },
         {
-          name: 'Accessories',
-          id: 'Basketball 4',
+          name: 'HTC',
+          id: 'Mobile 4',
         },
-      ],
-    },
-    {
-    name: 'Volleyball',
-      id: 'Volleyball00',
-      children: [
         {
-          name: 'Accessories',
-          id: 'Volleyball 1',
-        }
+          name: 'Mobile accessories',
+          id: 'Mobile 6',
+        },
       ]
     },
     {
-    name: 'Cycling',
-        id: 'Cycling00',
+      name: 'Computers',
+        id: 'Computers00',
         children: [
-        {
-            name: 'Bikes',
-            id: 'Cycling 1',
-        }
+          {
+            name: 'Desktops',
+            id: 'Computers 5',
+          },
+          {
+            name: 'Laptops',
+            id: 'Computers 6',
+          },
         ]
-    },
-    {
-    name: 'Running',
-        id: 'Running00',
-        children: [
-        {
-            name: 'Shoes',
-            id: 'Running 1',
-        }
-        ]
-    },
-  ];
+      },
+      {
+        name: 'Peripherals',
+          id: 'Peripherals00',
+          children: [
+            {
+              name: 'USB',
+              id: 'Peripherals 1',
+            },
+            {
+              name: 'Storage discs',
+              id: 'Peripherals 3',
+            },
+            {
+              name: 'Mouses',
+              id: 'Peripherals 4',
+            },
+            {
+              name: 'Keyboards',
+              id: 'Peripherals 5',
+            },
+            {
+              name: 'Adapters',
+              id: 'Peripherals 6',
+            },
+            {
+              name: 'Graphic cards',
+              id: 'Peripherals 7',
+            },
+            {
+              name: 'Mother boards',
+              id: 'Peripherals 8',
+            },
+          ]
+        },
+];
 
-  const technology = [
-    {
-      name: 'Gaming',
-      id: 'Gaming',
-      children: [
-        {
-          name: 'Computers',
-          id: 'Gaming 1',
-        },
-        {
-          name: 'Games',
-          id: 'Gaming 2',
-        },
-        {
-          name: 'Accessories',
-          id: 'Gaming 3',
-        },
-      ],
-    },
-    {
-      name: 'Audio',
-      id: 'Audio',
-      children: [
-        {
-          name: 'Microphones',
-          id: 'Audio 1',
-        },
-        {
-          name: 'Headphones',
-          id: 'Audio 2',
-        },
-        {
-          name: 'Accessories',
-          id: 'Audio 3',
-        },
-      ],
-    },
-    {
-    name: 'Video',
-      id: 'Video',
-      children: [
-        {
-          name: 'Accessories',
-          id: 'Video 1',
-        }
-      ]
-    },
-  ];
+const cooking = [
+  {
+    name: 'Recipies',
+    id: 'Recipies00',
+    children: [
+      {
+        name: 'Books',
+        id: 'Recipies 1',
+      },
+      {
+        name: 'Courses',
+        id: 'Recipies 2',
+      },
+      {
+        name: 'Videos',
+        id: 'Recipies 3',
+      },
+    ],
+  },
+  {
+    name: 'Clothing',
+    id: 'Clothing00',
+    children: [
+      {
+        name: 'Hats',
+        id: 'Clothing 1',
+      },
+      {
+        name: 'Aprons',
+        id: 'Clothing 2',
+      },
+    ],
+  },
+  {
+  name: 'Accessories',
+    id: 'Accessories00',
+    children: [
+      {
+        name: 'Dining sets',
+        id: 'Accessories 1',
+      },
+      {
+        name: 'Cutlery',
+        id: 'Accessories 2',
+      },
+      {
+        name: 'Cooking appliances',
+        id: 'Accessories 3',
+      },
+      {
+        name: 'Pans',
+        id: 'Accessories 4',
+      },
+      {
+        name: 'Food decoration',
+        id: 'Accessories 5',
+      },
+    ]
+  },
+];
 
-  const cooking = [
-    {
-      name: 'Recipies',
-      id: 'Recipies',
-      children: [
-        {
-          name: 'Books',
-          id: 'Recipies 1',
-        },
-        {
-          name: 'Courses',
-          id: 'Recipies 2',
-        },
-        {
-          name: 'Videos',
-          id: 'Recipies 3',
-        },
-      ],
-    },
-    {
-      name: 'Clothing',
-      id: 'Clothing',
-      children: [
-        {
-          name: 'Hats',
-          id: 'Clothing 1',
-        },
-        {
-          name: 'Aprons',
-          id: 'Clothing 2',
-        },
-      ],
-    },
-    {
+const arts = [
+  {
+    name: 'Paint',
+    id: 'Paint00',
+    children: [
+      {
+        name: 'Acrylic paint',
+        id: 'Paint 1'
+      },
+      {
+        name: 'Oil paint',
+        id: 'Paint 2'
+      },
+      {
+        name: 'Watercolor paint',
+        id: 'Paint 3'
+      },
+    ]
+  },
+  {
+    name: 'Drawing',
+    id: 'Drawing00',
+    children: [
+      {
+        name: 'Pencils',
+        id: 'Drawing 1'
+      },
+      {
+        name: 'Markers',
+        id: 'Drawing 2'
+      },
+      {
+        name: 'Pens',
+        id: 'Drawing 3'
+      },
+    ]
+  },
+  {
     name: 'Accessories',
-      id: 'Accessories',
+    id: 'Accessories00',
+    children: [
+      {
+        name: 'Canvases',
+        id: 'Accessories 1',
+      },
+      {
+        name: 'Brushes',
+        id: 'Accessories 2',
+      },
+      {
+        name: 'Paper',
+        id: 'Accessories 3',
+      },
+      {
+        name: 'Frames',
+        id: 'Accessories 4',
+      },
+      {
+        name: 'Other',
+        id: 'Accessories 5',
+      },
+    ],
+  },
+];
+
+const music = [
+  {
+    name: 'Singing',
+    id: 'Singing00',
+    children: [
+      {
+        name: 'Singing microphones',
+        id: 'Singing 1',
+      },
+      {
+        name: 'Mixers',
+        id: 'Singing 2',
+      },
+      {
+        name: 'Singing speakers',
+        id: 'Singing 3',
+      },
+      {
+        name: 'Singing headphones',
+        id: 'Singing 4',
+      },
+    ],
+  },
+  {
+    name: 'Instruments',
+    id: 'Instruments00',
+    children: [
+      {
+        name: 'Guitars',
+        id: 'Instruments 1',
+      },
+      {
+        name: 'Piano',
+        id: 'Instruments 2',
+      },
+      {
+        name: 'Trumpets',
+        id: 'Instruments 3',
+      },
+      {
+        name: 'Violins',
+        id: 'Instruments 4',
+      },
+      {
+        name: 'Flutes',
+        id: 'Instruments 5',
+      },
+      {
+        name: 'Other',
+        id: 'Instruments 6',
+      },
+    ],
+  },
+  {
+    name: 'Accessories',
+    id: 'Accessories00',
+    children: [
+      {
+        name: 'Singing accesories',
+        id: 'Accessories 1',
+      },
+      {
+        name: 'Instrument accessories',
+        id: 'Accessories 4',
+      },
+      {
+        name: 'Other',
+        id: 'Accessories 5',
+      },
+    ],
+  },
+];
+
+const dancing = [
+  {
+    name: 'Dancing style',
+    id: 'Style00',
+    children: [
+      {
+        name: 'Hip-hop',
+        id: 'Style 1',
+      },
+      {
+        name: 'Balet',
+        id: 'Style 2',
+      },
+      {
+        name: 'Break dance',
+        id: 'Style 3',
+      },
+    ],
+  },
+  {
+    name: 'Accessories',
+    id: 'Accessories00',
+    children: [
+      {
+        name: 'Requisites',
+        id: 'Accessories 1',
+      },
+      {
+        name: 'Speakers',
+        id: 'Accessories 2',
+      },
+    ],
+  },
+];
+
+const fashion = [
+  {
+    name: 'Clothing',
+    id: 'Clothing00',
+    children: [
+      {
+        name: 'Classy',
+        id: 'Clothing 1',
+      },
+      {
+        name: 'Casual',
+        id: 'Clothing 2',
+      },
+      {
+        name: 'Expensive brands',
+        id: 'Clothing 3',
+      },
+    ],
+  },
+  {
+    name: 'Footwear',
+    id: 'Footwear00',
+    children: [
+      {
+        name: 'Sneakers',
+        id: 'Footwear 1',
+      },
+      {
+        name: 'Trainers',
+        id: 'Footwear 2',
+      },
+      {
+        name: 'Classy footwear',
+        id: 'Footwear 3',
+      },
+      {
+        name: 'Expensive brands',
+        id: 'Footwear 4',
+      },
+    ],
+  },
+  {
+  name: 'Accesories',
+    id: 'Accesories00',
+    children: [
+      {
+        name: 'Watches',
+        id: 'Accesories 1',
+      },
+      {
+        name: 'Belts',
+        id: 'Accesories 2',
+      },
+      {
+        name: 'Bags',
+        id: 'Accesories 3',
+      }
+    ]
+  },
+  {
+    name: 'Make-up',
+      id: 'Makeup00',
       children: [
         {
-          name: 'Dishes',
-          id: 'Accessories 1',
+          name: 'Eyes',
+          id: 'Makeup 1',
         },
         {
-          name: 'Cutlery',
-          id: 'Accessories 2',
+          name: 'Face',
+          id: 'Makeup 2',
         },
         {
-          name: 'Machines',
-          id: 'Accessories 3',
-        }
+          name: 'Lips',
+          id: 'Makeup 3',
+        },
+        {
+          name: 'Sponges & brushes',
+          id: 'Makeup 4',
+        },
       ]
     },
-  ];
+    {
+      name: 'Fragrances',
+        id: 'Fragrances00',
+        children: [
+          {
+            name: 'Parfumes',
+            id: 'Fragrances 1',
+          },
+          {
+            name: 'Deodorants',
+            id: 'Fragrances 2',
+          },
+          {
+            name: 'Eau de Toilette',
+            id: 'Fragrances 3',
+          },
+          {
+            name: 'Eau de Cologne',
+            id: 'Fragrances 4',
+          },
+        ]
+      },
+];
 
-  const arts = [
-    {
-      name: 'Accessories',
-      id: 'Accessories',
-      children: [
-        {
-          name: 'Colors',
-          id: 'Accessories 1',
-        },
-        {
-          name: 'Brushes',
-          id: 'Accessories 2',
-        },
-        {
-          name: 'Other',
-          id: 'Accessories 3',
-        },
-      ],
-    },
-  ];
+const cars = [
+  {
+    name: 'Tools',
+    id: 'Tools',
+    children: [
+      {
+        name: 'Machines',
+        id: 'Tools 1',
+      },
+      {
+        name: 'Hand tools',
+        id: 'Tools 2',
+      },
+    ],
+  },
+  {
+    name: 'Accessories',
+    id: 'Accessories',
+    children: [
+      {
+        name: 'Car radios',
+        id: 'Accessories 1',
+      },
+      {
+        name: 'Phone holders',
+        id: 'Accessories 2',
+      },
+      {
+        name: 'Car fragrances',
+        id: 'Accessories 3',
+      },
+      {
+        name: 'Bluetooth/FM transmitters',
+        id: 'Accessories 4',
+      },
+    ],
+  },
+];
 
-  const music = [
-    {
-      name: 'Songs',
-      id: 'Songs',
-      children: [
-        {
-          name: 'CDs',
-          id: 'Songs 1',
-        },
-        {
-          name: 'Vinyl',
-          id: 'Songs 2',
-        },
-        {
-          name: 'CLoud songs',
-          id: 'Songs 3',
-        },
-      ],
-    },
-    {
-      name: 'Accessories',
-      id: 'Accessories',
-      children: [
-        {
-          name: 'Microphones',
-          id: 'Accessories 1',
-        },
-        {
-          name: 'Mixers',
-          id: 'Accessories 2',
-        },
-      ],
-    },
-  ];
+const games = [
+  {
+    name: 'Board games',
+    id: 'Board games',
+    children: [
+      {
+        name: 'Social',
+        id: 'Board games 1',
+      },
+      {
+        name: 'Drinking',
+        id: 'Board games 2',
+      },
+      {
+        name: 'Kids',
+        id: 'Board games 3',
+      },
+    ],
+  },
+  {
+    name: 'Computer games',
+    id: 'Computer games',
+    children: [
+      {
+        name: 'Popular',
+        id: 'Computer games 1',
+      },
+      {
+        name: 'Sport',
+        id: 'Computer games 2',
+      },
+      {
+        name: 'Shooting',
+        id: 'Computer games 3',
+      },
+      {
+        name: 'Arcade',
+        id: 'Computer games 4',
+      },
+      {
+        name: 'Creativity',
+        id: 'Computer games 5',
+      },
+      {
+        name: 'Vintage',
+        id: 'Computer games 6',
+      },
+    ],
+  },
+];
 
-  const dancing = [
-    {
-      name: 'Clothing',
-      id: 'Clothing',
-      children: [
-        {
-          name: 'Shirts',
-          id: 'Clothing 1',
-        },
-        {
-          name: 'Pants',
-          id: 'Clothing 2',
-        },
-        {
-          name: 'Shoes',
-          id: 'Clothing 3',
-        },
-      ],
-    },
-    {
-      name: 'Accessories',
-      id: 'Accessories',
-      children: [
-        {
-          name: 'Requisites',
-          id: 'Accessories 1',
-        },
-        {
-          name: 'Speakers',
-          id: 'Accessories 2',
-        },
-      ],
-    },
-  ];
-
-  const fashion = [
-    {
-      name: 'Clothing',
-      id: 'Clothing',
-      children: [
-        {
-          name: 'Suits',
-          id: 'Clothing 1',
-        },
-        {
-          name: 'Shirts',
-          id: 'Clothing 2',
-        },
-        {
-          name: 'Pants',
-          id: 'Clothing 3',
-        },
-      ],
-    },
-    {
-      name: 'Footwear',
-      id: 'Footwear',
-      children: [
-        {
-          name: 'Shoes',
-          id: 'Footwear 1',
-        },
-        {
-          name: 'Trainers',
-          id: 'Footwear 2',
-        },
-      ],
-    },
-    {
-    name: 'Accesories',
-      id: 'Accesories',
-      children: [
-        {
-          name: 'Watches',
-          id: 'Accesories 1',
-        },
-        {
-          name: 'Belts',
-          id: 'Accesories 2',
-        },
-        {
-          name: 'Bags',
-          id: 'Accesories 3',
-        }
-      ]
-    },
-  ];
-
-  const cars = [
-    {
-      name: 'Tools',
-      id: 'Tools',
-      children: [
-        {
-          name: 'Machines',
-          id: 'Tools 1',
-        },
-        {
-          name: 'Hand tools',
-          id: 'Tools 2',
-        },
-      ],
-    },
-    {
-      name: 'Parts',
-      id: 'Parts',
-      children: [
-        {
-          name: 'Windows',
-          id: 'Parts 1',
-        },
-        {
-          name: 'Exhausters',
-          id: 'Parts 2',
-        },
-      ],
-    },
-  ];
-
-  const games = [
-    {
-      name: 'Board games',
-      id: 'Board games',
-      children: [
-        {
-          name: 'Social',
-          id: 'Board games 1',
-        },
-        {
-          name: 'Drinking',
-          id: 'Board games 2',
-        },
-        {
-          name: 'Kids',
-          id: 'Board games 3',
-        },
-      ],
-    },
-    {
-      name: 'Outside games',
-      id: 'Outside games',
-      children: [
-        {
-          name: 'Kids',
-          id: 'Outside games 1',
-        },
-        {
-          name: 'Adult',
-          id: 'Outside games 2',
-        },
-      ],
-    },
-  ];
-
-  const reading = [
-    {
-      name: 'Books',
-      id: 'Books',
-      children: [
-        {
-          name: 'Digital books',
-          id: 'Books 1',
-        },
-        {
-          name: 'Physical books',
-          id: 'Books 2',
-        },
-        {
-          name: 'Kurba IDK kdo se bere knjige LMAO',
-          id: 'Books 3',
-        },
-      ],
-    },
-  ];
-  
+const reading = [
+  {
+    name: 'Books',
+    id: 'Books',
+    children: [
+      {
+        name: 'Digital books',
+        id: 'Books 1',
+      },
+      {
+        name: 'Physical books',
+        id: 'Books 2',
+      },
+      {
+        name: 'Audio books',
+        id: 'Books 3',
+      },
+    ],
+  },
+  {
+    name: 'Genre',
+    id: 'Genre',
+    children: [
+      {
+        name: 'Novels',
+        id: 'Genre 1',
+      },
+      {
+        name: 'Crime',
+        id: 'Genre 2',
+      },
+      {
+        name: 'Adventure',
+        id: 'Genre 3',
+      },
+      {
+        name: 'Horror',
+        id: 'Genre 4',
+      },
+      {
+        name: 'Romance',
+        id: 'Genre 5',
+      },
+      {
+        name: 'History',
+        id: 'Genre 6',
+      },
+      {
+        name: 'Childrens book',
+        id: 'Genre 7',
+      },
+    ],
+  },
+];
