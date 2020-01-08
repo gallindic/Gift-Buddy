@@ -22,6 +22,12 @@ export default class OccasionFilter extends Component {
     };
   }
 
+  componentDidMount() {
+    this.load();
+  }
+
+  load = () => this.SectionedMultiSelect._toggleSelector();
+
   onSelectedItemsChange = (selectedItems) => {
     this.setState({ selectedItems });
   };
@@ -65,7 +71,7 @@ export default class OccasionFilter extends Component {
         <Header />
         <View style={styles.body}>
           <Text style={styles.text}>Select the occasion</Text>
-            <Button text='Choose' theme='secondary' onPress={() => this.SectionedMultiSelect._toggleSelector()} />
+            <Button text='Choose again' theme='secondary' onPress={() => this.SectionedMultiSelect._toggleSelector()} />
             <SectionedMultiSelect
             ref={SectionedMultiSelect => (this.SectionedMultiSelect = SectionedMultiSelect)}
             headerComponent={
@@ -133,7 +139,7 @@ export default class OccasionFilter extends Component {
                 </Text>
             </View>
         </View>
-        <FooterNavigation mainText='Skip' nextScreen={'HobbiesFilter'} />
+        <FooterNavigation mainText='' nextScreen={'HobbiesFilter'} />
       </View>
     );
   }
@@ -170,23 +176,23 @@ const items = [
     children: [
       {
         name: 'Halloween',
-        id: 1,
+        id: 'Holidays 1',
       },
       {
         name: 'Christmas',
-        id: 2,
+        id: 'Holidays 2',
       },
       {
         name: 'Valentine\'s day',
-        id: 3,
+        id: 'Holidays 3',
       },
       {
         name: 'Mother\s day',
-        id: 4,
+        id: 'Holidays 4',
       },
       {
         name: 'Easter',
-        id: 5,
+        id: 'Holidays 5',
       },
     ],
   },
@@ -196,19 +202,23 @@ const items = [
     children: [
       {
         name: '18',
-        id: 11,
+        id: 'Birthday 1',
       },
       {
         name: '20',
-        id: 12,
+        id: 'Birthday 2',
       },
       {
         name: '30',
-        id: 13,
+        id: 'Birthday 3',
+      },
+      {
+        name: '40',
+        id: 'Birthday 4',
       },
       {
         name: '50',
-        id: 14,
+        id: 'Birthday 5',
       },
     ],
   },
@@ -218,19 +228,19 @@ const items = [
     children: [
       {
         name: 'Wedding anniversary',
-        id: 21,
+        id: 'Anniversary 1',
       },
       {
         name: 'Relationship anniversary',
-        id: 22,
+        id: 'Anniversary 2',
       },
       {
         name: 'Years of service',
-        id: 23,
+        id: 'Anniversary 3',
       },
       {
         name: 'Other',
-        id: 24,
+        id: 'Anniversary 4',
       },
     ],
   },
@@ -240,19 +250,19 @@ const items = [
     children: [
       {
         name: 'Bachelor party',
-        id: 31,
+        id: 'Wedding 1',
       },
       {
         name: 'Bachelorette party',
-        id: 32,
+        id: 'Wedding 2',
       },
       {
         name: 'Silly gifts',
-        id: 33,
+        id: 'Wedding 3',
       },
       {
         name: 'Other',
-        id: 34,
+        id: 'Wedding 4',
       },
     ],
   },
@@ -262,19 +272,19 @@ const items = [
     children: [
       {
         name: 'Babyshower',
-        id: 41,
+        id: 'Childbirth 1',
       },
       {
         name: 'Boy',
-        id: 42,
+        id: 'Childbirth 2',
       },
       {
         name: 'Girl',
-        id: 43,
+        id: 'Childbirth 3',
       },
       {
         name: 'Twins',
-        id: 44,
+        id: 'Childbirth 4',
       },
     ],
   },
@@ -284,15 +294,15 @@ const items = [
     children: [
       {
         name: 'Baptism',
-        id: 51,
+        id: 'Sacred rites 1',
       },
       {
         name: 'Holy Communion',
-        id: 52,
+        id: 'Sacred rites 2',
       },
       {
         name: 'Confirmation',
-        id: 53,
+        id: 'Sacred rites 3',
       },
     ],
   },

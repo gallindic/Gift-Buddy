@@ -1,5 +1,7 @@
 module.exports = {
+    Hobbies: null,
     AgeFilter: null,
+    BudgetFilter: null,
     Gender: null,
     Occasion: null,
     hobbiesSport: [],

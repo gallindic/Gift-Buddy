@@ -38,7 +38,7 @@ export default class LandingPage extends Component {
         source={require('../sources/landing-page-xmas.jpg')}>
           <Text style={styles.startSectionText}>Buy the perfect Christmas gift</Text>
           <Button
-            text="Buy now"
+            text="Browse trending"
             size="large"
             onPress={() => null}
           />

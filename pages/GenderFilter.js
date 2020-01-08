@@ -71,7 +71,7 @@ export default class GenderFilter extends Component {
                     </TouchableOpacity>
                 </View>
             </View>
-        <FooterNavigation mainText='Skip' nextScreen='OccasionFilter' />
+        <FooterNavigation mainText='' nextScreen='OccasionFilter' />
       </View>
     );
   }

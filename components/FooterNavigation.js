@@ -19,23 +19,24 @@ class FooterNavigation extends Component {
   render() {
     return (
       <View style={styles.footer}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
+          <TouchableOpacity style={{ padding: normalize(10, 'height')}} onPress={() => this.props.navigation.goBack(null)}>
           <Image
             source={require('../sources/back-icon.png')}
             style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
           />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
-            <Text style={styles.text}>{this.props.mainText}</Text>
-          </TouchableOpacity>
-          {(this.props.mainText === 'Skip') ? (
-            <TouchableOpacity onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
+          {(this.props.mainText === '') ? (
+            <TouchableOpacity style={{ padding: normalize(10, 'height')}} onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
             <Image
               source={require('../sources/next-icon.png')}
               style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
             />
             </TouchableOpacity>)
-            : <Text style={{width: normalize(30, 'width')}}></Text>
+            : (
+              <TouchableOpacity style={{ backgroundColor: '', padding: normalize(10, 'height') }} onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
+                <Text style={styles.text}>{this.props.mainText}</Text>
+              </TouchableOpacity>
+            )
           }
       </View>
     );
@@ -56,7 +57,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: '7%',
     },
     text: {
-        marginLeft: '3%',
         fontSize: RFValue(18, 580),
         color: 'white',
         fontWeight: '600',

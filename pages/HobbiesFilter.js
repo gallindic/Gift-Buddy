@@ -198,6 +198,7 @@ export default class OccasionFilter extends Component {
   }
 
   render() {
+    Global.Hobbies = this;
     return (
       <View style={{height: '100%'}}>
         <Header />
@@ -1277,7 +1278,7 @@ const cars = [
   },
   {
     name: 'Accessories',
-    id: 'Accessories',
+    id: 'Accessories00',
     children: [
       {
         name: 'Car radios',

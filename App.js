@@ -14,6 +14,7 @@ import OccasionFilter from './pages/OccasionFilter'
 import HobbiesFilter from './pages/HobbiesFilter'
 import SelectedParameters from './pages/SelectedParameters'
 import SearchResults from './pages/SearchResults'
+import BudgetFilter from './pages/BudgetFilter'
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -66,6 +67,12 @@ const AppNavigator = createStackNavigator({
   },
   SearchResults: {
     screen: SearchResults,
+    navigationOptions: {
+      header: null
+    }
+  },
+  BudgetFilter: {
+    screen: BudgetFilter,
     navigationOptions: {
       header: null
     }

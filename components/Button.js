@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
       padding: '4%',
       paddingVertical: '2%',
       borderRadius: 25,
-      shadowColor: '#000000',
+      /*shadowColor: '#000000',
       shadowOffset: {
-        width: 3,
-        height: 3
+        width: 1,
+        height: 1
     },
-    shadowRadius: 5,
-    shadowOpacity: 0.7
+    shadowRadius: 1,
+    shadowOpacity: 0.7*/
     },
     containerPrimaryOutline: {
       backgroundColor: 'transparent',
@@ -70,14 +70,7 @@ const styles = StyleSheet.create({
     textDefault: {
       fontSize: RFValue(15, 580),
       fontWeight: '500',
-      color: '#fff',
-      shadowColor: '#000000',
-      shadowOffset: {
-        width: 1,
-        height: 1
-      },
-      shadowRadius: 2,
-      shadowOpacity: 0.4
+      color: '#fff',   
     },
     textPrimary: {
         color: PRIMARY_COLOR

@@ -24,13 +24,18 @@ export default class OccasionFilter extends Component {
         <ScrollView contentContainerStyle={{paddingBottom: HEIGHT * 0.05}} style={styles.body}>
             <Text style={styles.text}>Selected parameters</Text>
             <Text style={styles.textFilter}>Age:</Text>
-            <Text style={styles.textFilterSelected}>{Global.AgeFilter.state.ageValueOne + ' - ' + Global.AgeFilter.state.ageValueTwo}</Text>
+            <Text style={styles.textFilterSelected}>{(Global.AgeFilter.state.ageValueOne === 0 && Global.AgeFilter.state.ageValueTwo === 0) ? 'None' : Global.AgeFilter.state.ageValueOne + ' - ' + Global.AgeFilter.state.ageValueTwo}</Text>
             <Text style={styles.textFilter}>Budget:</Text>
-            <Text style={styles.textFilterSelected}>{Global.AgeFilter.state.budgetValueOne + ' - ' + Global.AgeFilter.state.budgetValueTwo + ' EUR'}</Text>
+            <Text style={styles.textFilterSelected}>{(Global.BudgetFilter.state.budgetValueOne === 0 && Global.BudgetFilter.state.budgetValueTwo === 0) ? 'None' : Global.BudgetFilter.state.budgetValueOne + ' - ' + Global.BudgetFilter.state.budgetValueTwo}</Text>
             <Text style={styles.textFilter}>Gender:</Text>
             <Text style={styles.textFilterSelected}>{Global.Gender.state.gender}</Text>
             <Text style={styles.textFilter}>Occasion:</Text>
-            <Text style={styles.textFilterSelected}>{(Global.Occasion.state.selectedItemObjects.length === 0) ? 'None' : Global.Occasion.state.selectedItemObjects[0].name}</Text>
+            <Text style={(Global.Occasion.state.selectedItemObjects.length !== 0) ? {display: 'none'} : styles.textFilterSelected}>{(Global.Occasion.state.selectedItemObjects.length === 0) ? 'None' : null}</Text>
+            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+              <Text style={(Global.Occasion.state.selectedItemObjects.length === 0) ? {display: 'none'} : styles.textCategory}>{(Global.Occasion.state.selectedItemObjects.length !== 0) ? Global.Occasion.state.selectedItemObjects[0].id.substring(0, Global.Occasion.state.selectedItemObjects[0].id.length - 2) : null}: </Text>
+              <Text style={(Global.Occasion.state.selectedItemObjects.length === 0) ? {display: 'none'} : styles.textFilterSelected}>{(Global.Occasion.state.selectedItemObjects.length !== 0) ? Global.Occasion.state.selectedItemObjects[0].name : null}</Text>
+            </View>
+            {/*Global.Hobbies.state.selectedItemObjectsSport.map(item => <Text>{item.name}</Text>)*/}
             <Text style={styles.textFilter}>Hobbies:</Text>
             <Text style={ (Global.hobbiesSport.length > 0) ? styles.textCategory : {display: 'none'} }>Sport: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesSport)}</Text></Text>
             <Text style={ (Global.hobbiesTechnology.length > 0) ? styles.textCategory : {display: 'none'} }>Technology: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesTechnology)}</Text></Text>

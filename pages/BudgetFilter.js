@@ -11,63 +11,62 @@ import Global from '../components/Global'
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
-export default class AgeFilter extends Component {
+export default class BudgetFilter extends Component {
 
   constructor(props) {
         super(props);
         this.state = {
-          ageValueOne: 30,
-          ageValueTwo: 50,
+          budgetValueOne: 30,
+          budgetValueTwo: 200,
         };
   }
 
-  changeAge(value) {
-        this.setState(() => {
-          return {
-            ageValueOne: parseFloat(value[0]),
-            ageValueTwo: parseFloat(value[1]),
-          };
-        });
-  }
+  changeBudget(value) {
+    this.setState(() => {
+      return {
+        budgetValueOne: parseFloat(value[0]),
+        budgetValueTwo: parseFloat(value[1]),
+      };
+    });
+}
 
-  skip = () => {
-    this.setState({ ageValueOne: 0 })
-    this.setState({ ageValueTwo: 0 })
-    this.props.navigation.navigate('BudgetFilter')
-  }
+skip = () => {
+  this.setState({ budgetValueOne: 0 })
+  this.setState({ budgetValueTwo: 0 })
+  this.props.navigation.navigate('GenderFilter')
+}
 
   render() {
-    Global.AgeFilter = this;
-    const { ageValueOne, ageValueTwo } = this.state;
+    Global.BudgetFilter = this;
+    const { budgetValueOne, budgetValueTwo } = this.state;
     return (
       <View style={{height: '100%'}}>
         <Header />
         <View style={styles.body}>
-            <Text style={styles.text}>Select the persons{'\n'}age group</Text>
+        <Text style={styles.text}>Set your budget{'\n'}</Text>
         </View>
         <View style={styles.buttons}>
-                <Button
-                text={(ageValueOne === 0) ? 'Infant' : ageValueOne }
-                theme='secondary'
-                size='small'
-                disabled={true}
-                />
-                <Button
-                text={(ageValueTwo === 100) ? '100+' : ageValueTwo }
-                theme='secondary'
-                size='small'
-                disabled={true}    
-                />
-            </View>
+            <Button
+            text={budgetValueOne + ' EUR'}
+            theme='secondary'
+            size='small'
+            disabled={true}
+            />
+            <Button
+            text={(budgetValueTwo === 1000) ? '1000+ EUR' : budgetValueTwo + ' EUR'}
+            theme='secondary'
+            size='small'
+            disabled={true}    
+            />
+        </View>
         <View style={styles.slider}>
             <MultiSlider
-            values={[ageValueOne, ageValueTwo]}
+            values={[budgetValueOne, budgetValueTwo]}
             sliderLength={WIDTH * 0.8} 
-            min={0}
-            max={100}
+            max={1000}
             selectedStyle={{backgroundColor: '#FF304F'}}
             markerStyle={{borderColor: '#FF304F', borderWidth: 3, backgroundColor: 'white'}}
-            onValuesChange={this.changeAge.bind(this)}
+            onValuesChange={this.changeBudget.bind(this)}
             />
         </View>
         <View style = {{backgroundColor: '', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -77,7 +76,7 @@ export default class AgeFilter extends Component {
             <Text style={styles.buttonText}>Skip this section</Text>
           </TouchableOpacity>
         </View>
-        <FooterNavigation mainText='' nextScreen={'BudgetFilter'} />
+        <FooterNavigation mainText='' nextScreen={'GenderFilter'} />
       </View>
     );
   }
