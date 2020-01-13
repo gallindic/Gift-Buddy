@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList, Item, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Header } from 'react-native/Libraries/NewAppScreen';
+import Product from '../components/Product';
 
 class Scraper extends Component {
 
@@ -52,24 +54,15 @@ class Scraper extends Component {
    
   }
 
-  parse() {
-    return this.state.dataSource.map(function(object, i){
-      return(
-        <View key={i}>
-          <Text>{object.title}</Text>
-          <Text>{object.link}</Text>
-          <Text>{object.imageLink}</Text>
-          <Text>{object.price}{"\n"}</Text>
-        </View>
-      );
-    });
-  }
-
     render() {
       return (
-        <ScrollView>
-          {this.parse()}
-        </ScrollView>
+        <View>
+          <Header/>
+          <ScrollView>
+            <Product products={this.state.dataSource} />
+          </ScrollView>
+        </View>
+        
       );
     }
   }

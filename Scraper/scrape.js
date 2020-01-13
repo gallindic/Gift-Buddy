@@ -41,7 +41,7 @@ scrape = (url) => {
   
               let object = {
                   'title': title.replace(/\n/g,"").replace(/\s\s+/g, " ").trim(),
-                  'link': link,
+                  'link': "https://www.bigbang.si" + link,
                   'imageLink': imageLink,
                   'price': price,
               };
@@ -58,19 +58,31 @@ scrape = (url) => {
     })();
 }
 
-app.post('/', (req, res) => {
-    const parameters = req.body;
-    console.log(parameters);
-
+let start = new Promise(function(resolve, reject) {
     Object.keys(sites).forEach(site => {
         Object.keys(sites[site]).forEach(subsite => {
             let url = sites[site][subsite];
         
             scrape(url);
         });
+        
     });
 
-    res.end(JSON.stringify(returnProducts, null, " "));
+    resolve(returnProducts);
+});
+
+async function returnJSON(res){
+    let result = await start;
+    console.log(result)
+    res.end(JSON.stringify(result, null, " "));
+}
+
+app.post('/', (req, res) => {
+    const parameters = req.body;
+    //console.log(parameters);
+
+    returnJSON(res);
+    
 });
 
 app.listen(port, () => console.log("listening on port 3000"));

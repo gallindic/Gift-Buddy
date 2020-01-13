@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image, Dimensions, View, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, Image, Dimensions, View, TouchableOpacity, Text, Linking } from 'react-native';
 import { RFValue } from "react-native-responsive-fontsize";
 import { normalize } from 'react-native-elements';
 
@@ -8,23 +8,16 @@ const HEIGHT = Dimensions.get('window').height;
 
 
 export default class Product extends Component {
-
-  render() {
-    return (
-        <View style={styles.body}>
-            <TouchableOpacity style={styles.buttonMatch}><Text style={styles.buttonText}>70% match</Text></TouchableOpacity>
-            <Image
-                source={require('../sources/ps4.png')}
-                style={{width: '90%', height: HEIGHT * 0.25}}
-                />
-                <Text style={styles.description} adjustsFontSizeToFit numberOfLines={3}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry
-                </Text>
-                <Text style={styles.price}>298 EUR</Text>
-                <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>Show more</Text></TouchableOpacity>
-        </View>
-    );
-  }
+    render() {
+        return(
+            <View key={this.props.index} style={styles.body}>
+                <Image source={{ uri: this.props.product.imageLink, cache: "force-cache" }} style={{width: '80%', height: HEIGHT * 0.25}}/>
+                <Text style={styles.description} adjustsFontSizeToFit numberOfLines={3}>{ this.props.product.title }</Text>
+                <Text style={styles.price}>{this.props.product.price}</Text>
+                <TouchableOpacity style={styles.button} onPress={ ()=>{ Linking.openURL(this.props.product.link)}}><Text style={styles.buttonText}>Show</Text></TouchableOpacity>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({

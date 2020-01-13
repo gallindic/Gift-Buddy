@@ -1,12 +1,8 @@
 {
-  "hostType": "lan",
-  "lanType": "ip",
   "dev": true,
   "minify": false,
-<<<<<<< HEAD
-  "urlRandomness": "dm-5cn",
-=======
-  "urlRandomness": "tf-5wc",
->>>>>>> scraper
+  "hostType": "lan",
+  "lanType": "ip",
+  "urlRandomness": "sh-4vt",
   "https": false
 }
