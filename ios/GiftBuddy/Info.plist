@@ -78,5 +78,7 @@
 	<string>Give GiftBuddy periences permission to access your photos</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>Allow GiftBuddy to access your reminders</string>
+	<key>NSAppTransportSecurity</key>
+	  <key>NSExceptionDomains</key>
 </dict>
 </plist>

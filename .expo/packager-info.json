@@ -2,8 +2,15 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
+<<<<<<< HEAD
   "packagerPid": 780,
   "expoServerNgrokUrl": "https://dm-5cn.anonymous.gift-buddy.exp.direct",
   "packagerNgrokUrl": "https://packager.dm-5cn.anonymous.gift-buddy.exp.direct",
   "ngrokPid": 10800
+=======
+  "packagerPid": 35473,
+  "expoServerNgrokUrl": "https://tf-5wc.anonymous.giftbuddy.exp.direct",
+  "packagerNgrokUrl": "https://packager.tf-5wc.anonymous.giftbuddy.exp.direct",
+  "ngrokPid": 35484
+>>>>>>> scraper
 }
