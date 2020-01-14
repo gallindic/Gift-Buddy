@@ -11,8 +11,8 @@ export default class Product extends Component {
     render() {
         return(
             <View key={this.props.index} style={styles.body}>
-                <Image source={{ uri: this.props.product.imageLink, cache: "force-cache" }} style={{width: '80%', height: HEIGHT * 0.25}}/>
-                <Text style={styles.description} adjustsFontSizeToFit numberOfLines={3}>{ this.props.product.title }</Text>
+                <Image source={{ uri: this.props.product.imageLink, cache: "force-cache" }} style={{width: '80%', height: HEIGHT * 0.25}} resizeMode='contain'/>
+                <Text style={styles.description} adjustsFontSizeToFit numberOfLines={4}>{ this.props.product.title }</Text>
                 <Text style={styles.price}>{this.props.product.price}</Text>
                 <TouchableOpacity style={styles.button} onPress={ ()=>{ Linking.openURL(this.props.product.link)}}><Text style={styles.buttonText}>Show</Text></TouchableOpacity>
             </View>

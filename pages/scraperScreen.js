@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, ActivityIndicator, View } from 'react-native';
+import { ScrollView, ActivityIndicator, View, Dimensions } from 'react-native';
 
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
-import Global from '../components/Global'
 import Product from '../components/Product'
+
+const HEIGHT = Dimensions.get('window').height;
 
 export default class scraperScreen extends Component {
     constructor(props){
@@ -34,7 +35,7 @@ export default class scraperScreen extends Component {
         parametersBody = parametersBody.join("&");
 
         try{
-            let response = await fetch ('http://192.168.1.14:3000/scrape'
+            let response = await fetch ('http://172.20.10.5:3000/scrape'
             , {
                 method: 'POST',
                 headers: {
@@ -64,8 +65,7 @@ export default class scraperScreen extends Component {
     }
     
     render() {
-      if(this.state.isLoading)
-      {
+      if(this.state.isLoading){
         return (
             <View style={{flex: 1, justifyContent: 'center', }}>
                 <ActivityIndicator size="large" color="#ff0000" />    
@@ -76,7 +76,7 @@ export default class scraperScreen extends Component {
         return (
           <View style={{height: '100%'}}>
             <Header/>
-            <ScrollView contentContainerStyle={{ 'flexDirection': 'row', 'flexWrap': 'wrap', 'justifyContent': 'space-around' }}>
+            <ScrollView contentContainerStyle={{ 'flexDirection': 'row', 'flexWrap': 'wrap', 'justifyContent': 'space-around', paddingBottom: HEIGHT * 0.12, }}>
               { this.showProducts() }
             </ScrollView>
             <FooterNavigation mainText='Change filters' nextScreen='HobbiesFilter' />
