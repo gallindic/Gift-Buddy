@@ -8,81 +8,84 @@ app.use(express.urlencoded({extended: true}));
 const port = 3000;
 
 const sites = {
-    "https://www.bigbang.si/" : {
-        "računalništvo": "https://www.bigbang.si/racunalnistvo",
-        "TV": "https://www.bigbang.si/slika",
-        "Zvok": "https://www.bigbang.si/zvok",
+    "https://www.mimovrste.com/" : {
+        "računalništvo": "https://www.mimovrste.com/prenosniki",
     },
 };
 
-let returnProducts = [];
-let id = 0;
+let products = [];
 
-scrape = (url) => {
+'use strict';
+
+
+scrape = (url, parentSite) => {
     (async () => {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-    
-    await page.goto(url);
+        await page.goto(url);
+        console.log(url);
 
-    const scrollStep = 250;
-    const scrollDelay = 200;
-    await scrollPageToBottom(page, scrollStep, scrollDelay);
-  
-    const scraper = await page.evaluate(() => {
-          let products = document.querySelectorAll(".product-box");
-          let productsArray = [];
-          products.forEach((element, i) => {
-              let childElements = element.children;
-              let link = childElements.item("1").firstElementChild.getAttribute("href");
-              let title = childElements.item("1").firstElementChild.textContent;
-              let imageLink = childElements.item("0").firstElementChild.children.item("1").firstElementChild.getAttribute("src");
-              let price = childElements.item("2").firstElementChild.firstElementChild.firstElementChild.textContent;
-  
-              let object = {
-                  'title': title.replace(/\n/g,"").replace(/\s\s+/g, " ").trim(),
-                  'link': "https://www.bigbang.si" + link,
-                  'imageLink': imageLink,
-                  'price': price,
-              };
-  
-              productsArray.push(object);
-          });
-          return productsArray;
-    });
-        scraper.forEach((object) => {
-            returnProducts.push(object);
-        });
-    
-        browser.close();
-    })();
+        const scrollStep = 250;
+        const scrollDelay = 200;
+        await scrollPageToBottom(page, scrollStep, scrollDelay);
+
+        let tmpArray = await page.evaluate((parentLink) => {
+            let elements = document.querySelectorAll(".lst-item");
+            let arr = [];
+            
+            elements.forEach(element => {
+                let title = element.lastElementChild.lastElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
+                let link = element.lastElementChild.lastElementChild.firstElementChild.firstElementChild.firstElementChild.getAttribute("href");
+                let imageLink = element.lastElementChild.firstElementChild.firstElementChild.getAttribute("src");
+                let price = element.lastElementChild.lastElementChild.children.item("1").children.item("1").textContent;
+
+                let object = {
+                    "title": title,
+                    "link": parentLink + link,
+                    "imageLink": imageLink,
+                    "price": price
+                };
+
+                arr.push(object);
+            })
+
+            return arr;
+        }, parentSite.slice(0, -1));
+
+        tmpArray.forEach(object => products.push(object));
+        
+        await browser.close()
+    })()
 }
 
-let start = new Promise(function(resolve, reject) {
-    Object.keys(sites).forEach(site => {
-        Object.keys(sites[site]).forEach(subsite => {
-            let url = sites[site][subsite];
-        
-            scrape(url);
-        });
-        
-    });
-
-    resolve(returnProducts);
-});
 
 async function returnJSON(res){
+    let start = new Promise(function(resolve, reject) {
+        Object.keys(sites).forEach((site) => {
+            Object.keys(sites[site]).forEach(subSite => {
+                let url = sites[site][subSite];
+    
+                scrape(url, site);
+            });
+        });
+    
+        resolve(products);
+    });
+
     let result = await start;
-    console.log(result)
+    console.log(result);
+
+    
     res.end(JSON.stringify(result, null, " "));
 }
 
-app.post('/', (req, res) => {
+app.post('/scrape', (req, res) => {
     const parameters = req.body;
-    //console.log(parameters);
+    console.log(parameters);
+
+    res.set({ 'content-type': 'application/json; charset=utf-8' });
 
     returnJSON(res);
-    
 });
 
 app.listen(port, () => console.log("listening on port 3000"));

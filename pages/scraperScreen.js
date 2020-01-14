@@ -34,7 +34,8 @@ export default class scraperScreen extends Component {
         parametersBody = parametersBody.join("&");
 
         try{
-            let response = await fetch ('http://192.168.1.8:3000/', {
+            let response = await fetch ('http://192.168.1.14:3000/scrape'
+            , {
                 method: 'POST',
                 headers: {
                     'Authorization': 'Bearer token',
@@ -45,12 +46,10 @@ export default class scraperScreen extends Component {
             });
 
             let responseJson = await response.json();
-
             this.setState({
                 isLoading: false,
                 dataSource: responseJson,
             })
-            return responseJson.movies;
         } catch(error) {
             console.error(error); 
         };
