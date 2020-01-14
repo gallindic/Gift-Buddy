@@ -52,7 +52,7 @@ export default class OccasionFilter extends Component {
             ? styles.textFilterSelected
             : {display: 'none'} }>None</Text>
         </ScrollView>
-        <FooterNavigation mainText='Search' nextScreen={'SearchResults'} />
+        <FooterNavigation mainText='Search' nextScreen={'scraperScreen'} />
       </View>
     );
   }

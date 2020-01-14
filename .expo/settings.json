@@ -1,8 +1,8 @@
 {
-  "hostType": "lan",
-  "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "dm-5cn",
+  "hostType": "lan",
+  "lanType": "ip",
+  "urlRandomness": "43-jxq",
   "https": false
 }
