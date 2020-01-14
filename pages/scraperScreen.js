@@ -4,6 +4,7 @@ import { ScrollView, ActivityIndicator, View, Dimensions } from 'react-native';
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
 import Product from '../components/Product'
+import Global from '../components/Global'
 
 const HEIGHT = Dimensions.get('window').height;
 
@@ -21,8 +22,8 @@ export default class scraperScreen extends Component {
 
     async getApiData(){
         let parameters = {
-            'racunalnistvo': true,
-            'TV': true,
+            'priceFrom': Global.BudgetFilter.state.budgetValueOne,
+            'priceTo': Global.BudgetFilter.state.budgetValueTwo,
         };
         let parametersBody = [];
 
@@ -76,7 +77,7 @@ export default class scraperScreen extends Component {
         return (
           <View style={{height: '100%'}}>
             <Header/>
-            <ScrollView contentContainerStyle={{ 'flexDirection': 'row', 'flexWrap': 'wrap', 'justifyContent': 'space-around', paddingBottom: HEIGHT * 0.12, }}>
+            <ScrollView contentContainerStyle={{ 'flexDirection': 'row', 'flexWrap': 'wrap', 'justifyContent': 'space-around', paddingBottom: HEIGHT * 0.20, }}>
               { this.showProducts() }
             </ScrollView>
             <FooterNavigation mainText='Change filters' nextScreen='HobbiesFilter' />

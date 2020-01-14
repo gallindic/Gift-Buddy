@@ -11,7 +11,7 @@ export default class Product extends Component {
     render() {
         return(
             <View key={this.props.index} style={styles.body}>
-                <Image source={{ uri: this.props.product.imageLink, cache: "force-cache" }} style={{width: '80%', height: HEIGHT * 0.25}} resizeMode='contain'/>
+                <Image source={{ uri: this.props.product.imageLink, cache: "force-cache" }} style={{width: '90%', height: HEIGHT * 0.25, paddingBottom: 20}} resizeMode='contain'/>
                 <Text style={styles.description} adjustsFontSizeToFit numberOfLines={4}>{ this.props.product.title }</Text>
                 <Text style={styles.price}>{this.props.product.price}</Text>
                 <TouchableOpacity style={styles.button} onPress={ ()=>{ Linking.openURL(this.props.product.link)}}><Text style={styles.buttonText}>Show</Text></TouchableOpacity>
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         padding: WIDTH * 0.02,
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'space-around',
         width: WIDTH * 0.45,
         borderColor: '#6E6263',
         borderWidth: 1.5,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     price: {
         fontSize: RFValue(13, 580),
         fontWeight: '600',
-        paddingVertical: HEIGHT * 0.01
+        paddingVertical: HEIGHT * 0.03,
     },
     button: {
         alignItems: 'center',

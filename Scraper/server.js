@@ -5,36 +5,21 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 const port = 3000;
 
-const sites = {
-    "https://www.mimovrste.com/" : {
-        "računalništvo": "https://www.mimovrste.com/prenosniki",
-    },
-};
-
-let products = [];
-
-/*
-Object.keys(sites).forEach((site) => {
-    Object.keys(sites[site]).forEach(subSite => {
-        let url = sites[site][subSite];
-
-        scrape(url, site);
-    });
-});
-*/
-
 app.post("/scrape", (req, res) => {
   
     const parameters = req.body;
+    const budgetFrom = parameters.priceFrom;
+    const budgetTo = parameters.priceTo;
+
     console.log(parameters);
 
       const scraped = new Promise((resolve, reject) => {
         scraper
-          .scrape("https://www.mimovrste.com/prenosniki")
+          .scrape(budgetFrom, budgetTo)
           .then(data => {
             resolve(data)
           })
-          .catch(err => reject('Mrš'))
+          .catch(err => reject('Error'))
       })
     
       Promise.all([scraped])
