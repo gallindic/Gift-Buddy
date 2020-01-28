@@ -1,0 +1,17 @@
+module.exports = {
+    Hobbies: null,
+    AgeFilter: null,
+    BudgetFilter: null,
+    Gender: null,
+    Occasion: null,
+    hobbiesSport: [],
+    hobbiesTechnology: [],
+    hobbiesCooking: [],
+    hobbiesArts: [],
+    hobbiesMusic: [],
+    hobbiesDancing: [],
+    hobbiesFashion: [],
+    hobbiesCars: [],
+    hobbiesGames: [],
+    hobbiesReading: [],
+}
