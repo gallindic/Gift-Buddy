@@ -1183,10 +1183,6 @@ const fashion = [
         name: 'Casual',
         id: 'Clothing 2',
       },
-      {
-        name: 'Expensive brands',
-        id: 'Clothing 3',
-      },
     ],
   },
   {
@@ -1204,10 +1200,6 @@ const fashion = [
       {
         name: 'Classy footwear',
         id: 'Footwear 3',
-      },
-      {
-        name: 'Expensive brands',
-        id: 'Footwear 4',
       },
     ],
   },
