@@ -1152,10 +1152,6 @@ const dancing = [
         name: 'Balet',
         id: 'Style 2',
       },
-      {
-        name: 'Break dance',
-        id: 'Style 3',
-      },
     ],
   },
   {
