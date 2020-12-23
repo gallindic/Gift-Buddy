@@ -672,12 +672,30 @@ const sport = [
         id: 'Basketball 4',
       },
       {
-        name: 'Basketball By player',
+        name: 'Basketball Fanbase',
         id: 'Basketball 5',
       },
+    ],
+  },
+  {
+    name: 'Tennis',
+    id: 'Tennis00',
+    children: [
       {
-        name: 'Basketball Fanbase',
-        id: 'Basketball 6',
+        name: 'Tennis Footwear',
+        id: 'Tennis 1',
+      },
+      {
+        name: 'Tennis Clothing',
+        id: 'Tennis 2',
+      },
+      {
+        name: 'Tennis Accessories',
+        id: 'Tennis 3',
+      },
+      {
+        name: 'Tennis Racket',
+        id: 'Tennis 4',
       },
     ],
   },
