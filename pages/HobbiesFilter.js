@@ -1255,14 +1255,6 @@ const fashion = [
             name: 'Deodorants',
             id: 'Fragrances 2',
           },
-          {
-            name: 'Eau de Toilette',
-            id: 'Fragrances 3',
-          },
-          {
-            name: 'Eau de Cologne',
-            id: 'Fragrances 4',
-          },
         ]
       },
 ];
