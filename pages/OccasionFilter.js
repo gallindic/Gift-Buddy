@@ -235,7 +235,7 @@ const items = [
         id: 'Anniversary 2',
       },
       {
-        name: 'Other',
+        name: 'Anniversary Other',
         id: 'Anniversary 3',
       },
     ],
@@ -257,7 +257,7 @@ const items = [
         id: 'Wedding 3',
       },
       {
-        name: 'Other',
+        name: 'Wedding Other',
         id: 'Wedding 4',
       },
     ],

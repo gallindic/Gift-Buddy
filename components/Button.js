@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { RFValue } from "react-native-responsive-fontsize";
 
@@ -155,13 +155,13 @@ const getStyles = ({
 }
 
 export default class Button extends React.Component {
-    static PropTypes = {
-        text: PropTypes.string.isRequired,
-        onPress: PropTypes.func.isRequired,
-        outline: PropTypes.bool,
-        size: PropTypes.oneOf(['small', 'default', 'large']),
-        theme: PropTypes.oneOf(['primary', 'secondary']),
-        disabled: PropTypes.bool,
+    static propTypes = {
+        text: propTypes.string.isRequired,
+        onPress: propTypes.func.isRequired,
+        outline: propTypes.bool,
+        size: propTypes.oneOf(['small', 'default', 'large']),
+        theme: propTypes.oneOf(['primary', 'secondary']),
+        disabled: propTypes.bool,
     };
 
     static defaultProps = {

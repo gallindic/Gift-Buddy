@@ -242,8 +242,11 @@ export default class OccasionFilter extends Component {
                 showDropDowns={true}
                 readOnlyHeadings={false}
                 selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeSport}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeSport}
+                onSelectedItemsChange={(selectedItemsSport) => {
+                  this.setState({ selectedItemsSport });}}
+                onSelectedItemObjectsChange={ (selectedItemObjectsSport) => {
+                  this.setState({ selectedItemObjectsSport });
+                }}
                 selectedItems={this.state.selectedItemsSport}
                 styles={multipleSelect}
                 />
