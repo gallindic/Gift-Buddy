@@ -154,6 +154,7 @@ def scrape():
     urls_to_scrape = get_urls_to_scrape(read_mapping_table(), parameters)
     products = scrape_amazon(urls_to_scrape, (parameters['priceFrom'], parameters['priceTo']))
     
+    print("Scraped", len(products), "products")
     return jsonify(products)
 
 
