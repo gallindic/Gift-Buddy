@@ -67,7 +67,7 @@
             "search-male": ["https://www.amazon.de/s?k=Anniversary+gifts+for+him"],
             "search-female": ["https://www.amazon.de/s?k=Anniversary+gifts+for+her"]
         },
-        "Other": {
+        "Anniversary Other": {
             "search": ["https://www.amazon.de/s?k=Anniversary"],
             "search-male": ["https://www.amazon.de/s?k=Anniversary+gifts+for+him"],
             "search-female": ["https://www.amazon.de/s?k=Anniversary+gifts+for+her"]
@@ -81,7 +81,7 @@
         "Silly gifts": {
             "search": ["https://www.amazon.de/s?k=Funny+wedding/gifts"]
         },
-        "Other": {
+        "Wedding Other": {
             "search": ["https://www.amazon.de/s?k=Wedding+gifts"]
         },
         "Baby shower": {
