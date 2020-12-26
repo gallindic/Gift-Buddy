@@ -13,47 +13,63 @@ export default class scraperScreen extends Component {
         super(props)
         this.state = { 
             isLoading: true,
-            dataSource: [] }
+            dataSource: [] 
+        }
     }
 
     componentDidMount(){
         this.getApiData();
     }
 
-    async getApiData(){
-        let parameters = {
-            'priceFrom': Global.BudgetFilter.state.budgetValueOne,
-            'priceTo': Global.BudgetFilter.state.budgetValueTwo,
-        };
-        let parametersBody = [];
+    checkForParametersInState = (state) => {
+      elements = [];
 
-        for (let parameter in parameters) {
-            let encodedKey = encodeURIComponent(parameter);
-            let encodedValue = encodeURIComponent(parameters[parameter]);
-            parametersBody.push(encodedKey + "=" + encodedValue);
-        }
-
-        parametersBody = parametersBody.join("&");
-
-        try{
-            let response = await fetch ('http://172.20.10.5:3000/scrape'
-            , {
-                method: 'POST',
-                headers: {
-                    'Authorization': 'Bearer token',
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: parametersBody,
-                json: true,
+      Object.keys(state).map(i => {
+          if(state[i].length > 0){
+            state[i].forEach(object => {
+              if(typeof(object) === 'object' && object !== null){
+                if('children' in object){
+                  object.children.forEach(child => {
+                    elements.push(child.name);
+                  });
+                } else {
+                  elements.push(object.name);
+                }
+              }
             });
+          }
+      });
 
-            let responseJson = await response.json();
-            this.setState({
-                isLoading: false,
-                dataSource: responseJson,
-            })
+      return elements;
+    }
+
+    async getApiData(){
+        try{
+          let response = await fetch('http://192.168.0.186:5000/scrape', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              'priceFrom': Global.BudgetFilter.state.budgetValueOne,
+              'priceTo': Global.BudgetFilter.state.budgetValueTwo,
+              'hobbies': this.checkForParametersInState(Global.Hobbies.state),
+              'occasion': this.checkForParametersInState(Global.Occasion.state)[0],
+              'ageFrom': Global.AgeFilter.state.ageValueOne,
+              'ageTo': Global.AgeFilter.state.ageValueTwo,
+              'gender': Global.Gender.state.gender
+            }),
+            json: true
+          });
+
+          let responseJson = await response.json();
+          this.setState({
+              isLoading: false,
+              dataSource: responseJson,
+          });
         } catch(error) {
-            console.error(error); 
+          console.error(error); 
         };
     }
 

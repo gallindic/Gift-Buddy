@@ -1,0 +1,120 @@
+{
+    "Age": {
+        "infant": {
+            "search": [
+                "https://www.amazon.de/-/en/b/?node=1981001031&ref_=Oct_s9_apbd_odnav_hd_bw_bO1ZXX_1&pf_rd_r=F8GWWN5CP7SQ2DTQZHBF&pf_rd_p=eb7aa708-0550-5d6a-b2dc-ab6dc09b7ead&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=355007011",
+                "https://www.amazon.de/-/en/b/?node=360390031&ref_=Oct_s9_apbd_odnav_hd_bw_bOO9eJ_1&pf_rd_r=5221KYV6D98KSM91BQ4K&pf_rd_p=40a9c394-5038-51d8-89df-5ccd40e655ce&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=360389031",
+                "https://www.amazon.de/-/en/b/?node=360406031&ref_=Oct_s9_apbd_odnav_hd_bw_bOO9eJ_3&pf_rd_r=5221KYV6D98KSM91BQ4K&pf_rd_p=40a9c394-5038-51d8-89df-5ccd40e655ce&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=360389031"
+            ]
+        },
+        "child": {
+            "search": ["https://www.amazon.de/-/en/b/?node=360543031&ref_=Oct_s9_apbd_odnav_hd_bw_bOOnBv_0&pf_rd_r=C2V3SKYBBPVJ2N9XH690&pf_rd_p=68395acd-3638-5c6a-8cfb-dc4cebd24429&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=360541031"],
+            "search-male": ["https://www.amazon.de/-/en/b/?node=360511031&ref_=Oct_s9_apbd_odnav_hd_bw_b5hrrL5_5&pf_rd_r=CZ2JKX4ZZS85Q1Y6829P&pf_rd_p=a997d407-b9ee-5981-817b-4edf711a9cfa&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=5228883031",
+                "https://www.amazon.de/-/en/b/?node=360526031&ref_=Oct_s9_apbd_odnav_hd_bw_bOOhjD_4&pf_rd_r=6FFD0E1M0MB20H63WCKN&pf_rd_p=87d7a326-10bf-548b-9714-aaa3229ae70c&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=360520031"],
+            "search-female": ["https://www.amazon.de/s?rh=n%3A14494979031&language=en&rd=1&ref=Oct_s9_apbd_odnav_hd_bw_bOP3Jv_2",
+                "https://www.amazon.de/-/en/b/?node=5211906031&ref_=Oct_s9_apbd_odnav_hd_bw_bsL3T&pf_rd_r=CWZTB32477PEMXXHVPD6&pf_rd_p=60b9437b-b967-5f15-b43f-1fd3264fb661&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=12950651"]
+        },
+        "teen": {
+            "search-male": ["https://www.amazon.de/s?k=teen+guy+gifts"],
+            "search-female": ["https://www.amazon.de/s?k=teen+girl+gifts"]
+        }
+    },
+    "Occasion": {
+        "Halloween": {
+            "search": ["https://www.amazon.de/s?k=Halloween", "https://www.amazon.de/s?k=Halloween+decoration"]
+        },
+        "Christmas": {
+            "search": ["https://www.amazon.de/s?k=Christmas", "https://www.amazon.de/s?k=Christmas+decoration",
+                "https://www.amazon.de/s?k=Christmas+sweater", "https://www.amazon.de/s?k=Christmas+lights"],
+            "search-male": ["https://www.amazon.de/s?k=Christmas+gifts+for+guys"],
+            "search-female": ["https://www.amazon.de/s?k=Christmas+gifts+for+girls"]
+        },
+        "Valentine's day": {
+            "search-male": ["https://www.amazon.de/s?k=Valentines+day+gift+for+guys"],
+            "search-female": ["https://www.amazon.de/s?k=Valentines+day+gift+for+girls"]
+        },
+        "Mothers day": {
+            "search": ["https://www.amazon.de/s?k=Mothers+day+gifts"]
+        },
+        "Easter": {
+            "search": ["https://www.amazon.de/s?k=Easter+gifts", "https://www.amazon.de/s?k=Easter+bunny", "https://www.amazon.de/s?k=Easter+bunny+chocolate"]
+        },
+        "Birthday": {
+            "BD 18": {
+                "search-male": ["https://www.amazon.de/s?k=Birthday+18+guy"], 
+                "search-female": ["https://www.amazon.de/s?k=Birthday+18+girl"] 
+            },
+            "BD 20": {
+                "search-male": ["https://www.amazon.de/s?k=Birthday+20+guy"], 
+                "search-female": ["https://www.amazon.de/s?k=Birthday+20+girl"] 
+            },
+            "BD 30": {
+                "search-male": ["https://www.amazon.de/s?k=Birthday+30+guy"], 
+                "search-female": ["https://www.amazon.de/s?k=Birthday+30+girl"] 
+            },
+            "BD 40": {
+                "search-male": ["https://www.amazon.de/s?k=Birthday+40+guy"], 
+                "search-female": ["https://www.amazon.de/s?k=Birthday+40+girl"] 
+            },
+            "BD 50": {
+                "search-male": ["https://www.amazon.de/s?k=Birthday+50+guy"], 
+                "search-female": ["https://www.amazon.de/s?k=Birthday+50+girl"] 
+            }
+        },
+        "Anniversary": {
+            "Wedding anniversary": {
+                "search-male": ["https://www.amazon.de/s?k=Anniversary+gifts+for+him"],
+                "search-female": ["https://www.amazon.de/s?k=Anniversary+gifts+for+her"]
+            },
+            "Relationship anniversary": {
+                "search-male": ["https://www.amazon.de/s?k=Anniversary+gifts+for+him"],
+                "search-female": ["https://www.amazon.de/s?k=Anniversary+gifts+for+her"]
+            },
+            "Other": {
+                "search": ["https://www.amazon.de/s?k=Anniversary"],
+                "search-male": ["https://www.amazon.de/s?k=Anniversary+gifts+for+him"],
+                "search-female": ["https://www.amazon.de/s?k=Anniversary+gifts+for+her"]
+            }
+        },
+        "Wedding": {
+            "Bachelors party": {
+                "search": ["https://www.amazon.de/s?k=Bachelors+party"]
+            },
+            "Bachelorette party": {
+                "search": ["https://www.amazon.de/s?k=Bachelorette+party"]
+            },
+            "Silly gifts": {
+                "search": ["https://www.amazon.de/s?k=Funny+wedding/gifts"]
+            },
+            "Other": {
+                "search": ["https://www.amazon.de/s?k=Wedding+gifts"]
+            }
+        },
+        "Childbirth": {
+            "Baby shower": {
+                "search": ["https://www.amazon.de/s?k=Baby+shower+gifts+for+mother", "https://www.amazon.de/s?k=Baby+shower+gifts",
+                    "https://www.amazon.de/s?k=Baby+shower", "https://www.amazon.de/s?rh=n%3A22653211031&s=featured-rank&language=en&pf_rd_i=12419321031&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_p=6d49024a-cc8e-415a-8e3f-82fb733ac228&pf_rd_r=ECHMMB4W06VYFW5WKHXE&pf_rd_s=merchandised-search-5&pf_rd_t=101&ref=s9_acss_bw_cg_EUByFJA5_1c1_w"]
+            },
+            "Boy": {
+                "search": ["https://www.amazon.de/s?k=Childbirth+gift+boy"]
+            },
+            "Girl": {
+                "search": ["https://www.amazon.de/s?k=Childbirth+gift+girl"]
+            },
+            "Twins": {
+                "search": ["https://www.amazon.de/s?k=Childbirth+gift+twins"]
+            }
+        },
+        "Sacred rites": {
+            "Baptism": {
+                "search": ["https://www.amazon.de/s?k=Angel", "https://www.amazon.de/s?k=Baptism+gift"]
+            },
+            "Holy Communion": {
+                "search": ["https://www.amazon.de/s?k=Holy+communion+souvenir"]
+            },
+            "Confirmation": {
+                "search": ["https://www.amazon.de/s?k=Confirmation+gift"]
+            }
+        }
+    }
+}
