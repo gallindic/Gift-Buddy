@@ -4,14 +4,14 @@ from bs4 import BeautifulSoup
 import json
 import concurrent.futures
 import requests
-from requests_html import HTMLSession
 import random
+import time
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-MAX_THREADS = 30
+MAX_THREADS = 100
 HEADERS = ({'User-Agent':
             'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36',
             'Accept-Language': 'en-US, en;q=0.5'})
@@ -31,7 +31,7 @@ def remove_duplicate_hobbies(parameters):
 
 def read_mapping_table():
     json_file = open("mappingTable.json")
-    return json.loads(json_file.read()) 
+    return json.loads(json_file.read())
 
 
 def is_parameter_set(parameters, parameter):
@@ -96,10 +96,43 @@ def handle_occasion_parameter(parameters, mapping_table):
     return urls
 
 
+def handle_hobbies_parameter(parameters, mapping_table):
+    if not is_parameter_set(parameters, 'hobbies') or parameters["hobbies"] == set():
+        return []
+
+    urls = []
+
+    for hoby in parameters["hobbies"]:
+        if len(mapping_table['Hobbies'][hoby]) == 1:
+            urls.extend(mapping_table['Hobbies'][hoby]['search'])
+        elif len(mapping_table['Hobbies'][hoby]) < 3:
+            if parameters['gender'] == 'Male':
+                urls.extend(mapping_table['Hobbies'][hoby]['search-male'])
+            elif parameters['gender'] == 'Female':
+                urls.extend(mapping_table['Hobbies'][hoby]['search-female'])
+            else:
+                urls.extend(mapping_table['Hobbies'][hoby]['search-male'])
+                urls.extend(mapping_table['Hobbies'][hoby]['search-female'])
+        else:
+            urls.extend(mapping_table['Hobbies'][hoby]['search'])
+            if parameters['gender'] == 'Male':
+                urls.extend(mapping_table['Hobbies'][hoby]['search-male'])
+            elif parameters['gender'] == 'Female':
+                urls.extend(mapping_table['Hobbies'][hoby]['search-female'])
+            else:
+                urls.extend(mapping_table['Hobbies'][hoby]['search-male'])
+                urls.extend(mapping_table['Hobbies'][hoby]['search-female'])
+    
+
+    return urls
+
+
+
 def get_urls_to_scrape(mapping_table, parameters):
     urls_to_scrape = []
     urls_to_scrape.extend(handle_age_parameter(parameters, mapping_table))
     urls_to_scrape.extend(handle_occasion_parameter(parameters, mapping_table))
+    urls_to_scrape.extend(handle_hobbies_parameter(parameters, mapping_table))
 
     return urls_to_scrape 
 
@@ -118,7 +151,6 @@ def scrape_amazon(urls_to_scrape, price_range):
 
 
 def page_scrape(url, price_range):
-    print(url)
     page = requests.get(url, headers=HEADERS)
     soup = BeautifulSoup(page.content, 'html.parser')
     products = []
@@ -127,12 +159,14 @@ def page_scrape(url, price_range):
 
     for item in items:
         if item.find('span', class_='a-text-normal') is None or item.find('a', class_='a-text-normal') is None \
-            or item.find('img', class_='s-image') is None or item.find('span', class_='a-price-whole') is None:
+            or item.find('img', class_='s-image').get('srcset') is None or item.find('span', class_='a-price-whole') is None:
             continue
         
         price = item.find('span', class_='a-price-whole').string.strip()
+        price = price.replace(",", ".")
+        price = price.replace(".", "", price.count(".") -1)
 
-        if float(price.replace(",", ".")) < float(price_range[0]) or float(price.replace(",", ".")) > float(price_range[1]):
+        if float(price) < float(price_range[0]) or float(price) > float(price_range[1]):
             continue
 
         product = dict()       
@@ -149,13 +183,12 @@ def page_scrape(url, price_range):
 @app.route('/scrape', methods=['POST'])
 def scrape():
     parameters = remove_duplicate_hobbies(request.get_json())
-    print("data is " + format(parameters))
 
     urls_to_scrape = get_urls_to_scrape(read_mapping_table(), parameters)
     products = scrape_amazon(urls_to_scrape, (parameters['priceFrom'], parameters['priceTo']))
-    
-    print("Scraped", len(products), "products")
+    random.shuffle(products)
+
     return jsonify(products)
 
 
-app.run(host='192.168.0.186')
+app.run(host='192.168.0.186', port=5000)
