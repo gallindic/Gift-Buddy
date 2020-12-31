@@ -45,7 +45,7 @@ export default class scraperScreen extends Component {
 
     async getApiData(){
         try{
-          let response = await fetch('http://192.168.0.186:5000/scrape', {
+          let response = await fetch('https://giftbuddyapi.herokuapp.com/scrape', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',
