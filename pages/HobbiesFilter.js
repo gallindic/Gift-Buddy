@@ -1059,7 +1059,7 @@ const arts = [
         id: 'Accessories 4',
       },
       {
-        name: 'Other',
+        name: 'Art other',
         id: 'Accessories 5',
       },
     ],
@@ -1114,7 +1114,7 @@ const music = [
         id: 'Instruments 5',
       },
       {
-        name: 'Other',
+        name: 'Instruments other',
         id: 'Instruments 6',
       },
     ],
@@ -1132,7 +1132,7 @@ const music = [
         id: 'Accessories 4',
       },
       {
-        name: 'Other',
+        name: 'Accessories other',
         id: 'Accessories 5',
       },
     ],
@@ -1163,7 +1163,7 @@ const dancing = [
         id: 'Accessories 1',
       },
       {
-        name: 'Speakers',
+        name: 'Dancing Speakers',
         id: 'Accessories 2',
       },
     ],
