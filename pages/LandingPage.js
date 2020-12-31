@@ -40,7 +40,7 @@ export default class LandingPage extends Component {
           <Button
             text="Browse trending"
             size="large"
-            onPress={() => null}
+            onPress={() => this.props.navigation.navigate('trendingScreen')}
           />
         </ImageBackground>
         <Footer />

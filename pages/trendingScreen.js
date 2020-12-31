@@ -8,7 +8,7 @@ import Global from '../components/Global'
 
 const HEIGHT = Dimensions.get('window').height;
 
-export default class scraperScreen extends Component {
+export default class trendingScreen extends Component {
     constructor(props){
         super(props)
         this.state = { 
@@ -21,44 +21,16 @@ export default class scraperScreen extends Component {
         this.getApiData();
     }
 
-    checkForParametersInState = (state) => {
-      elements = [];
-
-      Object.keys(state).map(i => {
-          if(state[i].length > 0){
-            state[i].forEach(object => {
-              if(typeof(object) === 'object' && object !== null){
-                if('children' in object){
-                  object.children.forEach(child => {
-                    elements.push(child.name);
-                  });
-                } else {
-                  elements.push(object.name);
-                }
-              }
-            });
-          }
-      });
-
-      return elements;
-    }
-
     async getApiData(){
         try{
-          let response = await fetch('https://giftbuddyapi.herokuapp.com/scrape', {
+          let response = await fetch('https://giftbuddyapi.herokuapp.com/scrapeTrending', {
             method: 'POST',
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              'priceFrom': Global.BudgetFilter.state.budgetValueOne,
-              'priceTo': Global.BudgetFilter.state.budgetValueTwo == 0 ? 999999 : Global.BudgetFilter.state.budgetValueTwo,
-              'hobbies': this.checkForParametersInState(Global.Hobbies.state),
-              'occasion': this.checkForParametersInState(Global.Occasion.state)[0],
-              'ageFrom': Global.AgeFilter.state.ageValueOne,
-              'ageTo': Global.AgeFilter.state.ageValueTwo,
-              'gender': Global.Gender.state.gender
+                'searchTrending': true,
             }),
             json: true
           });

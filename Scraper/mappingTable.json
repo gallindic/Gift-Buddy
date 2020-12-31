@@ -161,19 +161,22 @@
             "search": ["https://www.amazon.de/s?k=Volleyball+accessories"]
         },
         "Volleyball Footwear": {
-            "search": []
+            "search-male": ["https://www.amazon.de/s?k=volleyball+footwear+men&ref=nb_sb_noss"],
+            "search-female": ["https://www.amazon.de/s?k=volleyball+footwear+women&ref=nb_sb_noss"]
         },
         "Tennis Accessories": {
-            "search": [""]
+            "search": ["https://www.amazon.de/s?k=tennis+accessoires&crid=2SEY1K8HFQGFL&sprefix=tennis+acce%2Caps%2C344&ref=nb_sb_ss_ts-a-p_1_11"]
         },
         "Tennis Clothing": {
-            "search": [""]
+            "search-male": ["https://www.amazon.de/s?k=tennis+clothing+men&ref=nb_sb_noss"],
+            "search-female": ["https://www.amazon.de/s?k=tennis+clothing+women&ref=nb_sb_noss"]
         },
         "Tennis Racket": {
-            "search": []
+            "search": ["https://www.amazon.de/s?k=tennis+racket&ref=nb_sb_noss"]
         },
         "Tennis Footwear": {
-            "search": []
+            "search-male": ["https://www.amazon.de/s?k=tennis+footwear+men&ref=nb_sb_noss"],
+            "search-female": ["https://www.amazon.de/s?k=tennis+footwear+women&ref=nb_sb_noss"]
         },
         "Bikes": {
             "search": ["https://www.amazon.de/-/en/b/?node=235171011&ref_=Oct_s9_apbd_odnav_hd_bw_b8CCKd_5&pf_rd_r=XE2HVH1B8Q4TZK7PW25Z&pf_rd_p=8ac09387-44d9-5a27-bbcc-1885025135a0&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=121118031", 
@@ -438,7 +441,7 @@
             "search-male": ["https://www.amazon.de/s?k=Men+nike+trainers", "https://www.amazon.de/s?k=Men+adidas+trainers", "https://www.amazon.de/s?k=Men+under+armour+trainers"],
             "search-female": ["https://www.amazon.de/s?k=Women+nike+trainers", "https://www.amazon.de/s?k=Women+adidas+trainers", "https://www.amazon.de/s?k=Women+under+armour+trainers"]
         },
-        "Classy Footwear": {
+        "Classy footwear": {
             "search-male": ["https://www.amazon.de/s?k=Men+business+shoes"],
             "search-female": ["https://www.amazon.de/s?k=Women+high+heels", "https://www.amazon.de/s?k=Women+high+heel+sandals"]
         },
@@ -532,6 +535,36 @@
             "search": ["https://www.amazon.de/s?rh=n%3A187254%2Cp_n_binding_browse-bin%3A308849031&language=en&pf_rd_i=300259&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_s=merchandised-search-leftnav&pf_rd_t=101&ref=amb_link_12",
                     "https://www.amazon.de/s?rh=n%3A403434%2Cp_n_binding_browse-bin%3A308849031&language=en&pf_rd_i=300259&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_s=merchandised-search-leftnav&pf_rd_t=101&ref=amb_link_13",
                     "https://www.amazon.de/s?i=stripbooks&bbn=536302&rh=n%3A186606%2Cn%3A%21541686%2Cn%3A536302%2Cp_n_binding_browse-bin%3A308849031&language=en&pf_rd_i=300259&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_s=merchandised-search-leftnav&pf_rd_t=101&ref=amb_link_15"]
+        },
+        "Novels": {
+            "search": ["https://www.amazon.de/s?k=novels&ref=nb_sb_noss"]
+        },
+        "Crime": {
+            "search": ["https://www.amazon.de/s?k=crime+books&ref=nb_sb_noss"]
+        },
+        "Adventure": {
+            "search": ["https://www.amazon.de/s?k=adventure+books&ref=nb_sb_noss"]
+        },
+        "Horror": {
+            "search": ["https://www.amazon.de/s?k=horror+books&ref=nb_sb_noss"]
+        },
+        "Romance": {
+            "search": ["https://www.amazon.de/s?k=erotic+novels&ref=nb_sb_noss"]
+        },
+        "History": {
+            "search": ["https://www.amazon.de/s?k=history+books&ref=nb_sb_noss"]
+        },
+        "Childrens book": {
+            "search": ["https://www.amazon.de/s?k=childrens+books&ref=nb_sb_noss"]
         }
+    },
+    "Trending": {
+        "search": ["https://www.amazon.de/-/en/gp/bestsellers/videogames/ref=zg_bs_nav_0",
+                "https://www.amazon.de/-/en/gp/bestsellers/books/ref=zg_bs_nav_0",
+                "https://www.amazon.de/-/en/gp/bestsellers/apparel/ref=zg_bs_nav_0",
+                "https://www.amazon.de/-/en/gp/bestsellers/computers/ref=zg_bs_nav_0",
+                "https://www.amazon.de/-/en/gp/bestsellers/ce-de/ref=zg_bs_nav_0",
+                "https://www.amazon.de/-/en/gp/bestsellers/kitchen/ref=zg_bs_nav_0",
+                "https://www.amazon.de/-/en/gp/bestsellers/jewelry/ref=zg_bs_nav_0"]
     }
 }
