@@ -9,11 +9,14 @@ const HEIGHT = Dimensions.get('window').height;
 
 export default class Product extends Component {
     render() {
+        console.log(this.props.product.imageLink);
         return(
+            
             <View key={this.props.index} style={styles.body}>
-                <Image source={{ uri: this.props.product.imageLink, cache: "force-cache" }} style={{width: '90%', height: HEIGHT * 0.25, paddingBottom: 20}} resizeMode='contain'/>
-                <Text style={styles.description} adjustsFontSizeToFit numberOfLines={4}>{ this.props.product.title }</Text>
-                <Text style={styles.price}>{this.props.product.price}</Text>
+                
+                <Image source={{ uri: this.props.product.imageLink }} style={{width: '90%', height: HEIGHT * 0.25, paddingBottom: 20}} resizeMode='contain'/>
+                {/*<Text style={styles.description} adjustsFontSizeToFit numberOfLines={4}>{ this.props.product.title }</Text>*/}
+                <Text style={styles.price}>{this.props.product.price} €</Text>
                 <TouchableOpacity style={styles.button} onPress={ ()=>{ Linking.openURL(this.props.product.link)}}><Text style={styles.buttonText}>Show</Text></TouchableOpacity>
             </View>
         );

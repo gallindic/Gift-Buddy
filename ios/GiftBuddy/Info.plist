@@ -79,6 +79,12 @@
 	<key>NSRemindersUsageDescription</key>
 	<string>Allow GiftBuddy to access your reminders</string>
 	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	  <key>NSExceptionDomains</key>
+	
 </dict>
+
 </plist>

@@ -1,0 +1,5 @@
+flask
+flask_CORS
+gunicorn
+beautifulsoup4
+bs4

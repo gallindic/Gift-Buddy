@@ -1,0 +1,537 @@
+{
+    "Age": {
+        "infant": {
+            "search": [
+                "https://www.amazon.de/-/en/b/?node=1981001031&ref_=Oct_s9_apbd_odnav_hd_bw_bO1ZXX_1&pf_rd_r=F8GWWN5CP7SQ2DTQZHBF&pf_rd_p=eb7aa708-0550-5d6a-b2dc-ab6dc09b7ead&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=355007011",
+                "https://www.amazon.de/-/en/b/?node=360390031&ref_=Oct_s9_apbd_odnav_hd_bw_bOO9eJ_1&pf_rd_r=5221KYV6D98KSM91BQ4K&pf_rd_p=40a9c394-5038-51d8-89df-5ccd40e655ce&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=360389031",
+                "https://www.amazon.de/-/en/b/?node=360406031&ref_=Oct_s9_apbd_odnav_hd_bw_bOO9eJ_3&pf_rd_r=5221KYV6D98KSM91BQ4K&pf_rd_p=40a9c394-5038-51d8-89df-5ccd40e655ce&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=360389031"
+            ]
+        },
+        "child": {
+            "search": ["https://www.amazon.de/-/en/b/?node=360543031&ref_=Oct_s9_apbd_odnav_hd_bw_bOOnBv_0&pf_rd_r=C2V3SKYBBPVJ2N9XH690&pf_rd_p=68395acd-3638-5c6a-8cfb-dc4cebd24429&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=360541031"],
+            "search-male": ["https://www.amazon.de/-/en/b/?node=360511031&ref_=Oct_s9_apbd_odnav_hd_bw_b5hrrL5_5&pf_rd_r=CZ2JKX4ZZS85Q1Y6829P&pf_rd_p=a997d407-b9ee-5981-817b-4edf711a9cfa&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=5228883031",
+                "https://www.amazon.de/-/en/b/?node=360526031&ref_=Oct_s9_apbd_odnav_hd_bw_bOOhjD_4&pf_rd_r=6FFD0E1M0MB20H63WCKN&pf_rd_p=87d7a326-10bf-548b-9714-aaa3229ae70c&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=360520031"],
+            "search-female": ["https://www.amazon.de/s?rh=n%3A14494979031&language=en&rd=1&ref=Oct_s9_apbd_odnav_hd_bw_bOP3Jv_2",
+                "https://www.amazon.de/-/en/b/?node=5211906031&ref_=Oct_s9_apbd_odnav_hd_bw_bsL3T&pf_rd_r=CWZTB32477PEMXXHVPD6&pf_rd_p=60b9437b-b967-5f15-b43f-1fd3264fb661&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=12950651"]
+        },
+        "teen": {
+            "search-male": ["https://www.amazon.de/s?k=teen+guy+gifts"],
+            "search-female": ["https://www.amazon.de/s?k=teen+girl+gifts"]
+        }
+    },
+    "Occasion": {
+        "Halloween": {
+            "search": ["https://www.amazon.de/s?k=Halloween", "https://www.amazon.de/s?k=Halloween+decoration"]
+        },
+        "Christmas": {
+            "search": ["https://www.amazon.de/s?k=Christmas", "https://www.amazon.de/s?k=Christmas+decoration",
+                "https://www.amazon.de/s?k=Christmas+sweater", "https://www.amazon.de/s?k=Christmas+lights"],
+            "search-male": ["https://www.amazon.de/s?k=Christmas+gifts+for+guys"],
+            "search-female": ["https://www.amazon.de/s?k=Christmas+gifts+for+girls"]
+        },
+        "Valentine's day": {
+            "search-male": ["https://www.amazon.de/s?k=Valentines+day+gift+for+guys"],
+            "search-female": ["https://www.amazon.de/s?k=Valentines+day+gift+for+girls"]
+        },
+        "Mothers day": {
+            "search": ["https://www.amazon.de/s?k=Mothers+day+gifts"]
+        },
+        "Easter": {
+            "search": ["https://www.amazon.de/s?k=Easter+gifts", "https://www.amazon.de/s?k=Easter+bunny", "https://www.amazon.de/s?k=Easter+bunny+chocolate"]
+        },
+        "18": {
+            "search-male": ["https://www.amazon.de/s?k=Birthday+18+guy"], 
+            "search-female": ["https://www.amazon.de/s?k=Birthday+18+girl"] 
+        },
+        "20": {
+            "search-male": ["https://www.amazon.de/s?k=Birthday+20+guy"], 
+            "search-female": ["https://www.amazon.de/s?k=Birthday+20+girl"] 
+        },
+        "30": {
+            "search-male": ["https://www.amazon.de/s?k=Birthday+30+guy"], 
+            "search-female": ["https://www.amazon.de/s?k=Birthday+30+girl"] 
+        },
+        "40": {
+            "search-male": ["https://www.amazon.de/s?k=Birthday+40+guy"], 
+            "search-female": ["https://www.amazon.de/s?k=Birthday+40+girl"] 
+        },
+        "50": {
+            "search-male": ["https://www.amazon.de/s?k=Birthday+50+guy"], 
+            "search-female": ["https://www.amazon.de/s?k=Birthday+50+girl"] 
+        },
+        "Wedding anniversary": {
+            "search-male": ["https://www.amazon.de/s?k=Anniversary+gifts+for+him"],
+            "search-female": ["https://www.amazon.de/s?k=Anniversary+gifts+for+her"]
+        },
+        "Relationship anniversary": {
+            "search-male": ["https://www.amazon.de/s?k=Anniversary+gifts+for+him"],
+            "search-female": ["https://www.amazon.de/s?k=Anniversary+gifts+for+her"]
+        },
+        "Anniversary Other": {
+            "search": ["https://www.amazon.de/s?k=Anniversary"],
+            "search-male": ["https://www.amazon.de/s?k=Anniversary+gifts+for+him"],
+            "search-female": ["https://www.amazon.de/s?k=Anniversary+gifts+for+her"]
+        },
+        "Bachelors party": {
+            "search": ["https://www.amazon.de/s?k=Bachelors+party"]
+        },
+        "Bachelorette party": {
+            "search": ["https://www.amazon.de/s?k=Bachelorette+party"]
+        },
+        "Silly gifts": {
+            "search": ["https://www.amazon.de/s?k=Funny+wedding/gifts"]
+        },
+        "Wedding Other": {
+            "search": ["https://www.amazon.de/s?k=Wedding+gifts"]
+        },
+        "Baby shower": {
+            "search": ["https://www.amazon.de/s?k=Baby+shower+gifts+for+mother", "https://www.amazon.de/s?k=Baby+shower+gifts",
+                "https://www.amazon.de/s?k=Baby+shower", "https://www.amazon.de/s?rh=n%3A22653211031&s=featured-rank&language=en&pf_rd_i=12419321031&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_p=6d49024a-cc8e-415a-8e3f-82fb733ac228&pf_rd_r=ECHMMB4W06VYFW5WKHXE&pf_rd_s=merchandised-search-5&pf_rd_t=101&ref=s9_acss_bw_cg_EUByFJA5_1c1_w"]
+        },
+        "Boy": {
+            "search": ["https://www.amazon.de/s?k=Childbirth+gift+boy"]
+        },
+        "Girl": {
+            "search": ["https://www.amazon.de/s?k=Childbirth+gift+girl"]
+        },
+        "Twins": {
+            "search": ["https://www.amazon.de/s?k=Childbirth+gift+twins"]
+        },
+        "Baptism": {
+            "search": ["https://www.amazon.de/s?k=Angel", "https://www.amazon.de/s?k=Baptism+gift"]
+        },
+        "Holy Communion": {
+            "search": ["https://www.amazon.de/s?k=Holy+communion+souvenir"]
+        },
+        "Confirmation": {
+            "search": ["https://www.amazon.de/s?k=Confirmation+gift"]
+        }
+    },
+    "Hobbies": {
+        "Football Footwear": {
+            "search-male": ["https://www.amazon.de/-/en/b/?node=1760391031&ref_=Oct_s9_apbd_odnav_hd_bw_b1vPEGd_0&pf_rd_r=SJJM2674V42S0H1BFJD8&pf_rd_p=da7de6e6-6d2b-550a-add7-c09e04a1fe46&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=1764397031"],
+            "search-female": ["https://www.amazon.de/-/en/b/?node=1760331031&ref_=Oct_s9_apbd_odnav_hd_bw_b1vPEGd_3&pf_rd_r=SJJM2674V42S0H1BFJD8&pf_rd_p=da7de6e6-6d2b-550a-add7-c09e04a1fe46&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=1764397031"]
+
+        },
+        "Football Accessories": {
+            "search": ["https://www.amazon.de/s?keywords=Goalkeeping+Gloves&rh=n%3A195721011%2Cp_72%3A4-&c=ts&ts_id=195721011&ref=Oct_s9_apbd_otopr_hd_bw_bDFDyV_S", "https://www.amazon.de/s?keywords=Football+Shin+Guards&rh=n%3A190843011%2Cp_72%3A4-&c=ts&ts_id=190843011&ref=Oct_s9_apbd_otopr_hd_bw_bCukz5_S", 
+                    "https://www.amazon.de/s?keywords=Football+Nets&rh=n%3A244349011%2Cp_72%3A4-&c=ts&ts_id=244349011&ref=Oct_s9_apbd_otopr_hd_bw_bGXGL5_S", "https://www.amazon.de/-/en/b/?node=3969357031&ref_=Oct_s9_apbd_odnav_hd_bw_bDLT4V_1&pf_rd_r=B4T52Y4AZ7Y5FNBAX6BB&pf_rd_p=6325727b-c4eb-5746-a64a-5d9fdc8e9d06&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=197209011",
+                    "https://www.amazon.de/-/en/b/?node=3969354031&ref_=Oct_s9_apbd_odnav_hd_bw_bDLT4V_6&pf_rd_r=B4T52Y4AZ7Y5FNBAX6BB&pf_rd_p=6325727b-c4eb-5746-a64a-5d9fdc8e9d06&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=197209011"
+                ]
+        },
+        "Football Clothing": {
+            "search-male": ["https://www.amazon.de/-/en/b/?node=3771490031&ref_=Oct_s9_apbd_odnav_hd_bw_b5hRdf_1&pf_rd_r=M0CKG10D61KNF2FC7PJP&pf_rd_p=a95c8071-0bce-557b-acba-ebdb96eafbc2&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=84236031"],
+            "search-female": ["https://www.amazon.de/-/en/b/?node=3771504031&ref_=Oct_s9_apbd_odnav_hd_bw_b5hRdf_3&pf_rd_r=M0CKG10D61KNF2FC7PJP&pf_rd_p=a95c8071-0bce-557b-acba-ebdb96eafbc2&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=84236031"]
+        },
+        "Football Fanbase": {
+            "search": ["https://www.amazon.de/s?k=Messi", "https://www.amazon.de/s?k=Ronaldno", "https://www.amazon.de/s?k=Barcelona", "https://www.amazon.de/s?k=Real+Madrid", "https://www.amazon.de/s?k=Oblak"]
+        },
+        "Football Brands": {
+            "search": ["https://www.amazon.de/s?k=Nike+soccer", "https://www.amazon.de/s?k=Adidas+soccer", "https://www.amazon.de/s?k=Puma+soccer", "https://www.amazon.de/s?k=Underarmor+soccer"]
+        },
+        "Basketball Clothing": {
+            "search": [ "https://www.amazon.de/s?k=Headband"],
+            "search-male": ["https://www.amazon.de/s?k=Basketball+shorts+for+men", "https://www.amazon.de/s?k=Basketball+shirts+for+men", "https://www.amazon.de/s?k=Jordan+socks+for+men", "https://www.amazon.de/s?k=Basketball+tights+for+men"],
+            "search-female": ["https://www.amazon.de/s?k=Basketball+shorts+for+women", "https://www.amazon.de/s?k=Basketball+shirts+for+women", "https://www.amazon.de/s?k=Jordan+socks+for+women", "https://www.amazon.de/s?k=Basketball+tights+for+women"]
+        },
+        "Basketball Fanbase": {
+            "search": ["https://www.amazon.de/s?k=Goran+Dragić", "https://www.amazon.de/s?k=Luka+Dončić", "https://www.amazon.de/s?k=Lebron+James", "https://www.amazon.de/s?k=NBA+jersey"]
+        },
+        "Basketball Accessories": {
+            "search": ["https://www.amazon.de/s?k=Basketball+accessories"]
+        },
+        "Basketball Footwear": {
+            "search": ["https://www.amazon.de/s?k=KD+basketball+shoes", "https://www.amazon.de/s?k=Lebron+basketball+shoes", "https://www.amazon.de/s?k=Kyrie+basketball+shoes",
+                "https://www.amazon.de/s?k=Jordan+basketball+shoes"]
+        },
+        "Basketball Brands": {
+            "search": ["https://www.amazon.de/s?k=Jordan+basketball", "https://www.amazon.de/s?k=Nike+basketball", "https://www.amazon.de/s?k=Adidas+basketball"]
+        },
+        "Volleyball Clothing": {
+            "search-male": ["https://www.amazon.de/s?k=Volleyball+clothes+for+men"],
+            "search-female": ["https://www.amazon.de/s?k=Volleyball+clothes+for+women"]
+        },
+        "Volleyball Brands": {
+            "search": ["https://www.amazon.de/s?k=Mikasa", "https://www.amazon.de/s?k=Tachikara", "https://www.amazon.de/s?k=Molten", "https://www.amazon.de/s?k=Franklin+sports"]
+        },
+        "Volleyball Fanbase": {
+            "search": ["https://www.amazon.de/s?k=Volleyball+fanartikel"]
+        },
+        "Volleyball Accessories": {
+            "search": ["https://www.amazon.de/s?k=Volleyball+accessories"]
+        },
+        "Volleyball Footwear": {
+            "search": []
+        },
+        "Tennis Accessories": {
+            "search": [""]
+        },
+        "Tennis Clothing": {
+            "search": [""]
+        },
+        "Tennis Racket": {
+            "search": []
+        },
+        "Tennis Footwear": {
+            "search": []
+        },
+        "Bikes": {
+            "search": ["https://www.amazon.de/-/en/b/?node=235171011&ref_=Oct_s9_apbd_odnav_hd_bw_b8CCKd_5&pf_rd_r=XE2HVH1B8Q4TZK7PW25Z&pf_rd_p=8ac09387-44d9-5a27-bbcc-1885025135a0&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=121118031", 
+                "https://www.amazon.de/-/en/b/?node=235166011&ref_=Oct_s9_apbd_odnav_hd_bw_b8CCKd_1&pf_rd_r=XE2HVH1B8Q4TZK7PW25Z&pf_rd_p=8ac09387-44d9-5a27-bbcc-1885025135a0&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=121118031",
+                "https://www.amazon.de/-/en/b/?node=245332011&ref_=Oct_s9_apbd_odnav_hd_bw_b8CCKd_0&pf_rd_r=XE2HVH1B8Q4TZK7PW25Z&pf_rd_p=8ac09387-44d9-5a27-bbcc-1885025135a0&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=121118031"]
+        },
+        "Cycling Clothing": {
+            "search-male": ["https://www.amazon.de/-/en/b/?_encoding=UTF8&node=3771214031&bbn=16435051&ref_=Oct_s9_apbd_odnav_hd_bw_b16xY3&pf_rd_r=HRQ1PEYZYS4FRKB9YSCC&pf_rd_p=b5f6a76c-761a-57bf-8f07-8823c613adac&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=16435211"],
+            "search-female": ["https://www.amazon.de/-/en/b/?_encoding=UTF8&node=3771214031&bbn=16435051&ref_=Oct_s9_apbd_odnav_hd_bw_b16xY3&pf_rd_r=HRQ1PEYZYS4FRKB9YSCC&pf_rd_p=b5f6a76c-761a-57bf-8f07-8823c613adac&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=16435211"]
+        },
+        "Cycling Footwear": {
+            "search-male": ["https://www.amazon.de/-/en/b/?_encoding=UTF8&node=1760405031&bbn=16435051&ref_=Oct_s9_apbd_odnav_hd_bw_b16xY3&pf_rd_r=0G7H92QGB5154WJC4A9X&pf_rd_p=b5f6a76c-761a-57bf-8f07-8823c613adac&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=16435211"],
+            "search-female": ["https://www.amazon.de/-/en/b/?_encoding=UTF8&node=1760345031&bbn=16435051&ref_=Oct_s9_apbd_odnav_hd_bw_b16xY3&pf_rd_r=0G7H92QGB5154WJC4A9X&pf_rd_p=b5f6a76c-761a-57bf-8f07-8823c613adac&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=16435211"]
+        },
+        "Cycling Accessories": {
+            "search": ["https://www.amazon.de/-/en/b/?node=235168011&ref_=Oct_s9_apbd_odnav_hd_bw_bNMY5z_6&pf_rd_r=1GSQ6QHVP2ST0MPQVH4D&pf_rd_p=35044203-e5eb-5da9-9487-c361f0d05d7d&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=345230011",
+                    "https://www.amazon.de/-/en/b/?node=235157011&ref_=Oct_s9_apbd_odnav_hd_bw_bNMY5z_4&pf_rd_r=1GSQ6QHVP2ST0MPQVH4D&pf_rd_p=35044203-e5eb-5da9-9487-c361f0d05d7d&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=345230011",
+                    "https://www.amazon.de/-/en/b/?node=4108665031&ref_=Oct_s9_apbd_odnav_hd_bw_bNMY5z_5&pf_rd_r=1GSQ6QHVP2ST0MPQVH4D&pf_rd_p=35044203-e5eb-5da9-9487-c361f0d05d7d&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=345230011",
+                    "https://www.amazon.de/-/en/b/?node=460978031&ref_=Oct_s9_apbd_odnav_hd_bw_bNMY5z_3&pf_rd_r=1GSQ6QHVP2ST0MPQVH4D&pf_rd_p=35044203-e5eb-5da9-9487-c361f0d05d7d&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=345230011",
+                    "https://www.amazon.de/-/en/b/?_encoding=UTF8&node=235154011&bbn=16435051&ref_=Oct_s9_apbd_odnav_hd_bw_b16xY3_8&pf_rd_r=0G7H92QGB5154WJC4A9X&pf_rd_p=b5f6a76c-761a-57bf-8f07-8823c613adac&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=16435211"]
+        },
+        "Running Footwear": {
+            "search-male": ["https://www.amazon.de/s?k=Running+shoes+for+men"],
+            "search-female": ["https://www.amazon.de/s?k=Running+shoes+for+women"]
+        },
+        "Running Clothing": {
+            "search-male": ["https://www.amazon.de/s?k=Running+clothing+for+men"],
+            "search-female": ["https://www.amazon.de/s?k=Running+clothing+for+women"]
+        },
+        "Running Accessories": {
+            "search": ["https://www.amazon.de/s?k=Running+accessories"]
+        },
+        "Fishing rods": {
+            "search": ["https://www.amazon.de/s?k=Fishing+rods", "https://www.amazon.de/s?k=Shimano+fishing+rods", "https://www.amazon.de/s?k=Shimano+fishing+reel"]
+        },
+        "Harpunes": {
+            "search": ["https://www.amazon.de/s?k=Pneumatic+harpoons", "https://www.amazon.de/s?k=Seac+harpoons"]
+        },
+        "Fishing Accessories": {
+            "search": ["https://www.amazon.de/s?k=Creesi+mask", "https://www.amazon.de/s?k=Carbon+fins", "https://www.amazon.de/s?k=Fishing+lure"]
+        },
+        "Gaming computers": {
+            "search": ["https://www.amazon.de/s?k=Gaming+computer"]
+        },
+        "Gaming keyboards": {
+            "search": ["https://www.amazon.de/s?k=Gaming+keyboard"]
+        },
+        "Gaming mouses": {
+            "search": ["https://www.amazon.de/s?k=Gaming+mouse"]
+        },
+        "Gaming accessories": {
+            "search": ["https://www.amazon.de/s?k=Gaming+accessories"]
+        },
+        "Gaming consoles": {
+            "search": ["https://www.amazon.de/s?k=Gaming+console", "https://www.amazon.de/s?k=Playstation+console", "https://www.amazon.de/s?k=Xbox+console"]
+        },
+        "Audio accessories": {
+            "search": ["https://www.amazon.de/s?k=Audio+accessories"]
+        },
+        "Microphones" : {
+            "search": ["https://www.amazon.de/s?k=Microphones"]
+        },
+        "Headphones": {
+            "search": ["https://www.amazon.de/s?k=Headphones"]
+        },
+        "Speakers": {
+            "search": ["https://www.amazon.de/s?k=Speakers"]
+        },
+        "TVs": {
+            "search": ["https://www.amazon.de/-/en/b/?node=1197292&ref_=Oct_s9_apbd_odnav_hd_bw_b3C2I_4&pf_rd_r=NANMF9SF6Q9GTH5VDQGT&pf_rd_p=b5a1d20b-abc5-5414-aff4-8c6ec711053f&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=761254"]
+        },
+        "Monitors": {
+            "search": ["https://www.amazon.de/-/en/s?bbn=514839031&rh=n%3A340843031%2Cn%3A514839031%2Cn%3A429868031&dc&qid=1609081849&rnid=514839031&ref=lp_514839031_nr_n_2"]
+        },
+        "Cameras": {
+            "search": ["https://www.amazon.de/s?k=Camera"]
+        },
+        "Camera accessories": {
+            "search": ["https://www.amazon.de/s?k=Camera+accessories"]
+        },
+        "Projectors": {
+            "search": ["https://www.amazon.de/s?k=Projector"]
+        },
+        "Photo frames": {
+            "search": ["https://www.amazon.de/s?k=Photo+frames"]
+        },
+        "Apple": {
+            "search": ["https://www.amazon.de/s?k=Apple+phones"]
+        },
+        "Huawei": {
+            "search": ["https://www.amazon.de/s?k=Huawei+phones"]
+        },
+        "LG": {
+            "search": ["https://www.amazon.de/s?k=LG+phones"]
+        },
+        "HTC": {
+            "search": ["https://www.amazon.de/s?k=HTC+phones"]
+        },
+        "Mobile accessories": {
+            "search": ["https://www.amazon.de/-/en/b/?node=364935031&ref_=Oct_s9_apbd_odnav_hd_bw_bOh9qh_0&pf_rd_r=GR67MWW08QRXDY7MQZN5&pf_rd_p=72a22dab-4169-5d27-b2b8-d3e5fbd07bf4&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=364918031",
+                    "https://www.amazon.de/-/en/b/?_encoding=UTF8&node=21529476031&bbn=562066&ref_=Oct_s9_apbd_odnav_hd_bw_bOh9qh_1&pf_rd_r=GR67MWW08QRXDY7MQZN5&pf_rd_p=72a22dab-4169-5d27-b2b8-d3e5fbd07bf4&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=364918031",
+                    "https://www.amazon.de/-/en/b/?_encoding=UTF8&node=21529478031&bbn=562066&ref_=Oct_s9_apbd_odnav_hd_bw_bOh9qh_5&pf_rd_r=GR67MWW08QRXDY7MQZN5&pf_rd_p=72a22dab-4169-5d27-b2b8-d3e5fbd07bf4&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=364918031",
+                    "https://www.amazon.de/-/en/b/?node=364929031&ref_=Oct_s9_apbd_odnav_hd_bw_bOh9qh_7&pf_rd_r=GR67MWW08QRXDY7MQZN5&pf_rd_p=72a22dab-4169-5d27-b2b8-d3e5fbd07bf4&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=364918031"]
+        },
+        "Laptops": {
+            "search": ["https://www.amazon.de/-/en/s?k=laptop&rh=n%3A427957031&dc&ref=a9_sc_1"]
+        },
+        "Desktops": {
+            "search": ["https://www.amazon.de/s?k=desktop&rh=n%3A340843031%2Cn%3A427954031&dc&language=en&qid=1609082911&rnid=1703609031&ref=sr_nr_n_2"]
+        },
+        "USB": {
+            "search": ["https://www.amazon.de/s?k=USB"]
+        },
+        "Storage discs": {
+            "search": ["https://www.amazon.de/s?k=HDD", "https://www.amazon.de/s?k=SSD"]
+        },
+        "Mouses": {
+            "search": ["https://www.amazon.de/s?k=Computer+mouse"]
+        },
+        "Keyboards": {
+            "search": ["https://www.amazon.de/s?k=Computer+keyboard"]
+        },
+        "Adapters": {
+            "search": ["https://www.amazon.de/s?k=Adapters"]
+        },
+        "Graphic cards": {
+            "search": ["https://www.amazon.de/s?k=Graphic+card"]
+        },
+        "Mother boards": {
+            "search": ["https://www.amazon.de/s?k=Motherboard"]
+        },
+        "Books": {
+            "search": ["https://www.amazon.de/s?k=Cooking+books"]
+        },
+        "Courses": {
+            "search": ["https://www.amazon.de/s?k=Cooking+courses"]
+        },
+        "Videos": {
+            "search": ["https://www.amazon.de/s?k=Cooking+videos"]
+        },
+        "Hats": {
+            "search-male": ["https://www.amazon.de/s?k=Cooking+hats+for+him"],
+            "search-female": ["https://www.amazon.de/s?k=Cooking+hats+for+her"]
+        },
+        "Aprons": {
+            "search-male": ["https://www.amazon.de/s?k=Cooking+aprons+for+him"],
+            "search-female": ["https://www.amazon.de/s?k=Cooking+aprons+for+her"]
+        },
+        "Dining sets": {
+            "search": ["https://www.amazon.de/s?k=Dining+sets"]
+        },
+        "Cutlery": {
+            "search": ["https://www.amazon.de/s?k=Cutlery"]
+        },
+        "Cooking appliances": {
+            "search": ["https://www.amazon.de/s?k=Cooking+appliances"]
+        },
+        "Pans": {
+            "search": ["https://www.amazon.de/s?k=Cooking+pans"]
+        },
+        "Food decoration": {
+            "search": ["https://www.amazon.de/s?k=Food+decoration"]
+        },
+        "Acrylic paint": {
+            "search": ["https://www.amazon.de/s?k=Acrylic+paint"]
+        },
+        "Oil paint": {
+            "search": ["https://www.amazon.de/s?k=Oil+paint"]
+        },
+        "Watercolor paint": {
+            "search": ["https://www.amazon.de/s?k=Watercolor+paint"]
+        },
+        "Pencils": {
+            "search": ["https://www.amazon.de/s?k=Drawing+pencils"]
+        },
+        "Markers": {
+            "search": ["https://www.amazon.de/s?k=Markers"]
+        },
+        "Pens": {
+            "search": ["https://www.amazon.de/s?k=Pens"]
+        },
+        "Canvases": {
+            "search": ["https://www.amazon.de/s?k=Canvases"]
+        },
+        "Brushes": {
+            "search": ["https://www.amazon.de/s?k=Brushes"]
+        },
+        "Paper": {
+            "search": ["https://www.amazon.de/s?k=Paper"]
+        },
+        "Frames": {
+            "search": ["https://www.amazon.de/s?k=Frames"]
+        },
+        "Art other": {
+            "search": ["https://www.amazon.de/s?k=Art+accessories"]
+        },
+        "Singing microphones": {
+            "search": ["https://www.amazon.de/s?k=Singing+microphones"]
+        },
+        "Mixers": {
+            "search": ["https://www.amazon.de/s?k=Sound+mixers"]
+        },
+        "Singing speakers": {
+            "search": ["https://www.amazon.de/s?k=Studio+speakers"]
+        },
+        "Singing headphones": {
+            "search": ["https://www.amazon.de/s?k=Studio+headphone"]
+        },
+        "Guitars": {
+            "search": ["https://www.amazon.de/s?k=Guitars"]
+        },
+        "Piano": {
+            "search": ["https://www.amazon.de/s?k=Piano"]
+        },
+        "Trumpets": {
+            "search": ["https://www.amazon.de/-/en/s?k=trumpet&rh=n%3A412549031&dc&ref=a9_sc_1"]
+        },
+        "Violins": {
+            "search": ["https://www.amazon.de/s?k=Violin"]
+        },
+        "Flutes": {
+            "search": ["https://www.amazon.de/s?k=Flutes"]
+        },
+        "Instruments other": {
+            "search": ["https://www.amazon.de/-/en/b/?node=5572857031&ref_=Oct_s9_apbd_odnav_hd_bw_bRuCdj_0&pf_rd_r=CD21T71P31WRNFXWGS1B&pf_rd_p=2fe469f8-6cda-5ba5-a59f-01c8852f3cd1&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=412356031",
+                    "https://www.amazon.de/-/en/b/?node=412326031&ref_=Oct_s9_apbd_odnav_hd_bw_bN4AP1_0&pf_rd_r=J5VJA9HV9QN7SMFNHNYC&pf_rd_p=e4be05cc-18a1-5fc8-8ab6-5c1b3db894e7&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=340849031"]
+        },
+        "Singing accesories": {
+            "search": ["https://www.amazon.de/s?k=Singing+accessories"]
+        },
+        "Instrument accessories": {
+            "search": ["https://www.amazon.de/-/en/b/?node=412407031&ref_=Oct_s9_apbd_odnav_hd_bw_bN4AP1_6&pf_rd_r=V6HX66D0NEWSVWT2JMVM&pf_rd_p=e4be05cc-18a1-5fc8-8ab6-5c1b3db894e7&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=340849031"]
+        },
+        "Accessories other": {
+            "search": []
+        },
+        "Hip-hop": {
+            "search": ["https://www.amazon.de/s?k=Dancing+hip+hop"]
+        },
+        "Balet": {
+            "search": ["https://www.amazon.de/s?k=Ballet+accessories"]
+        },
+        "Requisites": {
+            "search": ["https://www.amazon.de/s?k=Dancing+accessories"]
+        },
+        "Dancing Speakers": {
+            "search": ["https://www.amazon.de/s?k=Studio+speakers"]
+        },
+        "Classy": {
+            "search-male": ["https://www.amazon.de/s?k=Men+button+down+shirt", "https://www.amazon.de/s?k=Men+business+shirt"],
+            "search-female": ["https://www.amazon.de/s?k=Women+missguided+dress", "https://www.amazon.de/s?k=Women+guess+dress", "https://www.amazon.de/s?k=Victorias+secret+underwear"]
+        },
+        "Casual": {
+            "search-male": ["https://www.amazon.de/s?k=Tommy+hilfiger+pullover", "https://www.amazon.de/s?k=Calvin+klein+shirt"],
+            "search-female": ["https://www.amazon.de/s?k=Women+guess+clothing", "https://www.amazon.de/s?k=Women+calvin+klein", "https://www.amazon.de/s?k=Women+underwear", "https://www.amazon.de/s?k=Calvin+klein+women+shirts"]
+        },
+        "Sneakers": {
+            "search-male": ["https://www.amazon.de/s?k=Men+jordan+sneakers", "https://www.amazon.de/s?k=Men+airforce+one"],
+            "search-female": ["https://www.amazon.de/s?k=Woman+Guess+sneakers", "https://www.amazon.de/s?k=Women+puma+sneakers", "https://www.amazon.de/s?k=Woman+airforce+one", "https://www.amazon.de/s?k=Vans+woman+sneaker"]
+        },
+        "Trainers": {
+            "search-male": ["https://www.amazon.de/s?k=Men+nike+trainers", "https://www.amazon.de/s?k=Men+adidas+trainers", "https://www.amazon.de/s?k=Men+under+armour+trainers"],
+            "search-female": ["https://www.amazon.de/s?k=Women+nike+trainers", "https://www.amazon.de/s?k=Women+adidas+trainers", "https://www.amazon.de/s?k=Women+under+armour+trainers"]
+        },
+        "Classy Footwear": {
+            "search-male": ["https://www.amazon.de/s?k=Men+business+shoes"],
+            "search-female": ["https://www.amazon.de/s?k=Women+high+heels", "https://www.amazon.de/s?k=Women+high+heel+sandals"]
+        },
+        "Watches": {
+            "search": ["https://www.amazon.de/s?k=Apple+watch"],
+            "search-male": ["https://www.amazon.de/s?k=Men+armani+watch", "https://www.amazon.de/s?k=Men+diesel+watch", "https://www.amazon.de/s?k=Men+cassio+watch", "https://www.amazon.de/s?k=Men+police+watch", "https://www.amazon.de/s?k=Men+fossil+watch"],
+            "search-female": ["https://www.amazon.de/s?k=Women+michael+kors+watch", "https://www.amazon.de/s?k=Women+fossil+watch"]
+        },
+        "Belts": {
+            "search-male": ["https://www.amazon.de/s?k=Men+belt"],
+            "search-female": ["https://www.amazon.de/s?k=Women+guess+belt"]
+        },
+        "Bags": {
+            "search": ["https://www.amazon.de/s?k=Women+guess+bag", "https://www.amazon.de/s?k=Women+michael+kors+bag"]
+        },
+        "Eyes": {
+            "search": ["https://www.amazon.de/s?k=Eye+shadow", "https://www.amazon.de/s?k=Pallete", "https://www.amazon.de/s?k=Eyeliner"]
+        },
+        "Face": {
+            "search": ["https://www.amazon.de/s?k=Face+foundation", "https://www.amazon.de/s?k=Face+mask+beauty"]
+        },
+        "Lips": {
+            "search": ["https://www.amazon.de/s?k=Kylie+lip+kit", "https://www.amazon.de/s?k=Mac+lipstick"]
+        },
+        "Sponges & brushes": {
+            "search": ["https://www.amazon.de/s?k=Makeup+pinsel+sets", "https://www.amazon.de/s?k=Makeup+sponge"]
+        },
+        "Parfumes": {
+            "search-male": ["https://www.amazon.de/s?k=Men+hugo+boss+parfume", "https://www.amazon.de/s?k=Men+armani+parfume"],
+            "search-female": ["https://www.amazon.de/s?k=Women+versace+parfume", "https://www.amazon.de/s?k=Women+bright+crystal", "https://www.amazon.de/s?k=Women+gucci+parfume", "https://www.amazon.de/s?k=Women+black+opium+fragrance", "https://www.amazon.de/s?k=Women+dior+parfume"]
+        },
+        "Deodorants": {
+            "search-male": ["https://www.amazon.de/s?k=Men+deodorant"],
+            "search-female": ["https://www.amazon.de/s?k=Women+deodorant"]
+        },
+        "Machines": {
+            "search": ["https://www.amazon.de/s?k=Car+gadgets"]
+        },
+        "Hand tools": {
+            "search": ["https://www.amazon.de/s?k=Car+tools"]
+        },
+        "Car radios": {
+            "search": ["https://www.amazon.de/s?k=Car+radios"]
+        }, 
+        "Phone holders": {
+            "search": ["https://www.amazon.de/s?k=Car+phone+holder"]
+        },
+        "Car fragrances": {
+            "search": ["https://www.amazon.de/s?k=Car+fragrance"]
+        },
+        "Bluetooth/FM transmitters": {
+            "search": ["https://www.amazon.de/s?k=Car+transmitter"]
+        },
+        "Social": {
+            "search": ["https://www.amazon.de/s?k=Social+board+games"]
+        },
+        "Drinking": {
+            "search": ["https://www.amazon.de/s?k=Drinking+board+games"]
+        },
+        "Kids": {
+            "search": ["https://www.amazon.de/s?k=Kids+board+games"]
+        },
+        "Popular": {
+            "search": ["https://www.amazon.de/s?k=Popular+computer+games"]
+        },
+        "Sport": {
+            "search": ["https://www.amazon.de/s?k=Sport+computer+games"]
+        },
+        "Shooting": {
+            "search": ["https://www.amazon.de/s?k=Shooting+computer+games"]
+        },
+        "Arcade": {
+            "search": ["https://www.amazon.de/s?k=Arcade+computer+games"]
+        },
+        "Creativity": {
+            "search": ["https://www.amazon.de/s?k=Creativity+computer+games"]
+        },
+        "Vintage": {
+            "search": ["https://www.amazon.de/s?k=Vintage+computer+games"]
+        },
+        "Digital books": {
+            "search": ["https://www.amazon.de/s?k=Ebooks"]
+        },
+        "Physical books": {
+            "search": ["https://www.amazon.de/-/en/b/?node=548400&ref_=Oct_s9_apbd_odnav_hd_bw_bmXm_3&pf_rd_r=TXF548K99VHFS2XBAFMW&pf_rd_p=57f6d0fd-c1ac-5a2d-aea2-d11f3f6a977a&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=186606", 
+                    "https://www.amazon.de/-/en/gp/most-gifted/books/189528?ref_=Oct_s9_apbd_omg_hd_bw_bnIu_S&pf_rd_r=DTZP5NT76NBE0WD6H1QW&pf_rd_p=ac10f2a9-8334-5bcf-a5e7-410ea65a3246&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=189528",
+                    "https://www.amazon.de/-/en/b/?node=403432&ref_=Oct_s9_apbd_odnav_hd_bw_bmXm_6&pf_rd_r=TXF548K99VHFS2XBAFMW&pf_rd_p=57f6d0fd-c1ac-5a2d-aea2-d11f3f6a977a&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=186606",
+                    "https://www.amazon.de/-/en/b/?node=403434&ref_=Oct_s9_apbd_odnav_hd_bw_bmXm_7&pf_rd_r=TXF548K99VHFS2XBAFMW&pf_rd_p=57f6d0fd-c1ac-5a2d-aea2-d11f3f6a977a&pf_rd_s=merchandised-search-10&pf_rd_t=BROWSE&pf_rd_i=186606"]
+        },
+        "Audio books": {
+            "search": ["https://www.amazon.de/s?rh=n%3A187254%2Cp_n_binding_browse-bin%3A308849031&language=en&pf_rd_i=300259&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_s=merchandised-search-leftnav&pf_rd_t=101&ref=amb_link_12",
+                    "https://www.amazon.de/s?rh=n%3A403434%2Cp_n_binding_browse-bin%3A308849031&language=en&pf_rd_i=300259&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_s=merchandised-search-leftnav&pf_rd_t=101&ref=amb_link_13",
+                    "https://www.amazon.de/s?i=stripbooks&bbn=536302&rh=n%3A186606%2Cn%3A%21541686%2Cn%3A536302%2Cp_n_binding_browse-bin%3A308849031&language=en&pf_rd_i=300259&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_p=d5fd29f7-95a4-4b27-93c2-7ff2bf85bb77&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_r=0MQDENPVT3VXY5FM0KXN&pf_rd_s=merchandised-search-leftnav&pf_rd_t=101&ref=amb_link_15"]
+        }
+    }
+}
