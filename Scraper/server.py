@@ -38,7 +38,7 @@ def read_mapping_table():
 def is_parameter_set(parameters, parameter):
     return parameter in parameters
 
-
+#Iz mapping table-a pridobi urlje vezane na startos
 def handle_age_parameter(parameters, mapping_table):
     if not is_parameter_set(parameters, 'ageFrom') or not is_parameter_set(parameters, 'ageTo'):
         return []
@@ -67,7 +67,7 @@ def handle_age_parameter(parameters, mapping_table):
     
     return urls
 
-
+#Iz mapping table-a pridobi dog vezane na vnešen dogodek
 def handle_occasion_parameter(parameters, mapping_table):
     if not is_parameter_set(parameters, 'occasion') or parameters["occasion"] == 'None':
         return []
@@ -96,7 +96,7 @@ def handle_occasion_parameter(parameters, mapping_table):
     
     return urls
 
-
+#Iz mapping table-a pridobi urlje vezane na hobije
 def handle_hobbies_parameter(parameters, mapping_table):
     if not is_parameter_set(parameters, 'hobbies') or parameters["hobbies"] == set():
         return []
@@ -137,7 +137,7 @@ def get_urls_to_scrape(mapping_table, parameters):
 
     return urls_to_scrape 
 
-
+#Zažene toliko threadov kolikor je urljev (MAX 100) in vsak thread scrapea svoj url
 def scrape_amazon(urls_to_scrape, price_range, trending=False):
     threads = min(MAX_THREADS, len(urls_to_scrape))
 
@@ -157,6 +157,7 @@ def scrape_amazon(urls_to_scrape, price_range, trending=False):
     return scraped_products
 
 
+#Beautifullsoup scraper koda za trending urlje(imajo drugačen HTML, kot pa urlji za keyworde ali pa kategorije)
 def page_scrape_trending(url):
     print(url)
     page = requests.get(url, headers=HEADERS)
@@ -185,7 +186,7 @@ def page_scrape_trending(url):
     return products
         
 
-
+#Beautifullsoup scraper koda za urlje kategorij, keywordov
 def page_scrape(url, price_range):
     print(url)
     page = requests.get(url, headers=HEADERS)
@@ -239,8 +240,3 @@ def scrapeTrending():
     random.shuffle(products)
 
     return jsonify(products)
-
-
-@app.route('/test', methods=['GET'])
-def test():
-    return jsonify('Sjeos frend')
