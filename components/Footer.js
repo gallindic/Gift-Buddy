@@ -10,17 +10,17 @@ const HEIGHT = Dimensions.get('window').height;
 export default class Footer extends Component {
 
   linkToFacebook = async () => {
-    const url = 'https://www.facebook.com/ozbej.golob';
+    const url = 'https://www.facebook.com/GiftBuddyTeam';
     return Linking.openURL(url);
   }
 
   linkToInstagram = async () => {
-    const url = 'https://www.instagram.com/ozbejgolob/';
+    const url = 'https://www.instagram.com/giftbuddy.si/';
     return Linking.openURL(url);
   }
 
-  linkToTwitter = async () => {
-    const url = 'https://twitter.com/kanyewest';
+  linkToWebsite = async () => {
+    const url = 'https://giftbuddy.si/';
     return Linking.openURL(url);
   }
 
@@ -39,9 +39,9 @@ export default class Footer extends Component {
             style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.linkToTwitter}>
+        <TouchableOpacity onPress={this.linkToWebsite}>
           <Image
-            source={require('../sources/twitter-logo.png')}
+            source={require('../sources/web-logo.png')}
             style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
           />
         </TouchableOpacity>
