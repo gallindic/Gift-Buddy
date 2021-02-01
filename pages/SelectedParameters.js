@@ -24,7 +24,7 @@ export default class OccasionFilter extends Component {
         <ScrollView contentContainerStyle={{paddingBottom: HEIGHT * 0.05}} style={styles.body}>
             <Text style={styles.text}>Selected parameters</Text>
             <Text style={styles.textFilter}>Age:</Text>
-            <Text style={styles.textFilterSelected}>{(Global.AgeFilter.state.ageValueOne === 0 && Global.AgeFilter.state.ageValueTwo === 0) ? 'None' : Global.AgeFilter.state.ageValueOne + ' - ' + Global.AgeFilter.state.ageValueTwo}</Text>
+            <Text style={styles.textFilterSelected}>{(Global.AgeFilter.state.ageValueOne === 0 && Global.AgeFilter.state.ageValueTwo === 0) ? 'None' : Global.AgeFilter.state.ageValue}</Text>
             <Text style={styles.textFilter}>Budget:</Text>
             <Text style={styles.textFilterSelected}>{(Global.BudgetFilter.state.budgetValueOne === 0 && Global.BudgetFilter.state.budgetValueTwo === 0) ? 'None' : Global.BudgetFilter.state.budgetValueOne + ' - ' + Global.BudgetFilter.state.budgetValueTwo}</Text>
             <Text style={styles.textFilter}>Gender:</Text>

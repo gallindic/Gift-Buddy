@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Image } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import NumericInput from 'react-native-numeric-input'
 
 import Header from '../components/Header';
 import Button from '../components/Button';
@@ -16,23 +17,12 @@ export default class AgeFilter extends Component {
   constructor(props) {
         super(props);
         this.state = {
-          ageValueOne: 30,
-          ageValueTwo: 50,
+          ageValue: 1
         };
   }
 
-  changeAge(value) {
-        this.setState(() => {
-          return {
-            ageValueOne: parseFloat(value[0]),
-            ageValueTwo: parseFloat(value[1]),
-          };
-        });
-  }
-
   skip = () => {
-    this.setState({ ageValueOne: 0 })
-    this.setState({ ageValueTwo: 0 })
+    this.setState({ ageValue: 0 })
     this.props.navigation.navigate('BudgetFilter')
   }
 
@@ -43,31 +33,14 @@ export default class AgeFilter extends Component {
       <View style={{height: '100%'}}>
         <Header />
         <View style={styles.body}>
-            <Text style={styles.text}>Select the persons{'\n'}age group</Text>
+            <Text style={styles.text}>Select the persons age</Text>
         </View>
-        <View style={styles.buttons}>
-                <Button
-                text={(ageValueOne === 0) ? 'Infant' : ageValueOne }
-                theme='secondary'
-                size='small'
-                disabled={true}
-                />
-                <Button
-                text={(ageValueTwo === 100) ? '100+' : ageValueTwo }
-                theme='secondary'
-                size='small'
-                disabled={true}    
-                />
-            </View>
         <View style={styles.slider}>
-            <MultiSlider
-            values={[ageValueOne, ageValueTwo]}
-            sliderLength={WIDTH * 0.8} 
-            min={0}
-            max={100}
-            selectedStyle={{backgroundColor: '#FF304F'}}
-            markerStyle={{borderColor: '#FF304F', borderWidth: 3, backgroundColor: 'white'}}
-            onValuesChange={this.changeAge.bind(this)}
+            <NumericInput 
+            onChange={value => this.setState({ ageValue: parseFloat(value) })}
+            rounded
+            minValue={0}
+            maxValue={120}
             />
         </View>
         <View style = {{backgroundColor: '', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>

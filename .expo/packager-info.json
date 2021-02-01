@@ -1,9 +1,10 @@
 {
   "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://9x-tsy.anonymous.gift-buddy.exp.direct",
-  "packagerNgrokUrl": "https://packager.9x-tsy.anonymous.gift-buddy.exp.direct",
-  "ngrokPid": 84132,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002,
   "packagerPort": 19001,
-  "packagerPid": 451380
+  "packagerPid": 425052,
+  "webpackServerPort": null
 }
