@@ -14,10 +14,10 @@ export default class GenderFilter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pressedMale: false,
-            pressedFemale: false,
-            pressedOther: false,
-            gender: 'None'
+            pressedMale: Global.Gender.pressedMale,
+            pressedFemale: Global.Gender.pressedFemale,
+            pressedOther: Global.Gender.pressedOther,
+            gender: Global.Gender.gender
         }
     }
 
@@ -43,7 +43,10 @@ export default class GenderFilter extends Component {
     }
 
   render() {
-    Global.Gender = this;
+    Global.Gender.pressedMale = this.state.pressedMale
+    Global.Gender.pressedFemale = this.state.pressedFemale
+    Global.Gender.pressedOther = this.state.pressedOther
+    Global.Gender.gender = this.state.gender
 
     return (
       <View style={{height: '100%'}}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Dimensions, View, TouchableOpacity, Linking, StyleSheet, Image } from 'react-native';
+import { Text, Dimensions, View, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import { RFValue } from "react-native-responsive-fontsize";
 import { normalize } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
@@ -16,6 +16,11 @@ class FooterNavigation extends Component {
     };
   }
 
+  navigate(nextScreen) {
+    console.log("this.props.budgetDiff")
+    this.props.navigation.navigate(nextScreen)
+  }
+
   render() {
     return (
       <View style={styles.footer}>
@@ -26,7 +31,10 @@ class FooterNavigation extends Component {
           />
           </TouchableOpacity>
           {(this.props.mainText === '') ? (
-            <TouchableOpacity style={{ padding: normalize(10, 'height')}} onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
+            <TouchableOpacity style={{ padding: normalize(10, 'height')}} onPress={() => {
+              if (this.props.budgetDiff < 0) alert("FROM price must be smaller than TO price")
+              else this.props.navigation.navigate(this.props.nextScreen)
+            }}>
             <Image
               source={require('../sources/next-icon.png')}
               style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}

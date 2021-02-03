@@ -17,13 +17,13 @@ export default class OccasionFilter extends Component {
   constructor() {
     super();
     this.state = {
-        selectedItems: [],
-        selectedItemObjects: [],
+        selectedItems: Global.Occasion.selectedItems,
+        selectedItemObjects: Global.Occasion.selectedItemObjects,
     };
   }
 
   componentDidMount() {
-    this.load();
+    if (this.state.selectedItems.length == 0) this.load();
   }
 
   load = () => this.SectionedMultiSelect._toggleSelector();
@@ -65,7 +65,9 @@ export default class OccasionFilter extends Component {
   }
 
   render() {
-    Global.Occasion = this;
+    Global.Occasion.selectedItems = this.state.selectedItems
+    Global.Occasion.selectedItemObjects = this.state.selectedItemObjects
+
     return (
       <View style={{height: '100%'}}>
         <Header />

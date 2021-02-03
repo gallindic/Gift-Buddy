@@ -16,36 +16,36 @@ export default class OccasionFilter extends Component {
   constructor() {
     super();
     this.state = {
-        selectedItemsSport: [],
-        selectedItemObjectsSport: [],
-        selectedItemsTechnology: [],
-        selectedItemObjectsTechnology: [],
-        selectedItemsCooking: [],
-        selectedItemObjectsCooking: [],
-        selectedItemsArts: [],
-        selectedItemObjectsArts: [],
-        selectedItemsMusic: [],
-        selectedItemObjectsMusic: [],
-        selectedItemsDancing: [],
-        selectedItemObjectsDancing: [],
-        selectedItemsFashion: [],
-        selectedItemObjectsFashion: [],
-        selectedItemsCars: [],
-        selectedItemObjectsCars: [],
-        selectedItemsGames: [],
-        selectedItemObjectsGames: [],
-        selectedItemsReading: [],
-        selectedItemObjectsReading: [],
-        hobbiesSport: [],
-        hobbiesTechnology: [],
-        hobbiesCooking: [],
-        hobbiesArts: [],
-        hobbiesMusic: [],
-        hobbiesDancing: [],
-        hobbiesFashion: [],
-        hobbiesCars: [],
-        hobbiesGames: [],
-        hobbiesReading: [],
+        selectedItemsSport: Global.Hobbies.selectedItemsSport,
+        selectedItemObjectsSport: Global.Hobbies.selectedItemObjectsSport,
+        selectedItemsTechnology: Global.Hobbies.selectedItemsTechnology,
+        selectedItemObjectsTechnology: Global.Hobbies.selectedItemObjectsTechnology,
+        selectedItemsCooking: Global.Hobbies.selectedItemsCooking,
+        selectedItemObjectsCooking: Global.Hobbies.selectedItemObjectsCooking,
+        selectedItemsArts: Global.Hobbies.selectedItemsArts,
+        selectedItemObjectsArts: Global.Hobbies.selectedItemObjectsArts,
+        selectedItemsMusic: Global.Hobbies.selectedItemsMusic,
+        selectedItemObjectsMusic: Global.Hobbies.selectedItemObjectsMusic,
+        selectedItemsDancing: Global.Hobbies.selectedItemsDancing,
+        selectedItemObjectsDancing: Global.Hobbies.selectedItemObjectsDancing,
+        selectedItemsFashion: Global.Hobbies.selectedItemsFashion,
+        selectedItemObjectsFashion: Global.Hobbies.selectedItemObjectsFashion,
+        selectedItemsCars: Global.Hobbies.selectedItemsCars,
+        selectedItemObjectsCars: Global.Hobbies.selectedItemObjectsCars,
+        selectedItemsGames: Global.Hobbies.selectedItemsGames,
+        selectedItemObjectsGames: Global.Hobbies.selectedItemObjectsGames,
+        selectedItemsReading: Global.Hobbies.selectedItemsReading,
+        selectedItemObjectsReading: Global.Hobbies.selectedItemObjectsReading,
+        hobbiesSport: Global.hobbiesSport,
+        hobbiesTechnology: Global.hobbiesTechnology,
+        hobbiesCooking: Global.hobbiesCooking,
+        hobbiesArts: Global.hobbiesArts,
+        hobbiesMusic: Global.hobbiesMusic,
+        hobbiesDancing: Global.hobbiesDancing,
+        hobbiesFashion: Global.hobbiesFashion,
+        hobbiesCars: Global.hobbiesCars,
+        hobbiesGames: Global.hobbiesGames,
+        hobbiesReading: Global.hobbiesReading,
     };
   }
 
@@ -198,7 +198,36 @@ export default class OccasionFilter extends Component {
   }
 
   render() {
-    Global.Hobbies = this;
+    Global.Hobbies.selectedItemsSport = this.state.selectedItemsSport
+    Global.Hobbies.selectedItemObjectsSport = this.state.selectedItemObjectsSport
+    Global.Hobbies.selectedItemsTechnology = this.state.selectedItemsTechnology
+    Global.Hobbies.selectedItemObjectsTechnology = this.state.selectedItemObjectsTechnology
+    Global.Hobbies.selectedItemsCooking = this.state.selectedItemsCooking
+    Global.Hobbies.selectedItemObjectsCooking = this.state.selectedItemObjectsCooking
+    Global.Hobbies.selectedItemsArts = this.state.selectedItemsArts
+    Global.Hobbies.selectedItemObjectsArts = this.state.selectedItemObjectsArts
+    Global.Hobbies.selectedItemsMusic = this.state.selectedItemsMusic
+    Global.Hobbies.selectedItemObjectsMusic = this.state.selectedItemObjectsMusic
+    Global.Hobbies.selectedItemsDancing = this.state.selectedItemsDancing
+    Global.Hobbies.selectedItemObjectsDancing = this.state.selectedItemObjectsDancing
+    Global.Hobbies.selectedItemsFashion = this.state.selectedItemsFashion
+    Global.Hobbies.selectedItemObjectsFashion = this.state.selectedItemObjectsFashion
+    Global.Hobbies.selectedItemsCars = this.state.selectedItemsCars
+    Global.Hobbies.selectedItemObjectsCars = this.state.selectedItemObjectsCars
+    Global.Hobbies.selectedItemsGames = this.state.selectedItemsGames
+    Global.Hobbies.selectedItemObjectsGames = this.state.selectedItemObjectsGames
+    Global.Hobbies.selectedItemsReading = this.state.selectedItemsReading
+    Global.Hobbies.selectedItemObjectsReading = this.state.selectedItemObjectsReading
+    Global.hobbiesSport = this.state.hobbiesSport;
+    Global.hobbiesTechnology = this.state.hobbiesTechnology;
+    Global.hobbiesCooking = this.state.hobbiesCooking;
+    Global.hobbiesArts = this.state.hobbiesArts;
+    Global.hobbiesMusic = this.state.hobbiesMusic;
+    Global.hobbiesDancing = this.state.hobbiesDancing;
+    Global.hobbiesFashion = this.state.hobbiesFashion;
+    Global.hobbiesCars = this.state.hobbiesCars;
+    Global.hobbiesGames = this.state.hobbiesGames;
+    Global.hobbiesReading = this.state.hobbiesReading;
     return (
       <View style={{height: '100%'}}>
         <Header />

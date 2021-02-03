@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Image } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import NumericInput from 'react-native-numeric-input'
+import NumericInput from 'rn-numeric-input'
 
 import Header from '../components/Header';
 import Button from '../components/Button';
@@ -17,7 +16,7 @@ export default class AgeFilter extends Component {
   constructor(props) {
         super(props);
         this.state = {
-          ageValue: 1
+          ageValue: Global.AgeFilter.ageValue
         };
   }
 
@@ -27,8 +26,7 @@ export default class AgeFilter extends Component {
   }
 
   render() {
-    Global.AgeFilter = this;
-    const { ageValueOne, ageValueTwo } = this.state;
+    Global.AgeFilter.ageValue = this.state.ageValue;
     return (
       <View style={{height: '100%'}}>
         <Header />
@@ -41,6 +39,7 @@ export default class AgeFilter extends Component {
             rounded
             minValue={0}
             maxValue={120}
+            initValue={this.state.ageValue}
             />
         </View>
         <View style = {{backgroundColor: '', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>

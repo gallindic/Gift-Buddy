@@ -1,9 +1,43 @@
 module.exports = {
-    Hobbies: null,
-    AgeFilter: null,
-    BudgetFilter: null,
-    Gender: null,
-    Occasion: null,
+    AgeFilter: {
+        ageValue: 20
+    },
+    BudgetFilter: {
+        budgetValueOne: 30,
+        budgetValueTwo: 200,
+    },
+    Gender: {
+        pressedMale: false,
+        pressedFemale: false,
+        pressedOther: false,
+        gender: 'None'
+    },
+    Occasion: {
+        selectedItems: [],
+        selectedItemObjects: [],
+    },
+    Hobbies: {
+        selectedItemsSport: [],
+        selectedItemObjectsSport: [],
+        selectedItemsTechnology: [],
+        selectedItemObjectsTechnology: [],
+        selectedItemsCooking: [],
+        selectedItemObjectsCooking: [],
+        selectedItemsArts: [],
+        selectedItemObjectsArts: [],
+        selectedItemsMusic: [],
+        selectedItemObjectsMusic: [],
+        selectedItemsDancing: [],
+        selectedItemObjectsDancing: [],
+        selectedItemsFashion: [],
+        selectedItemObjectsFashion: [],
+        selectedItemsCars: [],
+        selectedItemObjectsCars: [],
+        selectedItemsGames: [],
+        selectedItemObjectsGames: [],
+        selectedItemsReading: [],
+        selectedItemObjectsReading: [],
+    },
     hobbiesSport: [],
     hobbiesTechnology: [],
     hobbiesCooking: [],

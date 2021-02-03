@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import NumericInput from 'rn-numeric-input'
 
 import Header from '../components/Header';
-import Button from '../components/Button';
 import FooterNavigation from '../components/FooterNavigation';
 import Global from '../components/Global'
 
@@ -16,28 +16,35 @@ export default class BudgetFilter extends Component {
   constructor(props) {
         super(props);
         this.state = {
-          budgetValueOne: 30,
-          budgetValueTwo: 200,
+          budgetValueOne: Global.BudgetFilter.budgetValueOne,
+          budgetValueTwo: Global.BudgetFilter.budgetValueTwo,
         };
   }
 
   changeBudget(value) {
-    this.setState(() => {
-      return {
-        budgetValueOne: parseFloat(value[0]),
-        budgetValueTwo: parseFloat(value[1]),
-      };
+    this.setState({
+      budgetValueOne: parseFloat(value[0]),
+      budgetValueTwo: parseFloat(value[1])
     });
-}
+  }
 
-skip = () => {
-  this.setState({ budgetValueOne: 0 })
-  this.setState({ budgetValueTwo: 0 })
-  this.props.navigation.navigate('GenderFilter')
-}
+  changeBudgetLower(valueLower) {
+    this.setState({ budgetValueOne: valueLower })
+  }
+
+  changeBudgetUpper(valueUpper) {
+    this.setState({ budgetValueTwo: valueUpper })
+  }
+
+  skip = () => {
+    this.setState({ budgetValueOne: 0 })
+    this.setState({ budgetValueTwo: 0 })
+    this.props.navigation.navigate('GenderFilter')
+  }
 
   render() {
-    Global.BudgetFilter = this;
+    Global.BudgetFilter.budgetValueOne = this.state.budgetValueOne
+    Global.BudgetFilter.budgetValueTwo = this.state.budgetValueTwo
     const { budgetValueOne, budgetValueTwo } = this.state;
     return (
       <View style={{height: '100%'}}>
@@ -46,18 +53,26 @@ skip = () => {
         <Text style={styles.text}>Set your budget{'\n'}</Text>
         </View>
         <View style={styles.buttons}>
-            <Button
-            text={budgetValueOne + ' EUR'}
-            theme='secondary'
-            size='small'
-            disabled={true}
+          <View>
+            <Text style={styles.budgetText}>From (EUR)</Text>
+            <NumericInput 
+            onChange={this.changeBudgetLower.bind(this)}
+            rounded
+            minValue={0}
+            maxValue={1000}
+            value={budgetValueOne}
             />
-            <Button
-            text={(budgetValueTwo === 1000) ? '1000+ EUR' : budgetValueTwo + ' EUR'}
-            theme='secondary'
-            size='small'
-            disabled={true}    
-            />
+          </View>
+          <View>
+            <Text style={styles.budgetText}>To (EUR)</Text>
+            <NumericInput 
+            onChange={this.changeBudgetUpper.bind(this)}
+            rounded
+            minValue={0}
+            maxValue={1000}
+            value={budgetValueTwo}
+            /> 
+          </View>
         </View>
         <View style={styles.slider}>
             <MultiSlider
@@ -68,6 +83,10 @@ skip = () => {
             markerStyle={{borderColor: '#FF304F', borderWidth: 3, backgroundColor: 'white'}}
             onValuesChange={this.changeBudget.bind(this)}
             />
+            <View style={{display: 'flex', flexDirection: 'row', width: WIDTH*0.8, justifyContent: 'space-between'}}>
+              <Text style={styles.sliderText}>0</Text>
+              <Text style={styles.sliderText}>1000+</Text>
+            </View>
         </View>
         <View style = {{backgroundColor: '', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <TouchableOpacity 
@@ -76,7 +95,7 @@ skip = () => {
             <Text style={styles.buttonText}>Skip this section</Text>
           </TouchableOpacity>
         </View>
-        <FooterNavigation mainText='' nextScreen={'GenderFilter'} />
+        <FooterNavigation budgetDiff={budgetValueTwo-budgetValueOne} mainText='' nextScreen={'GenderFilter'} />
       </View>
     );
   }
@@ -95,10 +114,26 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontWeight: '500'
   },
+  budgetText: {
+    fontSize: RFValue(15, 580),
+    textAlign: 'center',
+  },
+  budgetContainer: {
+    width: WIDTH/5,
+    height: HEIGHT/20,
+    borderWidth: 1,
+    borderRadius: 10,
+    textAlign: 'center',
+    fontSize: RFValue(15, 580),
+  },
   slider: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      marginTop: RFValue(15, 580),
+  },
+  sliderText: {
+    fontSize: RFValue(15, 580),
   },
   buttons: {
       width: WIDTH,

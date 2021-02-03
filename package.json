@@ -38,6 +38,7 @@
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
     "request": "^2.88.0",
+    "rn-numeric-input": "^1.9.4",
     "webpage": "^0.3.0"
   },
   "devDependencies": {
