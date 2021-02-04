@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, Dimensions } from 'react-native';
+import { StyleSheet, View, ImageBackground, Dimensions, TouchableOpacity, Text } from 'react-native';
 import { RFValue } from "react-native-responsive-fontsize";
-import Header from '../components/Header'
+import HeaderLanding from '../components/HeaderLanding'
 import Footer from '../components/Footer'
 import Button from '../components/Button';
 
@@ -12,94 +12,53 @@ export default class LandingPage extends Component {
 
   render() {
     return (
-      <View style={{height: '100%'}}>
-        <Header />
-        <View style={styles.startSection}>
-          <ImageBackground 
-          style={styles.startImage}
-          source={require('../sources/landing-page-gifts2.jpg')}>
-            <Text style={styles.startSectionText}>Choose the perfect gift</Text>
-            <Text style={styles.text}>Never buy the wrong one again</Text>
-            <Button
-              text="Start shopping"
-              size="large"
-              onPress={() => this.props.navigation.navigate('AgeFilter')}
-            />
-          </ImageBackground>
+      <ImageBackground 
+      source={require('../sources/background_holo.jpg')}
+      style={styles.startImage}>
+        <HeaderLanding />
+        <View style={{height: '55%', display: 'flex', justifyContent: 'flex-end'}}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate('AgeFilter')}>
+            <Text style={styles.buttonText}>Shop</Text>
+          </TouchableOpacity>
         </View>
-        <View>
-          <Image
-                style={styles.image}
-                source={require('../sources/landing-page-smrekice.jpg')}
-            />
-        </View>
-        <ImageBackground 
-        style={styles.customImage}
-        source={require('../sources/landing-page-xmas.jpg')}>
-          <Text style={styles.startSectionText}>Buy the perfect Christmas gift</Text>
-          <Button
-            text="Browse trending"
-            size="large"
-            onPress={() => this.props.navigation.navigate('trendingScreen')}
-          />
-        </ImageBackground>
         <Footer />
-      </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  startSection: {
-    height: HEIGHT * 0.30,
-    marginBottom: 0,
-    paddingBottom: 0
+  container: {
+    height: '100%',
   },
   startImage: {
     display: 'flex',
     alignItems: 'center',
     height: '100%',
   },
-  customImage: {
+  button: {
     display: 'flex',
+    height: HEIGHT * 0.08,
+    width: WIDTH * 0.4,
     alignItems: 'center',
-    paddingTop: HEIGHT * 0.07,
-    height: HEIGHT * 0.38,
-    width: WIDTH
-  },
-  startSectionText: {
-    marginTop: HEIGHT * 0.07,
-    display: 'flex',
-    alignItems: "center",
     justifyContent: 'center',
+    backgroundColor: '#FF304F',
+    borderColor: '#6E6263',
+    borderRadius: 8,
+    borderWidth: 1.5,
+  },
+  buttonText: {
     color: 'white',
-    fontSize: RFValue(14, 580),
-    fontWeight: '700',
     shadowColor: '#000000',
     shadowOffset: {
-      width: 3,
-      height: 3
+      width: 1,
+      height: 1
     },
-    shadowRadius: 5,
-    shadowOpacity: 0.7,
-  },
-  text: {
-    color: 'white',
-    fontSize: RFValue(14, 580),
-    fontWeight: '700',
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 3,
-      height: 3
-    },
-    shadowRadius: 5,
-    shadowOpacity: 0.7
-  },
-  startButton: {
-    backgroundColor: 'white',
-  },
-  image: {
-    width: WIDTH,
-    height: HEIGHT * 0.12,
+    shadowRadius: 1,
+    shadowOpacity: 0.2,
+    fontSize: RFValue(30, 580),
+    fontWeight: '700'
   }
 });

@@ -9,7 +9,12 @@ import Global from '../components/Global'
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
-export default class OccasionFilter extends Component {
+export default class SelectedParameters extends Component {
+
+  constructor() {
+    super();
+    console.log(Global.hobbiesGames)
+  }
 
   printArray = (array) => {
     let printed = ''

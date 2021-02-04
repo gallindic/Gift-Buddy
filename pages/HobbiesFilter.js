@@ -11,7 +11,7 @@ import Global from '../components/Global'
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
-export default class OccasionFilter extends Component {
+export default class HobbiesFilter extends Component {
 
   constructor() {
     super();
@@ -1294,7 +1294,7 @@ const fashion = [
 const cars = [
   {
     name: 'Tools',
-    id: 'Tools',
+    id: 'Tools00',
     children: [
       {
         name: 'Machines',
@@ -1333,7 +1333,7 @@ const cars = [
 const games = [
   {
     name: 'Board games',
-    id: 'Board games',
+    id: 'Board games00',
     children: [
       {
         name: 'Social',
@@ -1351,7 +1351,7 @@ const games = [
   },
   {
     name: 'Computer games',
-    id: 'Computer games',
+    id: 'Computer games00',
     children: [
       {
         name: 'Popular',
@@ -1384,7 +1384,7 @@ const games = [
 const reading = [
   {
     name: 'Books',
-    id: 'Books',
+    id: 'Books00',
     children: [
       {
         name: 'Digital books',
@@ -1402,7 +1402,7 @@ const reading = [
   },
   {
     name: 'Genre',
-    id: 'Genre',
+    id: 'Genre00',
     children: [
       {
         name: 'Novels',

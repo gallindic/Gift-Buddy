@@ -30,19 +30,19 @@ export default class Footer extends Component {
         <TouchableOpacity onPress={this.linkToFacebook}>
           <Image
             source={require('../sources/fb-logo.png')}
-            style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
+            style={{width: normalize(40, 'width'), height: normalize(40, 'height')}}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={this.linkToInstagram}>
           <Image
             source={require('../sources/ig-logo.png')}
-            style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
+            style={{width: normalize(40, 'width'), height: normalize(40, 'height')}}
           />
         </TouchableOpacity>
         <TouchableOpacity onPress={this.linkToWebsite}>
           <Image
             source={require('../sources/web-logo.png')}
-            style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
+            style={{width: normalize(40, 'width'), height: normalize(40, 'height')}}
           />
         </TouchableOpacity>
       </View>
@@ -52,7 +52,6 @@ export default class Footer extends Component {
 
 const styles = StyleSheet.create({
     footer: {
-        backgroundColor: '#FF304F',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: HEIGHT * 0.10,
         position: 'absolute',
-        bottom: 0,
+        bottom: normalize(20, 'height'),
         paddingHorizontal: '20%',
     },
     text: {

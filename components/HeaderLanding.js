@@ -6,10 +6,10 @@ import { withNavigation } from 'react-navigation';
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
-class Header extends Component {
+class HeaderLanding extends Component {
   render() {
     return (
-      <TouchableOpacity onPress={ () => this.props.navigation.navigate('Home')}>
+      <TouchableOpacity style={{width: '100%'}} onPress={ () => this.props.navigation.navigate('Home')}>
         <View style={styles.header}>
         <Image
           source={require('../sources/logo_v2.png')}
@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
     text: {
       marginLeft: '3%',
       fontSize: RFValue(20, 580),
-      color: 'black',
+      color: 'white',
       fontWeight: '700',
     }
 });
 
-export default withNavigation(Header)
+export default withNavigation(HeaderLanding)
