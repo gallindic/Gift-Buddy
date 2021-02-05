@@ -13,7 +13,7 @@ export default class LandingPage extends Component {
   render() {
     return (
       <ImageBackground 
-      source={require('../sources/background_holo.jpg')}
+      source={require('../sources/background_holo_v2.jpg')}
       style={styles.startImage}>
         <HeaderLanding />
         <View style={{height: '55%', display: 'flex', justifyContent: 'flex-end'}}>
