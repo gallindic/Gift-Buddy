@@ -44,6 +44,7 @@ export default class scraperScreen extends Component {
     }
 
     async getApiData(){
+      console.log(Global.Hobbies);
         try{
           let response = await fetch('https://giftbuddyapi.herokuapp.com/scrape', {
             method: 'POST',
@@ -52,13 +53,12 @@ export default class scraperScreen extends Component {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              'priceFrom': Global.BudgetFilter.state.budgetValueOne,
-              'priceTo': Global.BudgetFilter.state.budgetValueTwo == 0 ? 999999 : Global.BudgetFilter.state.budgetValueTwo,
-              'hobbies': this.checkForParametersInState(Global.Hobbies.state),
-              'occasion': this.checkForParametersInState(Global.Occasion.state)[0],
-              'ageFrom': Global.AgeFilter.state.ageValueOne,
-              'ageTo': Global.AgeFilter.state.ageValueTwo,
-              'gender': Global.Gender.state.gender
+              'priceFrom': Global.BudgetFilter.budgetValueOne,
+              'priceTo': Global.BudgetFilter.budgetValueTwo == 0 ? 999999 : Global.BudgetFilter.budgetValueTwo,
+              'hobbies': this.checkForParametersInState(Global.Hobbies),
+              'occasion': this.checkForParametersInState(Global.Occasion)[0],
+              'age': Global.AgeFilter.ageValue,
+              'gender': Global.Gender.gender
             }),
             json: true
           });
