@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { StyleSheet, Image, Dimensions, View, TouchableOpacity, Text, Linking } from 'react-native';
 import { RFValue } from "react-native-responsive-fontsize";
 import { normalize } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
+
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
 
-export default class Product extends Component {
+class Product extends Component {
     render() {
         console.log(this.props.product.imageLink);
         return(
@@ -17,11 +19,21 @@ export default class Product extends Component {
                 <Image source={{ uri: this.props.product.imageLink }} style={{width: '90%', height: HEIGHT * 0.25, paddingBottom: 20}} resizeMode='contain'/>
                 {/*<Text style={styles.description} adjustsFontSizeToFit numberOfLines={4}>{ this.props.product.title }</Text>*/}
                 <Text style={styles.price}>{this.props.product.price} €</Text>
-                <TouchableOpacity style={styles.button} onPress={ ()=>{ Linking.openURL(this.props.product.link)}}><Text style={styles.buttonText}>Show</Text></TouchableOpacity>
+                {/*<TouchableOpacity style={styles.button} onPress={ ()=>{ Linking.openURL(this.props.product.link)}}><Text style={styles.buttonText}>Show</Text></TouchableOpacity>*/}
+                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("ProductDetail", {
+                    imageLink: this.props.product.imageLink, 
+                    price: this.props.product.price, 
+                    link: this.props.product.link,
+                    title: "Item title",
+                    rating: 4.5,
+                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris nunc congue nisi vitae. Nibh cras pulvinar mattis nunc sed blandit. Sed elementum tempus egestas sed sed. Et tortor consequat id porta nibh venenatis. Tempor nec feugiat nisl pretium fusce id velit ut. Rhoncus urna neque viverra justo nec ultrices dui sapien. Nibh nisl condimentum id venenatis a. Eu lobortis elementum nibh tellus molestie nunc non blandit. Lacus vestibulum sed arcu non odio euismod lacinia at quis. Netus et malesuada fames ac. Lacus vel facilisis volutpat est. Vitae tortor condimentum lacinia quis vel eros. Libero nunc consequat interdum varius sit. Facilisis volutpat est velit egestas dui. Sed velit dignissim sodales ut eu. Tellus molestie nunc non blandit massa enim nec dui nunc. Sed augue lacus viverra vitae congue eu consequat ac. Enim nunc faucibus a pellentesque sit amet porttitor eget. Erat velit scelerisque in dictum non.",})}>
+                    <Text style={styles.buttonText}>Show</Text></TouchableOpacity>
             </View>
         );
     }
 }
+
+export default withNavigation(Product)
 
 const styles = StyleSheet.create({
     body: {

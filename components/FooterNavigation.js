@@ -1,11 +1,56 @@
 import React, { Component } from 'react';
-import { Text, Dimensions, View, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
+import { Text, Dimensions, View, TouchableOpacity, StyleSheet, Image, Linking } from 'react-native';
 import { RFValue } from "react-native-responsive-fontsize";
 import { normalize } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
+
+function AmazonLink(props) {
+  console.log(props.linkTo, "test")
+  return (
+    <TouchableOpacity style={{ backgroundColor: '', padding: normalize(10, 'height') }} onPress={() => Linking.openURL(props.linkTo)}>
+      <Text style={styles.text}>{props.mainText}</Text>
+    </TouchableOpacity>
+  )
+}
+
+function SpecialScreen(props) {
+  return (
+    <TouchableOpacity style={{ backgroundColor: '', padding: normalize(10, 'height') }} onPress={() => props.navigation.navigate(props.nextScreen)}>
+      <Text style={styles.text}>{props.mainText}</Text>
+    </TouchableOpacity>
+  )
+}
+
+function NextScreen(props) {
+  return (
+    <TouchableOpacity style={{ padding: normalize(10, 'height')}} onPress={() => {
+      if (props.budgetDiff < 0) alert("FROM price must be smaller than TO price")
+      else props.navigation.navigate(props.nextScreen)
+    }}>
+    <Image
+      source={require('../sources/next-icon.png')}
+      style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
+    />
+    </TouchableOpacity>
+  )
+}
+
+function RenderHelper(props) {
+  if (props.linkTo === '' || props.linkTo === undefined) {
+    if (props.mainText === '') {
+      return <NextScreen navigation={props.navigation} nextScreen={props.nextScreen} budgetDiff={props.budgetDiff} />
+    }
+    else {
+      return <SpecialScreen navigation={props.navigation} nextScreen={props.nextScreen} mainText={props.mainText} />
+    }
+  }
+  else {
+    return <AmazonLink linkTo={props.linkTo} mainText={props.mainText} />
+  }
+}
 
 class FooterNavigation extends Component {
 
@@ -30,22 +75,8 @@ class FooterNavigation extends Component {
             style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
           />
           </TouchableOpacity>
-          {(this.props.mainText === '') ? (
-            <TouchableOpacity style={{ padding: normalize(10, 'height')}} onPress={() => {
-              if (this.props.budgetDiff < 0) alert("FROM price must be smaller than TO price")
-              else this.props.navigation.navigate(this.props.nextScreen)
-            }}>
-            <Image
-              source={require('../sources/next-icon.png')}
-              style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}
-            />
-            </TouchableOpacity>)
-            : (
-              <TouchableOpacity style={{ backgroundColor: '', padding: normalize(10, 'height') }} onPress={() => this.props.navigation.navigate(this.props.nextScreen)}>
-                <Text style={styles.text}>{this.props.mainText}</Text>
-              </TouchableOpacity>
-            )
-          }
+          <RenderHelper linkTo={this.props.linkTo} mainText={this.props.mainText} navigation={this.props.navigation} budgetDiff={this.props.budgetDiff} nextScreen={this.props.nextScreen} />
+          {(this.props.linkTo === '' || this.props.linkTo === undefined) ? console.log() : <Text style={{width: normalize(30, 'width'), height: normalize(30, 'height')}}></Text>}
       </View>
     );
   }

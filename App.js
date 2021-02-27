@@ -17,6 +17,8 @@ import SearchResults from './pages/SearchResults'
 import BudgetFilter from './pages/BudgetFilter'
 import scraperScreen from './pages/scraperScreen'
 import trendingScreen from './pages/trendingScreen'
+import ProductDetail from './pages/ProductDetail'
+import Product from './components/Product'
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -87,6 +89,18 @@ const AppNavigator = createStackNavigator({
   },
   trendingScreen: {
     screen: trendingScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Product: {
+    screen: Product,
+    navigationOptions: {
+      header: null
+    }
+  },
+  ProductDetail: {
+    screen: ProductDetail,
     navigationOptions: {
       header: null
     }
