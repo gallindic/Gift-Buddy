@@ -43,8 +43,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         width: WIDTH * 0.45,
-        borderColor: '#6E6263',
-        borderWidth: 1.5,
+        //borderColor: '#6E6263',
+        //borderWidth: 1.5,
+        backgroundColor: '#fff',
+        borderRadius: normalize(15),
+        shadowColor: '#96aab4',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,  
+        elevation: 5
     },
     description: {
         textAlign: 'center',
