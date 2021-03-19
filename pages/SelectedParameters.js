@@ -43,17 +43,11 @@ export default class SelectedParameters extends Component {
             {/*Global.Hobbies.selectedItemObjectsSport.map(item => <Text>{item.name}</Text>)*/}
             <Text style={styles.textFilter}>Hobbies:</Text>
             <Text style={ (Global.hobbiesSport.length > 0) ? styles.textCategory : {display: 'none'} }>Sport: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesSport)}</Text></Text>
+            <Text style={ (Global.hobbiesAdventure.length > 0) ? styles.textCategory : {display: 'none'} }>Adventure: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesAdventure)}</Text></Text>
             <Text style={ (Global.hobbiesTechnology.length > 0) ? styles.textCategory : {display: 'none'} }>Technology: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesTechnology)}</Text></Text>
-            <Text style={ (Global.hobbiesCooking.length > 0) ? styles.textCategory : {display: 'none'} }>Cooking: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesCooking)}</Text></Text>
-            <Text style={ (Global.hobbiesArts.length > 0) ? styles.textCategory : {display: 'none'} }>Arts: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesArts)}</Text></Text>
-            <Text style={ (Global.hobbiesMusic.length > 0) ? styles.textCategory : {display: 'none'} }>Music: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesMusic)}</Text></Text>
-            <Text style={ (Global.hobbiesDancing.length > 0) ? styles.textCategory : {display: 'none'} }>Dancing: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesDancing)}</Text></Text>
-            <Text style={ (Global.hobbiesFashion.length > 0) ? styles.textCategory : {display: 'none'} }>Fashion: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesFashion)}</Text></Text>
-            <Text style={ (Global.hobbiesCars.length > 0) ? styles.textCategory : {display: 'none'} }>Cars: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesCars)}</Text></Text>
-            <Text style={ (Global.hobbiesGames.length > 0) ? styles.textCategory : {display: 'none'} }>Games: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesGames)}</Text></Text>
-            <Text style={ (Global.hobbiesReading.length > 0) ? styles.textCategory : {display: 'none'} }>Reading: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesReading)}</Text></Text>
-            <Text style={ (Global.hobbiesSport.length + Global.hobbiesTechnology.length + Global.hobbiesCooking.length + Global.hobbiesArts.length + Global.hobbiesMusic.length + 
-            Global.hobbiesDancing.length + Global.hobbiesFashion.length + Global.hobbiesCars.length + Global.hobbiesGames.length + Global.hobbiesReading.length === 0)
+            <Text style={ (Global.hobbiesRelaxing.length > 0) ? styles.textCategory : {display: 'none'} }>Relaxing: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesRelaxing)}</Text></Text>
+            <Text style={ (Global.hobbiesShopping.length > 0) ? styles.textCategory : {display: 'none'} }>Shopping: <Text style={styles.textFilterSelected}>{this.printArray(Global.hobbiesShopping)}</Text></Text>
+            <Text style={ (Global.hobbiesSport.length + Global.hobbiesAdventure.length + Global.hobbiesTechnology.length + Global.hobbiesRelaxing.length + Global.hobbiesShopping.length === 0)
             ? styles.textFilterSelected
             : {display: 'none'} }>None</Text>
         </ScrollView>

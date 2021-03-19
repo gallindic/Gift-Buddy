@@ -18,34 +18,19 @@ export default class HobbiesFilter extends Component {
     this.state = {
         selectedItemsSport: Global.Hobbies.selectedItemsSport,
         selectedItemObjectsSport: Global.Hobbies.selectedItemObjectsSport,
+        hobbiesSport: Global.hobbiesSport,
+        selectedItemsAdventure: Global.Hobbies.selectedItemsAdventure,
+        selectedItemObjectsAdventure: Global.Hobbies.selectedItemObjectsAdventure,
+        hobbiesAdventure: Global.hobbiesAdventure,
         selectedItemsTechnology: Global.Hobbies.selectedItemsTechnology,
         selectedItemObjectsTechnology: Global.Hobbies.selectedItemObjectsTechnology,
-        selectedItemsCooking: Global.Hobbies.selectedItemsCooking,
-        selectedItemObjectsCooking: Global.Hobbies.selectedItemObjectsCooking,
-        selectedItemsArts: Global.Hobbies.selectedItemsArts,
-        selectedItemObjectsArts: Global.Hobbies.selectedItemObjectsArts,
-        selectedItemsMusic: Global.Hobbies.selectedItemsMusic,
-        selectedItemObjectsMusic: Global.Hobbies.selectedItemObjectsMusic,
-        selectedItemsDancing: Global.Hobbies.selectedItemsDancing,
-        selectedItemObjectsDancing: Global.Hobbies.selectedItemObjectsDancing,
-        selectedItemsFashion: Global.Hobbies.selectedItemsFashion,
-        selectedItemObjectsFashion: Global.Hobbies.selectedItemObjectsFashion,
-        selectedItemsCars: Global.Hobbies.selectedItemsCars,
-        selectedItemObjectsCars: Global.Hobbies.selectedItemObjectsCars,
-        selectedItemsGames: Global.Hobbies.selectedItemsGames,
-        selectedItemObjectsGames: Global.Hobbies.selectedItemObjectsGames,
-        selectedItemsReading: Global.Hobbies.selectedItemsReading,
-        selectedItemObjectsReading: Global.Hobbies.selectedItemObjectsReading,
-        hobbiesSport: Global.hobbiesSport,
         hobbiesTechnology: Global.hobbiesTechnology,
-        hobbiesCooking: Global.hobbiesCooking,
-        hobbiesArts: Global.hobbiesArts,
-        hobbiesMusic: Global.hobbiesMusic,
-        hobbiesDancing: Global.hobbiesDancing,
-        hobbiesFashion: Global.hobbiesFashion,
-        hobbiesCars: Global.hobbiesCars,
-        hobbiesGames: Global.hobbiesGames,
-        hobbiesReading: Global.hobbiesReading,
+        selectedItemsRelaxing: Global.Hobbies.selectedItemsRelaxing,
+        selectedItemObjectsRelaxing: Global.Hobbies.selectedItemObjectsRelaxing,
+        hobbiesRelaxing: Global.hobbiesRelaxing,
+        electedItemsShopping: Global.Hobbies.selectedItemsShopping,
+        selectedItemObjectsShopping: Global.Hobbies.selectedItemObjectsShopping,
+        hobbiesShopping: Global.hobbiesShopping,
     };
   }
 
@@ -61,112 +46,54 @@ export default class HobbiesFilter extends Component {
     this.setState({ selectedItemObjectsSport });
   };
 
+  //ADVENTURE
+  addToHobbiesAdventure = (item) => {
+    let array = this.state.hobbiesAdventure.concat(item);
+    this.setState({ hobbiesAdventure: array })
+  }
+  
+  AdventureSelectedItemsChangeAdventure = (selectedItemsAdventure) => {
+    this.setState({ selectedItemsAdventure });
+  };
+  onSelectedItemObjectsChangeAdventure = (selectedItemObjectsAdventure) => {
+    this.setState({ selectedItemObjectsAdventure });
+  };
+
   //TECHNOLOGY
   addToHobbiesTechnology = (item) => {
     let array = this.state.hobbiesTechnology.concat(item);
     this.setState({ hobbiesTechnology: array })
   }
-  onSelectedItemsChangeTechnology = (selectedItemsTechnology) => {
+  
+  AdventureSelectedItemsChangeTechnology = (selectedItemsTechnology) => {
     this.setState({ selectedItemsTechnology });
   };
   onSelectedItemObjectsChangeTechnology = (selectedItemObjectsTechnology) => {
     this.setState({ selectedItemObjectsTechnology });
   };
 
-  //COOKING
-  addToHobbiesCooking = (item) => {
-    let array = this.state.hobbiesCooking.concat(item);
-    this.setState({ hobbiesCooking: array })
+  //RELAXING
+  addToHobbiesRelaxing = (item) => {
+    let array = this.state.hobbiesRelaxing.concat(item);
+    this.setState({ hobbiesRelaxing: array })
   }
-  onSelectedItemsChangeCooking = (selectedItemsCooking) => {
-    this.setState({ selectedItemsCooking });
+  onSelectedItemsChangeRelaxing = (selectedItemsRelaxing) => {
+    this.setState({ selectedItemsRelaxing });
   };
-  onSelectedItemObjectsChangeCooking = (selectedItemObjectsCooking) => {
-    this.setState({ selectedItemObjectsCooking });
+  onSelectedItemObjectsChangeRelaxing = (selectedItemObjectsRelaxing) => {
+    this.setState({ selectedItemObjectsRelaxing });
   };
 
-  //ARTS
-  addToHobbiesArts = (item) => {
-    let array = this.state.hobbiesArts.concat(item);
-    this.setState({ hobbiesArts: array })
+  //SHOPPING
+  addToHobbiesShopping = (item) => {
+    let array = this.state.hobbiesShopping.concat(item);
+    this.setState({ hobbiesShopping: array })
   }
-  onSelectedItemsChangeArts = (selectedItemsArts) => {
-    this.setState({ selectedItemsArts });
+  onSelectedItemsChangeShopping = (selectedItemsShopping) => {
+    this.setState({ selectedItemsShopping });
   };
-  onSelectedItemObjectsChangeArts = (selectedItemObjectsArts) => {
-    this.setState({ selectedItemObjectsArts });
-  };
-
-   //MUSIC
-   addToHobbiesMusic = (item) => {
-    let array = this.state.hobbiesMusic.concat(item);
-    this.setState({ hobbiesMusic: array })
-  }
-   onSelectedItemsChangeMusic = (selectedItemsMusic) => {
-    this.setState({ selectedItemsMusic });
-  };
-  onSelectedItemObjectsChangeMusic = (selectedItemObjectsMusic) => {
-    this.setState({ selectedItemObjectsMusic });
-  };
-
-  //DANCING
-  addToHobbiesDancing = (item) => {
-    let array = this.state.hobbiesDancing.concat(item);
-    this.setState({ hobbiesDancing: array })
-  }
-  onSelectedItemsChangeDancing = (selectedItemsDancing) => {
-    this.setState({ selectedItemsDancing });
-  };
-  onSelectedItemObjectsChangeDancing = (selectedItemObjectsDancing) => {
-    this.setState({ selectedItemObjectsDancing });
-  };
-
-  //FASHION
-  addToHobbiesFashion = (item) => {
-    let array = this.state.hobbiesFashion.concat(item);
-    this.setState({ hobbiesFashion: array })
-  }
-  onSelectedItemsChangeFashion = (selectedItemsFashion) => {
-    this.setState({ selectedItemsFashion });
-  };
-  onSelectedItemObjectsChangeFashion = (selectedItemObjectsFashion) => {
-    this.setState({ selectedItemObjectsFashion });
-  };
-
-  //CARS
-  addToHobbiesCars = (item) => {
-    let array = this.state.hobbiesCars.concat(item);
-    this.setState({ hobbiesCars: array })
-  }
-  onSelectedItemsChangeCars = (selectedItemsCars) => {
-    this.setState({ selectedItemsCars });
-  };
-  onSelectedItemObjectsChangeCars = (selectedItemObjectsCars) => {
-    this.setState({ selectedItemObjectsCars });
-  };
-
-  //GAMES
-  addToHobbiesGames = (item) => {
-    let array = this.state.hobbiesGames.concat(item);
-    this.setState({ hobbiesGames: array })
-  }
-  onSelectedItemsChangeGames = (selectedItemsGames) => {
-    this.setState({ selectedItemsGames });
-  };
-  onSelectedItemObjectsChangeGames = (selectedItemObjectsGames) => {
-    this.setState({ selectedItemObjectsGames });
-  };
-
-  //READING
-  addToHobbiesReading = (item) => {
-    let array = this.state.hobbiesReading.concat(item);
-    this.setState({ hobbiesReading: array })
-  }
-  onSelectedItemsChangeReading = (selectedItemsReading) => {
-    this.setState({ selectedItemsReading });
-  };
-  onSelectedItemObjectsChangeReading = (selectedItemObjectsReading) => {
-    this.setState({ selectedItemObjectsReading });
+  onSelectedItemObjectsChangeShopping = (selectedItemObjectsShopping) => {
+    this.setState({ selectedItemObjectsShopping });
   };
 
   icon = ({ name, size = 18, style }) => {
@@ -200,34 +127,16 @@ export default class HobbiesFilter extends Component {
   render() {
     Global.Hobbies.selectedItemsSport = this.state.selectedItemsSport
     Global.Hobbies.selectedItemObjectsSport = this.state.selectedItemObjectsSport
+    Global.Hobbies.selectedItemsAdventure = this.state.selectedItemsAdventure
+    Global.Hobbies.selectedItemObjectsAdventure = this.state.selectedItemObjectsAdventure
     Global.Hobbies.selectedItemsTechnology = this.state.selectedItemsTechnology
     Global.Hobbies.selectedItemObjectsTechnology = this.state.selectedItemObjectsTechnology
-    Global.Hobbies.selectedItemsCooking = this.state.selectedItemsCooking
-    Global.Hobbies.selectedItemObjectsCooking = this.state.selectedItemObjectsCooking
-    Global.Hobbies.selectedItemsArts = this.state.selectedItemsArts
-    Global.Hobbies.selectedItemObjectsArts = this.state.selectedItemObjectsArts
-    Global.Hobbies.selectedItemsMusic = this.state.selectedItemsMusic
-    Global.Hobbies.selectedItemObjectsMusic = this.state.selectedItemObjectsMusic
-    Global.Hobbies.selectedItemsDancing = this.state.selectedItemsDancing
-    Global.Hobbies.selectedItemObjectsDancing = this.state.selectedItemObjectsDancing
-    Global.Hobbies.selectedItemsFashion = this.state.selectedItemsFashion
-    Global.Hobbies.selectedItemObjectsFashion = this.state.selectedItemObjectsFashion
-    Global.Hobbies.selectedItemsCars = this.state.selectedItemsCars
-    Global.Hobbies.selectedItemObjectsCars = this.state.selectedItemObjectsCars
-    Global.Hobbies.selectedItemsGames = this.state.selectedItemsGames
-    Global.Hobbies.selectedItemObjectsGames = this.state.selectedItemObjectsGames
-    Global.Hobbies.selectedItemsReading = this.state.selectedItemsReading
-    Global.Hobbies.selectedItemObjectsReading = this.state.selectedItemObjectsReading
-    Global.hobbiesSport = this.state.hobbiesSport;
-    Global.hobbiesTechnology = this.state.hobbiesTechnology;
-    Global.hobbiesCooking = this.state.hobbiesCooking;
-    Global.hobbiesArts = this.state.hobbiesArts;
-    Global.hobbiesMusic = this.state.hobbiesMusic;
-    Global.hobbiesDancing = this.state.hobbiesDancing;
-    Global.hobbiesFashion = this.state.hobbiesFashion;
-    Global.hobbiesCars = this.state.hobbiesCars;
-    Global.hobbiesGames = this.state.hobbiesGames;
-    Global.hobbiesReading = this.state.hobbiesReading;
+    Global.Hobbies.selectedItemsRelaxing = this.state.selectedItemsRelaxing
+    Global.Hobbies.selectedItemObjectsRelaxing = this.state.selectedItemObjectsRelaxing
+    Global.Hobbies.selectedItemsShopping = this.state.selectedItemsShopping
+    Global.Hobbies.selectedItemObjectsShopping = this.state.selectedItemObjectsShopping
+
+
     return (
       <View style={{height: '100%'}}>
         <Header />
@@ -243,9 +152,9 @@ export default class HobbiesFilter extends Component {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              flexDirection: 'row',
-              flexWrap: 'wrap'
+              flexDirection: 'column',
             }}>
+                {/* SPORT */}
                 <Text style={{display: 'none'}}>{Global.hobbiesSport = []}</Text>
                 {this.state.hobbiesSport.map(hobby => {
                   let found = false;
@@ -279,13 +188,50 @@ export default class HobbiesFilter extends Component {
                 selectedItems={this.state.selectedItemsSport}
                 styles={multipleSelect}
                 />
+
+                {/* ADVENTURE */}
+                <Text style={{display: 'none'}}>{Global.hobbiesAdventure = []}</Text>
+                {this.state.hobbiesAdventure.map(hobby => {
+                  let found = false;
+                  this.state.selectedItemObjectsAdventure.map(item => {
+                    (item.id.includes(hobby)) ? found = true : null
+                  })
+                  if (found) Global.hobbiesAdventure.push(hobby)
+                })}
+                {this.state.selectedItemObjectsAdventure.map(item => {
+                  let category = item.id.substring(0, item.id.length - 2);
+                  (!this.state.hobbiesAdventure.includes(category)) ? this.addToHobbiesAdventure(category) : null})}
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectAdventure._toggleSelector()}>
+                  <Text style={styles.buttonText}>Adventure</Text>
+                </TouchableOpacity>
+                <SectionedMultiSelect
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectAdventure = SectionedMultiSelect)}
+                iconRenderer={this.icon}
+                items={adventure}
+                uniqueKey="id"
+                subKey="children"
+                renderSelectText={() => ' '}
+                selectToggleIconComponent={<Icon name={null} />}
+                showDropDowns={true}
+                readOnlyHeadings={false}
+                selectChildren={true}
+                onSelectedItemsChange={(selectedItemsAdventure) => {
+                  this.setState({ selectedItemsAdventure });}}
+                onSelectedItemObjectsChange={ (selectedItemObjectsAdventure) => {
+                  this.setState({ selectedItemObjectsAdventure });
+                }}
+                selectedItems={this.state.selectedItemsAdventure}
+                styles={multipleSelect}
+                />
+
+                {/* TECHNOLOGY */}
                 <Text style={{display: 'none'}}>{Global.hobbiesTechnology = []}</Text>
                 {this.state.hobbiesTechnology.map(hobby => {
                   let found = false;
                   this.state.selectedItemObjectsTechnology.map(item => {
                     (item.id.includes(hobby)) ? found = true : null
                   })
-                if (found) Global.hobbiesTechnology.push(hobby)
+                  if (found) Global.hobbiesTechnology.push(hobby)
                 })}
                 {this.state.selectedItemObjectsTechnology.map(item => {
                   let category = item.id.substring(0, item.id.length - 2);
@@ -304,29 +250,34 @@ export default class HobbiesFilter extends Component {
                 showDropDowns={true}
                 readOnlyHeadings={false}
                 selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeTechnology}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeTechnology}
+                onSelectedItemsChange={(selectedItemsTechnology) => {
+                  this.setState({ selectedItemsTechnology });}}
+                onSelectedItemObjectsChange={ (selectedItemObjectsTechnology) => {
+                  this.setState({ selectedItemObjectsTechnology });
+                }}
                 selectedItems={this.state.selectedItemsTechnology}
                 styles={multipleSelect}
                 />
-                <Text style={{display: 'none'}}>{Global.hobbiesCooking = []}</Text>
-                {this.state.hobbiesCooking.map(hobby => {
+
+                {/* RELAXING */}
+                <Text style={{display: 'none'}}>{Global.hobbiesRelaxing = []}</Text>
+                {this.state.hobbiesRelaxing.map(hobby => {
                   let found = false;
-                  this.state.selectedItemObjectsCooking.map(item => {
+                  this.state.selectedItemObjectsRelaxing.map(item => {
                     (item.id.includes(hobby)) ? found = true : null
                   })
-                  if (found) Global.hobbiesCooking.push(hobby)
+                  if (found) Global.hobbiesRelaxing.push(hobby)
                 })}
-                {this.state.selectedItemObjectsCooking.map(item => {
+                {this.state.selectedItemObjectsRelaxing.map(item => {
                   let category = item.id.substring(0, item.id.length - 2);
-                  (!this.state.hobbiesCooking.includes(category)) ? this.addToHobbiesCooking(category) : null})}
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectCooking._toggleSelector()}>
-                    <Text style={styles.buttonText}>Cooking</Text>
+                  (!this.state.hobbiesRelaxing.includes(category)) ? this.addToHobbiesRelaxing(category) : null})}
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectRelaxing._toggleSelector()}>
+                  <Text style={styles.buttonText}>Relaxing</Text>
                 </TouchableOpacity>
                 <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectCooking = SectionedMultiSelect)}
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectRelaxing = SectionedMultiSelect)}
                 iconRenderer={this.icon}
-                items={cooking}
+                items={relaxing}
                 uniqueKey="id"
                 subKey="children"
                 renderSelectText={() => ' '}
@@ -334,29 +285,34 @@ export default class HobbiesFilter extends Component {
                 showDropDowns={true}
                 readOnlyHeadings={false}
                 selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeCooking}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeCooking}
-                selectedItems={this.state.selectedItemsCooking}
+                onSelectedItemsChange={(selectedItemsRelaxing) => {
+                  this.setState({ selectedItemsRelaxing });}}
+                onSelectedItemObjectsChange={ (selectedItemObjectsRelaxing) => {
+                  this.setState({ selectedItemObjectsRelaxing });
+                }}
+                selectedItems={this.state.selectedItemsRelaxing}
                 styles={multipleSelect}
                 />
-                <Text style={{display: 'none'}}>{Global.hobbiesArts = []}</Text>
-                {this.state.hobbiesArts.map(hobby => {
+
+                {/* SHOPPING */}
+                <Text style={{display: 'none'}}>{Global.hobbiesShopping = []}</Text>
+                {this.state.hobbiesShopping.map(hobby => {
                   let found = false;
-                  this.state.selectedItemObjectsArts.map(item => {
+                  this.state.selectedItemObjectsShopping.map(item => {
                     (item.id.includes(hobby)) ? found = true : null
                   })
-                  if (found) Global.hobbiesArts.push(hobby)
+                  if (found) Global.hobbiesShopping.push(hobby)
                 })}
-                {this.state.selectedItemObjectsArts.map(item => {
+                {this.state.selectedItemObjectsShopping.map(item => {
                   let category = item.id.substring(0, item.id.length - 2);
-                  (!this.state.hobbiesArts.includes(category)) ? this.addToHobbiesArts(category) : null})}
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectArts._toggleSelector()}>
-                    <Text style={styles.buttonText}>Arts</Text>
+                  (!this.state.hobbiesShopping.includes(category)) ? this.addToHobbiesShopping(category) : null})}
+                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectShopping._toggleSelector()}>
+                  <Text style={styles.buttonText}>Shopping</Text>
                 </TouchableOpacity>
                 <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectArts = SectionedMultiSelect)}
+                ref={SectionedMultiSelect => (this.SectionedMultiSelectShopping = SectionedMultiSelect)}
                 iconRenderer={this.icon}
-                items={arts}
+                items={shopping}
                 uniqueKey="id"
                 subKey="children"
                 renderSelectText={() => ' '}
@@ -364,194 +320,12 @@ export default class HobbiesFilter extends Component {
                 showDropDowns={true}
                 readOnlyHeadings={false}
                 selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeArts}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeArts}
-                selectedItems={this.state.selectedItemsArts}
-                styles={multipleSelect}
-                />
-                <Text style={{display: 'none'}}>{Global.hobbiesMusic = []}</Text>
-                {this.state.hobbiesMusic.map(hobby => {
-                  let found = false;
-                  this.state.selectedItemObjectsMusic.map(item => {
-                    (item.id.includes(hobby)) ? found = true : null
-                  })
-                  if (found) Global.hobbiesMusic.push(hobby)
-                })}
-                {this.state.selectedItemObjectsMusic.map(item => {
-                  let category = item.id.substring(0, item.id.length - 2);
-                  (!this.state.hobbiesMusic.includes(category)) ? this.addToHobbiesMusic(category) : null})}
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectMusic._toggleSelector()}>
-                    <Text style={styles.buttonText}>Music</Text>
-                </TouchableOpacity>
-                <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectMusic = SectionedMultiSelect)}
-                iconRenderer={this.icon}
-                items={music}
-                uniqueKey="id"
-                subKey="children"
-                renderSelectText={() => ' '}
-                selectToggleIconComponent={<Icon name={null} />}
-                showDropDowns={true}
-                readOnlyHeadings={false}
-                selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeMusic}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeMusic}
-                selectedItems={this.state.selectedItemsMusic}
-                styles={multipleSelect}
-                />
-                <Text style={{display: 'none'}}>{Global.hobbiesDancing = []}</Text>
-                {this.state.hobbiesDancing.map(hobby => {
-                  let found = false;
-                  this.state.selectedItemObjectsDancing.map(item => {
-                    (item.id.includes(hobby)) ? found = true : null
-                  })
-                  if (found) Global.hobbiesDancing.push(hobby)
-                })}
-                {this.state.selectedItemObjectsDancing.map(item => {
-                  let category = item.id.substring(0, item.id.length - 2);
-                  (!this.state.hobbiesDancing.includes(category)) ? this.addToHobbiesDancing(category) : null})}
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectDancing._toggleSelector()}>
-                    <Text style={styles.buttonText}>
-                      Dancing</Text>
-                </TouchableOpacity>
-                <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectDancing = SectionedMultiSelect)}
-                iconRenderer={this.icon}
-                items={dancing}
-                uniqueKey="id"
-                subKey="children"
-                renderSelectText={() => ' '}
-                selectToggleIconComponent={<Icon name={null} />}
-                showDropDowns={true}
-                readOnlyHeadings={false}
-                selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeDancing}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeDancing}
-                selectedItems={this.state.selectedItemsDancing}
-                styles={multipleSelect}
-                />
-                <Text style={{display: 'none'}}>{Global.hobbiesFashion = []}</Text>
-                {this.state.hobbiesFashion.map(hobby => {
-                  let found = false;
-                  this.state.selectedItemObjectsFashion.map(item => {
-                    (item.id.includes(hobby)) ? found = true : null
-                  })
-                  if (found) Global.hobbiesFashion.push(hobby)
-                })}
-                {this.state.selectedItemObjectsFashion.map(item => {
-                  let category = item.id.substring(0, item.id.length - 2);
-                  (!this.state.hobbiesFashion.includes(category)) ? this.addToHobbiesFashion(category) : null})}
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectFashion._toggleSelector()}>
-                    <Text style={styles.buttonText}>
-                      Fashion</Text>
-                </TouchableOpacity>
-                <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectFashion = SectionedMultiSelect)}
-                iconRenderer={this.icon}
-                items={fashion}
-                uniqueKey="id"
-                subKey="children"
-                renderSelectText={() => ' '}
-                selectToggleIconComponent={<Icon name={null} />}
-                showDropDowns={true}
-                readOnlyHeadings={false}
-                selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeFashion}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeFashion}
-                selectedItems={this.state.selectedItemsFashion}
-                styles={multipleSelect}
-                />
-                <Text style={{display: 'none'}}>{Global.hobbiesCars = []}</Text>
-                {this.state.hobbiesCars.map(hobby => {
-                  let found = false;
-                  this.state.selectedItemObjectsCars.map(item => {
-                    (item.id.includes(hobby)) ? found = true : null
-                  })
-                  if (found) Global.hobbiesCars.push(hobby)
-                })}
-                {this.state.selectedItemObjectsCars.map(item => {
-                  let category = item.id.substring(0, item.id.length - 2);
-                  (!this.state.hobbiesCars.includes(category)) ? this.addToHobbiesCars(category) : null})}
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectCars._toggleSelector()}>
-                    <Text style={styles.buttonText}>
-                      Cars</Text>
-                </TouchableOpacity>
-                <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectCars = SectionedMultiSelect)}
-                iconRenderer={this.icon}
-                items={cars}
-                uniqueKey="id"
-                subKey="children"
-                renderSelectText={() => ' '}
-                selectToggleIconComponent={<Icon name={null} />}
-                showDropDowns={true}
-                readOnlyHeadings={false}
-                selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeCars}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeCars}
-                selectedItems={this.state.selectedItemsCars}
-                styles={multipleSelect}
-                />
-                <Text style={{display: 'none'}}>{Global.hobbiesGames = []}</Text>
-                {this.state.hobbiesGames.map(hobby => {
-                  let found = false;
-                  this.state.selectedItemObjectsGames.map(item => {
-                    (item.id.includes(hobby)) ? found = true : null
-                  })
-                  if (found) Global.hobbiesGames.push(hobby)
-                })}
-                {this.state.selectedItemObjectsGames.map(item => {
-                  let category = item.id.substring(0, item.id.length - 2);
-                  (!this.state.hobbiesGames.includes(category)) ? this.addToHobbiesGames(category) : null})}
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectGames._toggleSelector()}>
-                    <Text style={styles.buttonText}>
-                      Games</Text>
-                </TouchableOpacity>
-                <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectGames = SectionedMultiSelect)}
-                iconRenderer={this.icon}
-                items={games}
-                uniqueKey="id"
-                subKey="children"
-                renderSelectText={() => ' '}
-                selectToggleIconComponent={<Icon name={null} />}
-                showDropDowns={true}
-                readOnlyHeadings={false}
-                selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeGames}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeGames}
-                selectedItems={this.state.selectedItemsGames}
-                styles={multipleSelect}
-                />
-                <Text style={{display: 'none'}}>{Global.hobbiesReading = []}</Text>
-                {this.state.hobbiesReading.map(hobby => {
-                  let found = false;
-                  this.state.selectedItemObjectsReading.map(item => {
-                    (item.id.includes(hobby)) ? found = true : null
-                  })
-                  if (found) Global.hobbiesReading.push(hobby)
-                })}
-                {this.state.selectedItemObjectsReading.map(item => {
-                  let category = item.id.substring(0, item.id.length - 2);
-                  (!this.state.hobbiesReading.includes(category)) ? this.addToHobbiesReading(category) : null})}
-                <TouchableOpacity style={styles.button} onPress={() => this.SectionedMultiSelectReading._toggleSelector()}>
-                    <Text style={styles.buttonText}>
-                      Reading</Text>
-                </TouchableOpacity>
-                <SectionedMultiSelect
-                ref={SectionedMultiSelect => (this.SectionedMultiSelectReading = SectionedMultiSelect)}
-                iconRenderer={this.icon}
-                items={reading}
-                uniqueKey="id"
-                subKey="children"
-                renderSelectText={() => ' '}
-                selectToggleIconComponent={<Icon name={null} />}
-                showDropDowns={true}
-                readOnlyHeadings={false}
-                selectChildren={true}
-                onSelectedItemsChange={this.onSelectedItemsChangeReading}
-                onSelectedItemObjectsChange={this.onSelectedItemObjectsChangeReading}
-                selectedItems={this.state.selectedItemsReading}
+                onSelectedItemsChange={(selectedItemsShopping) => {
+                  this.setState({ selectedItemsShopping });}}
+                onSelectedItemObjectsChange={ (selectedItemObjectsShopping) => {
+                  this.setState({ selectedItemObjectsShopping });
+                }}
+                selectedItems={this.state.selectedItemsShopping}
                 styles={multipleSelect}
                 />
             </ScrollView>
@@ -642,7 +416,10 @@ const multipleSelect =
     },
     chipsWrapper: {
       width: WIDTH * 0.9,
-      padding: WIDTH * 0.01
+      padding: WIDTH * 0.01,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     chipContainer: {
       backgroundColor: '#FF304F'
@@ -660,778 +437,101 @@ const sport = [
   {
     name: 'Football',
     id: 'Football00',
-    children: [
-      {
-        name: 'Football Footwear',
-        id: 'Football 1',
-      },
-      {
-        name: 'Football Clothing',
-        id: 'Football 2',
-      },
-      {
-        name: 'Football Accessories',
-        id: 'Football 3',
-      },
-      {
-        name: 'Football Brands',
-        id: 'Football 4',
-      },
-      {
-        name: 'Football Fanbase',
-        id: 'Football 5',
-      },
-    ],
   },
   {
     name: 'Basketball',
     id: 'Basketball00',
-    children: [
-      {
-        name: 'Basketball Footwear',
-        id: 'Basketball 1',
-      },
-      {
-        name: 'Basketball Clothing',
-        id: 'Basketball 2',
-      },
-      {
-        name: 'Basketball Accessories',
-        id: 'Basketball 3',
-      },
-      {
-        name: 'Basketball Brands',
-        id: 'Basketball 4',
-      },
-      {
-        name: 'Basketball Fanbase',
-        id: 'Basketball 5',
-      },
-    ],
+  },
+  {
+    name: 'Volleyball',
+    id: 'Volleyball00',
+  },
+  {
+    name: 'Cycling',
+    id: 'Cycling00',
+  },
+  {
+    name: 'Running',
+    id: 'Running00',
+  },
+  {
+    name: 'Fishing',
+    id: 'Fishing00',
+  },
+  {
+    name: 'Fitness',
+    id: 'Fitness00',
   },
   {
     name: 'Tennis',
     id: 'Tennis00',
-    children: [
-      {
-        name: 'Tennis Footwear',
-        id: 'Tennis 1',
-      },
-      {
-        name: 'Tennis Clothing',
-        id: 'Tennis 2',
-      },
-      {
-        name: 'Tennis Accessories',
-        id: 'Tennis 3',
-      },
-      {
-        name: 'Tennis Racket',
-        id: 'Tennis 4',
-      },
-    ],
+  },
+];
+
+const adventure = [
+  {
+    name: 'Hiking',
+    id: 'Hiking00',
   },
   {
-  name: 'Volleyball',
-    id: 'Volleyball00',
-    children: [
-      {
-        name: 'Volleyball Clothing',
-        id: 'Volleyball 1',
-      },
-      {
-        name: 'Volleyball Footwear',
-        id: 'Volleyball 2',
-      },
-      {
-        name: 'Volleyball Accessories',
-        id: 'Volleyball 3',
-      },
-      {
-        name: 'Volleyball Brands',
-        id: 'Volleyball 4',
-      },
-      {
-        name: 'Volleyball Fanbase',
-        id: 'Volleyball 5',
-      },
-    ]
+    name: 'Traveling',
+    id: 'Traveling00',
   },
   {
-  name: 'Cycling',
-      id: 'Cycling00',
-      children: [
-      {
-          name: 'Bikes',
-          id: 'Cycling 1',
-      },
-      {
-        name: 'Cycling Clothing',
-        id: 'Cycling 2',
-      },
-      {
-        name: 'Cycling Footwear',
-        id: 'Cycling 3',
-      },
-      {
-        name: 'Cycling Accessories',
-        id: 'Cycling 4',
-      },
-    ]
+    name: 'Camping',
+    id: 'Camping00',
   },
-  {
-  name: 'Running',
-      id: 'Running00',
-      children: [
-      {
-          name: 'Running Footwear',
-          id: 'Running 1',
-      },
-      {
-        name: 'Running Clothing',
-        id: 'Running 2',
-      },
-      {
-        name: 'Running Accessories',
-        id: 'Running 3',
-      },
-    ]
-  },
-  {
-    name: 'Fishing',
-        id: 'Fishing00',
-        children: [
-        {
-            name: 'Fishing rods',
-            id: 'Fishing 1',
-        },
-        {
-          name: 'Harpunes',
-          id: 'Fishing 2',
-        },
-        {
-          name: 'Fishing Accessories',
-          id: 'Fishing 3',
-        },
-      ]
-    },
 ];
 
 const technology = [
   {
     name: 'Gaming',
     id: 'Gaming00',
-    children: [
-      {
-        name: 'Gaming computers',
-        id: 'Gaming 1',
-      },
-      {
-        name: 'Gaming keyboards',
-        id: 'Gaming 2',
-      },
-      {
-        name: 'Gaming mouses',
-        id: 'Gaming 7',
-      },
-      {
-        name: 'Gaming accessories',
-        id: 'Gaming 3',
-      },
-      {
-        name: 'Gaming consoles',
-        id: 'Gaming 4',
-      },
-    ],
   },
   {
-    name: 'Audio',
-    id: 'Audio00',
-    children: [
-      {
-        name: 'Microphones',
-        id: 'Audio 1',
-      },
-      {
-        name: 'Headphones',
-        id: 'Audio 2',
-      },
-      {
-        name: 'Speakers',
-        id: 'Audio 3',
-      },
-      {
-        name: 'Audio accessories',
-        id: 'Audio 6',
-      },
-    ],
-  },
-  {
-  name: 'Video',
-    id: 'Video00',
-    children: [
-      {
-        name: 'TVs',
-        id: 'Video 1',
-      },
-      {
-        name: 'Monitors',
-        id: 'Video 2',
-      },
-      {
-        name: 'Cameras',
-        id: 'Video 3',
-      },
-      {
-        name: 'Camera accessories',
-        id: 'Video 4',
-      },
-      {
-        name: 'Projectors',
-        id: 'Video 5',
-      },
-      {
-        name: 'Photo frames',
-        id: 'Video 6',
-      },
-    ]
-  },
-  {
-    name: 'Mobile',
-      id: 'Mobile00',
-      children: [
-        {
-          name: 'Apple',
-          id: 'Mobile 1',
-        },
-        {
-          name: 'Huawei',
-          id: 'Mobile 2',
-        },
-        {
-          name: 'LG',
-          id: 'Mobile 3',
-        },
-        {
-          name: 'HTC',
-          id: 'Mobile 4',
-        },
-        {
-          name: 'Mobile accessories',
-          id: 'Mobile 6',
-        },
-      ]
-    },
-    {
-      name: 'Computers',
-        id: 'Computers00',
-        children: [
-          {
-            name: 'Desktops',
-            id: 'Computers 5',
-          },
-          {
-            name: 'Laptops',
-            id: 'Computers 6',
-          },
-        ]
-      },
-      {
-        name: 'Peripherals',
-          id: 'Peripherals00',
-          children: [
-            {
-              name: 'USB',
-              id: 'Peripherals 1',
-            },
-            {
-              name: 'Storage discs',
-              id: 'Peripherals 3',
-            },
-            {
-              name: 'Mouses',
-              id: 'Peripherals 4',
-            },
-            {
-              name: 'Keyboards',
-              id: 'Peripherals 5',
-            },
-            {
-              name: 'Adapters',
-              id: 'Peripherals 6',
-            },
-            {
-              name: 'Graphic cards',
-              id: 'Peripherals 7',
-            },
-            {
-              name: 'Mother boards',
-              id: 'Peripherals 8',
-            },
-          ]
-        },
-];
-
-const cooking = [
-  {
-    name: 'Recipies',
-    id: 'Recipies00',
-    children: [
-      {
-        name: 'Books',
-        id: 'Recipies 1',
-      },
-      {
-        name: 'Courses',
-        id: 'Recipies 2',
-      },
-      {
-        name: 'Videos',
-        id: 'Recipies 3',
-      },
-    ],
-  },
-  {
-    name: 'Clothing',
-    id: 'Clothing00',
-    children: [
-      {
-        name: 'Hats',
-        id: 'Clothing 1',
-      },
-      {
-        name: 'Aprons',
-        id: 'Clothing 2',
-      },
-    ],
-  },
-  {
-  name: 'Accessories',
-    id: 'Accessories00',
-    children: [
-      {
-        name: 'Dining sets',
-        id: 'Accessories 1',
-      },
-      {
-        name: 'Cutlery',
-        id: 'Accessories 2',
-      },
-      {
-        name: 'Cooking appliances',
-        id: 'Accessories 3',
-      },
-      {
-        name: 'Pans',
-        id: 'Accessories 4',
-      },
-      {
-        name: 'Food decoration',
-        id: 'Accessories 5',
-      },
-    ]
+    name: 'Photography',
+    id: 'Photography00',
   },
 ];
 
-const arts = [
+const relaxing = [
   {
-    name: 'Paint',
-    id: 'Paint00',
-    children: [
-      {
-        name: 'Acrylic paint',
-        id: 'Paint 1'
-      },
-      {
-        name: 'Oil paint',
-        id: 'Paint 2'
-      },
-      {
-        name: 'Watercolor paint',
-        id: 'Paint 3'
-      },
-    ]
+    name: 'Reading',
+    id: 'Reading00',
   },
   {
-    name: 'Drawing',
-    id: 'Drawing00',
-    children: [
-      {
-        name: 'Pencils',
-        id: 'Drawing 1'
-      },
-      {
-        name: 'Markers',
-        id: 'Drawing 2'
-      },
-      {
-        name: 'Pens',
-        id: 'Drawing 3'
-      },
-    ]
+    name: 'Arts and crafts',
+    id: 'Arts and crafts00',
   },
   {
-    name: 'Accessories',
-    id: 'Accessories00',
-    children: [
-      {
-        name: 'Canvases',
-        id: 'Accessories 1',
-      },
-      {
-        name: 'Brushes',
-        id: 'Accessories 2',
-      },
-      {
-        name: 'Paper',
-        id: 'Accessories 3',
-      },
-      {
-        name: 'Frames',
-        id: 'Accessories 4',
-      },
-      {
-        name: 'Art other',
-        id: 'Accessories 5',
-      },
-    ],
-  },
-];
-
-const music = [
-  {
-    name: 'Singing',
-    id: 'Singing00',
-    children: [
-      {
-        name: 'Singing microphones',
-        id: 'Singing 1',
-      },
-      {
-        name: 'Mixers',
-        id: 'Singing 2',
-      },
-      {
-        name: 'Singing speakers',
-        id: 'Singing 3',
-      },
-      {
-        name: 'Singing headphones',
-        id: 'Singing 4',
-      },
-    ],
+    name: 'Music',
+    id: 'Music00',
   },
   {
-    name: 'Instruments',
-    id: 'Instruments00',
-    children: [
-      {
-        name: 'Guitars',
-        id: 'Instruments 1',
-      },
-      {
-        name: 'Piano',
-        id: 'Instruments 2',
-      },
-      {
-        name: 'Trumpets',
-        id: 'Instruments 3',
-      },
-      {
-        name: 'Violins',
-        id: 'Instruments 4',
-      },
-      {
-        name: 'Flutes',
-        id: 'Instruments 5',
-      },
-      {
-        name: 'Instruments other',
-        id: 'Instruments 6',
-      },
-    ],
+    name: 'Cooking',
+    id: 'Cooking00',
   },
-  {
-    name: 'Accessories',
-    id: 'Accessories00',
-    children: [
-      {
-        name: 'Singing accesories',
-        id: 'Accessories 1',
-      },
-      {
-        name: 'Instrument accessories',
-        id: 'Accessories 4',
-      },
-      {
-        name: 'Accessories other',
-        id: 'Accessories 5',
-      },
-    ],
-  },
-];
-
-const dancing = [
-  {
-    name: 'Dancing style',
-    id: 'Style00',
-    children: [
-      {
-        name: 'Hip-hop',
-        id: 'Style 1',
-      },
-      {
-        name: 'Balet',
-        id: 'Style 2',
-      },
-    ],
-  },
-  {
-    name: 'Accessories',
-    id: 'Accessories00',
-    children: [
-      {
-        name: 'Requisites',
-        id: 'Accessories 1',
-      },
-      {
-        name: 'Dancing Speakers',
-        id: 'Accessories 2',
-      },
-    ],
-  },
-];
-
-const fashion = [
-  {
-    name: 'Clothing',
-    id: 'Clothing00',
-    children: [
-      {
-        name: 'Classy',
-        id: 'Clothing 1',
-      },
-      {
-        name: 'Casual',
-        id: 'Clothing 2',
-      },
-    ],
-  },
-  {
-    name: 'Footwear',
-    id: 'Footwear00',
-    children: [
-      {
-        name: 'Sneakers',
-        id: 'Footwear 1',
-      },
-      {
-        name: 'Trainers',
-        id: 'Footwear 2',
-      },
-      {
-        name: 'Classy footwear',
-        id: 'Footwear 3',
-      },
-    ],
-  },
-  {
-  name: 'Accesories',
-    id: 'Accesories00',
-    children: [
-      {
-        name: 'Watches',
-        id: 'Accesories 1',
-      },
-      {
-        name: 'Belts',
-        id: 'Accesories 2',
-      },
-      {
-        name: 'Bags',
-        id: 'Accesories 3',
-      }
-    ]
-  },
-  {
-    name: 'Make-up',
-      id: 'Makeup00',
-      children: [
-        {
-          name: 'Eyes',
-          id: 'Makeup 1',
-        },
-        {
-          name: 'Face',
-          id: 'Makeup 2',
-        },
-        {
-          name: 'Lips',
-          id: 'Makeup 3',
-        },
-        {
-          name: 'Sponges & brushes',
-          id: 'Makeup 4',
-        },
-      ]
-    },
-    {
-      name: 'Fragrances',
-        id: 'Fragrances00',
-        children: [
-          {
-            name: 'Parfumes',
-            id: 'Fragrances 1',
-          },
-          {
-            name: 'Deodorants',
-            id: 'Fragrances 2',
-          },
-        ]
-      },
-];
-
-const cars = [
-  {
-    name: 'Tools',
-    id: 'Tools00',
-    children: [
-      {
-        name: 'Machines',
-        id: 'Tools 1',
-      },
-      {
-        name: 'Hand tools',
-        id: 'Tools 2',
-      },
-    ],
-  },
-  {
-    name: 'Accessories',
-    id: 'Accessories00',
-    children: [
-      {
-        name: 'Car radios',
-        id: 'Accessories 1',
-      },
-      {
-        name: 'Phone holders',
-        id: 'Accessories 2',
-      },
-      {
-        name: 'Car fragrances',
-        id: 'Accessories 3',
-      },
-      {
-        name: 'Bluetooth/FM transmitters',
-        id: 'Accessories 4',
-      },
-    ],
-  },
-];
-
-const games = [
   {
     name: 'Board games',
     id: 'Board games00',
-    children: [
-      {
-        name: 'Social',
-        id: 'Board games 1',
-      },
-      {
-        name: 'Drinking',
-        id: 'Board games 2',
-      },
-      {
-        name: 'Kids',
-        id: 'Board games 3',
-      },
-    ],
-  },
-  {
-    name: 'Computer games',
-    id: 'Computer games00',
-    children: [
-      {
-        name: 'Popular',
-        id: 'Computer games 1',
-      },
-      {
-        name: 'Sport',
-        id: 'Computer games 2',
-      },
-      {
-        name: 'Shooting',
-        id: 'Computer games 3',
-      },
-      {
-        name: 'Arcade',
-        id: 'Computer games 4',
-      },
-      {
-        name: 'Creativity',
-        id: 'Computer games 5',
-      },
-      {
-        name: 'Vintage',
-        id: 'Computer games 6',
-      },
-    ],
   },
 ];
 
-const reading = [
+const shopping = [
   {
-    name: 'Books',
-    id: 'Books00',
-    children: [
-      {
-        name: 'Digital books',
-        id: 'Books 1',
-      },
-      {
-        name: 'Physical books',
-        id: 'Books 2',
-      },
-      {
-        name: 'Audio books',
-        id: 'Books 3',
-      },
-    ],
+    name: 'Fashion',
+    id: 'Fashion00',
   },
   {
-    name: 'Genre',
-    id: 'Genre00',
-    children: [
-      {
-        name: 'Novels',
-        id: 'Genre 1',
-      },
-      {
-        name: 'Crime',
-        id: 'Genre 2',
-      },
-      {
-        name: 'Adventure',
-        id: 'Genre 3',
-      },
-      {
-        name: 'Horror',
-        id: 'Genre 4',
-      },
-      {
-        name: 'Romance',
-        id: 'Genre 5',
-      },
-      {
-        name: 'History',
-        id: 'Genre 6',
-      },
-      {
-        name: 'Childrens book',
-        id: 'Genre 7',
-      },
-    ],
+    name: 'Personal care',
+    id: 'Personal care00',
+  },
+  {
+    name: 'Makeup',
+    id: 'Makeup00',
+  },
+  {
+    name: 'Jewellery',
+    id: 'Jewellery00',
   },
 ];
