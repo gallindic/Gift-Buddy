@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, ActivityIndicator, View, Dimensions } from 'react-native';
+import { ScrollView, ActivityIndicator, View, Dimensions, Text } from 'react-native';
 
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
 import Product from '../components/Product'
 import Global from '../components/Global'
+import { colors } from 'react-native-elements';
 
 const HEIGHT = Dimensions.get('window').height;
 
@@ -24,59 +25,62 @@ export default class scraperScreen extends Component {
     checkForParametersInState = (state) => {
       elements = [];
 
-      Object.keys(state).map(i => {
-          if(state[i].length > 0){
-            state[i].forEach(object => {
-              if(typeof(object) === 'object' && object !== null){
-                if('children' in object){
-                  object.children.forEach(child => {
-                    elements.push(child.name);
-                  });
-                } else {
-                  elements.push(object.name);
-                }
-              }
-            });
+      Object.keys(state).map(hobby => {
+        if(state[hobby] == "undefined" || state[hobby] == null){
+          return;
+        }
+
+        state[hobby].forEach(object => {
+          if(typeof(object) === 'object' && object !== null){
+            elements.push(object.name);
+          } else {
+            elements.push(object.replace("00", ""));
           }
+        });
       });
 
       return elements;
     }
 
-    async getApiData(){
-      console.log(Global.Hobbies);
-        try{
-          let response = await fetch('https://giftbuddyapi.herokuapp.com/scrape', {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              'priceFrom': Global.BudgetFilter.budgetValueOne,
-              'priceTo': Global.BudgetFilter.budgetValueTwo == 0 ? 999999 : Global.BudgetFilter.budgetValueTwo,
-              'hobbies': this.checkForParametersInState(Global.Hobbies),
-              'occasion': this.checkForParametersInState(Global.Occasion)[0],
-              'age': Global.AgeFilter.ageValue,
-              'gender': Global.Gender.gender
-            }),
-            json: true
-          });
+    getApiData(){
+      console.log(this.checkForParametersInState(Global.Occasion)[1]);
 
-          let responseJson = await response.json();
-          this.setState({
-              isLoading: false,
-              dataSource: responseJson,
-          });
-        } catch(error) {
-          console.error(error); 
-        };
+      let testData = async () => {
+        console.log("scraping");
+
+        let data = await fetch("http://www.demo.api.giftbuddy.si/scrape", {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'priceFrom': Global.BudgetFilter.budgetValueOne,
+            'priceTo': Global.BudgetFilter.budgetValueTwo == 0 ? 999999 : Global.BudgetFilter.budgetValueTwo,
+            'hobbies': this.checkForParametersInState(Global.Hobbies),
+            'occasion': this.checkForParametersInState(Global.Occasion)[1],
+            'age': Global.AgeFilter.ageValue,
+            'gender': Global.Gender.gender
+          }),
+          json: true
+        });
+
+        return data.json();
+      }
+
+      testData().then(data => {
+        console.log(data.length);
+        this.setState({
+          isLoading: false,
+          dataSource: data
+        })
+      });
     }
 
     showProducts = () => {
       return this.state.dataSource.map(function(object, i){
         return(
-          <Product product={object} index={i} />
+          <Product product={object} index={i} key={i} />
         );
       });
     }
@@ -84,7 +88,8 @@ export default class scraperScreen extends Component {
     render() {
       if(this.state.isLoading){
         return (
-            <View style={{flex: 1, justifyContent: 'center', }}>
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{marginBottom: 10}}>Just a moment.</Text>
                 <ActivityIndicator size="large" color="#ff0000" />    
             </View>
         );    

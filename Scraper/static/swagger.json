@@ -1,0 +1,89 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Amazon scraper API"
+    },
+    "servers": [
+      {
+        "url": "http://192.168.0.140:5000/",
+        "description": "Local server"
+      },
+      {
+        "url": "http://demo.api.giftbuddy.si/",
+        "description": "Demo server"
+      }
+    ],
+    "paths": {
+      "/ping": {
+        "get": {
+          "tags": [
+            "Ping"
+          ],
+          "summary": "Returns API status",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+
+              }
+            },
+            "404": {
+              "description": "Not found",
+              "schema": {
+
+              }
+            }
+          }
+        }
+      },
+      "/scrape": {
+        "post": {
+          "tags": [
+            "Scrape"
+          ],
+          "summary": "Scrape Amazon based on body parameters",
+          "parameters": [
+            {
+              "in": "body",
+              "priceFrom": "priceFrom",
+              "required": true,
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/components/schemas/scrape"
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "scrape": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "format": "string"
+            },
+            "link": {
+              "type": "string",
+              "format": "string"
+            },
+            "image link": {
+              "type": "string",
+              "format": "string"
+            },
+            "price": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        }
+      }
+    }
+  }

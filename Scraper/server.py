@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from bs4 import BeautifulSoup
 import json
@@ -7,9 +8,20 @@ import requests
 import random
 import time
 
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "Amazon scraper"
+    }
+)
+
 app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config['CORS_HEADERS'] = 'Content-Type'
+app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 MAX_THREADS = 100
 #HEADERS = ({'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36','Accept-Language': 'en-US, en;q=0.5'})
@@ -25,7 +37,7 @@ def remove_duplicate_hobbies(parameters):
     for hobby in parameters['hobbies']:
         hobbies_set.add(hobby)
         
-    parameters['hobbies'] = hobbies_set
+    parameters['hobbies'] = list(hobbies_set)
 
     return parameters
 
@@ -131,6 +143,7 @@ def handle_hobbies_parameter(parameters, mapping_table):
 
 def get_urls_to_scrape(mapping_table, parameters):
     urls_to_scrape = []
+
     urls_to_scrape.extend(handle_age_parameter(parameters, mapping_table))
     urls_to_scrape.extend(handle_occasion_parameter(parameters, mapping_table))
     urls_to_scrape.extend(handle_hobbies_parameter(parameters, mapping_table))
@@ -155,35 +168,6 @@ def scrape_amazon(urls_to_scrape, price_range, trending=False):
             scraped_products.extend(fut.result())
 
     return scraped_products
-
-
-#Beautifullsoup scraper koda za trending urlje(imajo drugačen HTML, kot pa urlji za keyworde ali pa kategorije)
-def page_scrape_trending(url):
-    print(url)
-    page = requests.get(url, headers=HEADERS)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    products = []
-
-    items = soup.find_all("div", attrs={'class':'zg-item-immersion'})
-
-    for item in items:
-        if item.find('div', class_='p13n-sc-truncated') is None or item.find('a', class_='a-link-normal') is None \
-            or item.find('div', class_='a-section').find('img').get('src') is None or item.find('span', class_='p13n-sc-price') is None:
-            continue
-             
-        price = item.find('span', class_='p13n-sc-price').string.strip()
-        price = price.replace(",", ".")
-        price = price.replace(".", "", price.count(".") -1)
-
-        product = dict()       
-        product['name'] = item.find('div', class_='p13n-sc-truncated').string.strip()
-        product['link'] = 'https://www.amazon.de' + item.find('a', class_='a-link-normal').get('href')
-        product['imageLink'] = item.find('div', class_='a-section').find('img').get('src').split(' ')[0]
-        product['price'] = price
-        
-        products.append(product)
-
-    return products
         
 
 #Beautifullsoup scraper koda za urlje kategorij, keywordov
@@ -231,12 +215,46 @@ def scrape():
     return jsonify(products)
 
 
-@app.route('/scrapeTrending', methods=['POST'])
-def scrapeTrending():
-    mapping_table = read_mapping_table()
-    urls_to_scrape = mapping_table['Trending']['search']
-    print(urls_to_scrape)
-    products = scrape_amazon(urls_to_scrape, None, True)
-    random.shuffle(products)
+@app.route('/getProductData', methods=['POST'])
+def getProductData():
+    data = request.get_json()
+    print(data["url"])
 
-    return jsonify(products)
+    page = requests.get(data["url"], headers=HEADERS)
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    description_container = soup.find("div", id="featurebullets_feature_div")
+    description_items = description_container.find_all("span", class_="a-list-item")
+    
+    description = ""
+
+    for description_item in description_items:
+        if(description_item.string):
+            print(description_item.string.strip())
+            description += description_item.string.strip() + "\n"
+
+
+    ratings_container = soup.find("div", id="averageCustomerReviews_feature_div")
+    rating = ratings_container.find("i", class_="a-icon-star")
+    
+    if(rating):
+        rating = rating.get("class")[-1]
+        rating = rating.split("-", 2)[-1]
+        print(rating)
+
+
+    data = {
+        'description': description,
+        'rating': rating
+    }
+
+    return json.dumps(data)
+
+
+
+
+@app.route('/ping')
+def ping():
+    return json.dumps("OK")
+
+app.run(host='192.168.0.140')
