@@ -57,3 +57,6 @@ buck-out/
 
 # Expo
 .expo
+
+android/
+ios/

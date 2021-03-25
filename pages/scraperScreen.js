@@ -48,7 +48,7 @@ export default class scraperScreen extends Component {
       let testData = async () => {
         console.log("scraping");
 
-        let data = await fetch("http://www.demo.api.giftbuddy.si/scrape", {
+        let data = await fetch("http://www.api.giftbuddy.si/scrape", {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

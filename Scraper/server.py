@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_swagger_ui import get_swaggerui_blueprint
+#from flask_swagger_ui import get_swaggerui_blueprint
 from flask_cors import CORS
 from bs4 import BeautifulSoup
 import json
@@ -8,7 +8,7 @@ import requests
 import random
 import time
 
-SWAGGER_URL = '/swagger'
+"""SWAGGER_URL = '/swagger'
 API_URL = '/static/swagger.json'
 SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
     SWAGGER_URL,
@@ -16,12 +16,12 @@ SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
     config={
         'app_name': "Amazon scraper"
     }
-)
+)"""
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
+#app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 MAX_THREADS = 100
 #HEADERS = ({'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36','Accept-Language': 'en-US, en;q=0.5'})
@@ -151,16 +151,23 @@ def get_urls_to_scrape(mapping_table, parameters):
     return urls_to_scrape 
 
 #Zažene toliko threadov kolikor je urljev (MAX 100) in vsak thread scrapea svoj url
-def scrape_amazon(urls_to_scrape, price_range, trending=False):
+def scrape_amazon(urls_to_scrape, price_range, gender, trending=False):
     threads = min(MAX_THREADS, len(urls_to_scrape))
 
     if threads < 1:
         threads = 1
     scraped_products = []
+
+    oppositeGender = None
+
+    if(gender == 'Male'):
+        oppositeGender = 'Women'
+    else:
+        oppositeGender = 'Men'
     
     with concurrent.futures.ThreadPoolExecutor(max_workers=threads) as executor:
         if not trending:
-            futs = [executor.submit(page_scrape, url, price_range) for url in urls_to_scrape]
+            futs = [executor.submit(page_scrape, url, price_range, oppositeGender) for url in urls_to_scrape]
         else:
             futs = [executor.submit(page_scrape_trending, url) for url in urls_to_scrape]
 
@@ -171,10 +178,10 @@ def scrape_amazon(urls_to_scrape, price_range, trending=False):
         
 
 #Beautifullsoup scraper koda za urlje kategorij, keywordov
-def page_scrape(url, price_range):
+def page_scrape(url, price_range, oppositeGender):
     print(url)
     page = requests.get(url, headers=HEADERS)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = BeautifulSoup(page.text, 'html.parser')
     products = []
 
     items = soup.find_all("div", attrs={'class':'s-result-item'})
@@ -191,8 +198,13 @@ def page_scrape(url, price_range):
         if price_range[0] != None and float(price) < float(price_range[0]) or float(price) > float(price_range[1]):
             continue
 
+        name = item.find('span', class_='a-text-normal').string.strip()
+
+        if oppositeGender.lower() in name.lower():
+            continue
+
         product = dict()       
-        product['name'] = item.find('span', class_='a-text-normal').string.strip()
+        product['name'] = name
         product['link'] = 'https://www.amazon.de' + item.find('a', class_='a-text-normal').get('href')
         product['imageLink'] = item.find('img', class_='s-image').get('srcset').split(' ')[0]
         product['price'] = price
@@ -208,7 +220,7 @@ def scrape():
     print(parameters)
 
     urls_to_scrape = get_urls_to_scrape(read_mapping_table(), parameters)
-    products = scrape_amazon(urls_to_scrape, (parameters['priceFrom'], parameters['priceTo']))
+    products = scrape_amazon(urls_to_scrape, (parameters['priceFrom'], parameters['priceTo']), parameters["gender"])
     random.shuffle(products)
     print("Products scraped:", len(products))
 
@@ -221,7 +233,7 @@ def getProductData():
     print(data["url"])
 
     page = requests.get(data["url"], headers=HEADERS)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = BeautifulSoup(page.text, 'html.parser')
 
     description_container = soup.find("div", id="featurebullets_feature_div")
     description_items = description_container.find_all("span", class_="a-list-item")
@@ -251,10 +263,8 @@ def getProductData():
     return json.dumps(data)
 
 
-
-
 @app.route('/ping')
 def ping():
     return json.dumps("OK")
 
-app.run(host='192.168.0.140')
+app.run(host='192.168.178.36')

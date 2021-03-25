@@ -20,6 +20,8 @@ import trendingScreen from './pages/trendingScreen'
 import ProductDetail from './pages/ProductDetail'
 import Product from './components/Product'
 
+console.disableYellowBox = true;
+
 const AppNavigator = createStackNavigator({
   Home: {
     screen: LandingPage,

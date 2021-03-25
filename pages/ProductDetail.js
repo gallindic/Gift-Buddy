@@ -30,7 +30,7 @@ export default class ProductDetail extends Component {
       let url = navigation.getParam("link", "error");
       console.log(url);
 
-      let data = await fetch("http://192.168.0.140:5000/getProductData", {
+      let data = await fetch("http://www.api.giftbuddy.si/getProductData", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
