@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator, Linking } from 'react-native';
 import { normalize, Rating } from 'react-native-elements';
 import { RFValue } from "react-native-responsive-fontsize";
 
@@ -17,6 +17,7 @@ export default class ProductDetail extends Component {
         this.state = {
           description: '',
           isLoading: true,
+          emptyData: false,
         }
   }
 
@@ -28,7 +29,6 @@ export default class ProductDetail extends Component {
     let getDetails = async () => {
       const { navigation } = this.props;
       let url = navigation.getParam("link", "error");
-      console.log(url);
 
       let data = await fetch("http://www.api.giftbuddy.si/getProductData", {
         method: 'POST',
@@ -46,11 +46,22 @@ export default class ProductDetail extends Component {
     }
 
     getDetails().then(data => {
-      console.log(data);
-      this.setState({
-        isLoading: false,
-        productData: data
-      })
+      console.log(data)
+
+      let url = this.props.navigation.getParam("link", "error");
+      
+      if(data.redirect) {
+        this.setState({
+          emptyData: true
+        });
+        Linking.openURL(url);
+      } else {
+        this.setState({
+          isLoading: false,
+          productData: data
+        });
+      }
+
     });
 
   }
@@ -63,6 +74,10 @@ export default class ProductDetail extends Component {
     const title = navigation.getParam("title", "Unavailable title")
     const description = navigation.getParam("description", "Unavailable description")
     const rating = navigation.getParam("rating", 0)
+
+    if(this.state.emptyData) {
+      this.props.navigation.navigate("scraperScreen");
+    }
 
 
     if(this.state.isLoading) {
