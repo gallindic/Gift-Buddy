@@ -28,16 +28,16 @@ export default class ProductDetail extends Component {
   getProductDetails(){
     let getDetails = async () => {
       const { navigation } = this.props;
-      let url = navigation.getParam("link", "error");
+      let id = navigation.getParam("id", "error");
 
-      let data = await fetch("http://www.api.giftbuddy.si/getProductData", {
+      let data = await fetch("http://demo.api.giftbuddy.si/getDetails", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          'url': url
+          'id': id
         }),
         json: true
       });
@@ -46,22 +46,12 @@ export default class ProductDetail extends Component {
     }
 
     getDetails().then(data => {
-      console.log(data)
+      //console.log(data)
 
-      let url = this.props.navigation.getParam("link", "error");
-      
-      if(data.redirect) {
-        this.setState({
-          emptyData: true
-        });
-        Linking.openURL(url);
-      } else {
-        this.setState({
+      this.setState({
           isLoading: false,
           productData: data
         });
-      }
-
     });
 
   }
@@ -72,8 +62,6 @@ export default class ProductDetail extends Component {
     const price = navigation.getParam("price", 0)
     const link = navigation.getParam("link", "error")
     const title = navigation.getParam("title", "Unavailable title")
-    const description = navigation.getParam("description", "Unavailable description")
-    const rating = navigation.getParam("rating", 0)
 
     if(this.state.emptyData) {
       this.props.navigation.navigate("scraperScreen");

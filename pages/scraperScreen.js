@@ -43,12 +43,12 @@ export default class scraperScreen extends Component {
     }
 
     getApiData(){
-      console.log(this.checkForParametersInState(Global.Occasion)[1]);
+      //console.log(this.checkForParametersInState(Global.Occasion)[1]);
 
       let testData = async () => {
         console.log("scraping");
 
-        let data = await fetch("http://www.api.giftbuddy.si/scrape", {
+        let data = await fetch("http://demo.api.giftbuddy.si/getData", {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -69,7 +69,7 @@ export default class scraperScreen extends Component {
       }
 
       testData().then(data => {
-        console.log(data.length);
+        //console.log(data.length);
         this.setState({
           isLoading: false,
           dataSource: data
