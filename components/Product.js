@@ -8,21 +8,21 @@ const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
 class Product extends Component {
+
     render() {
         return(
             
-            <View host="lazyload-list" key={this.props.index} style={styles.body}>
-                <Image host="lazyload-list" source={{ uri: this.props.product.imageLink }} style={{width: '90%', height: HEIGHT * 0.25, paddingBottom: 20}} resizeMode='contain'/>
+            <View key={this.props.index} style={styles.body}>
+                <Image host="lazyload-list" source={{ uri: this.props.product.imgUrl }} style={{width: '90%', height: HEIGHT * 0.25, paddingBottom: 20}} resizeMode='contain'/>
                 {/*<Text style={styles.description} adjustsFontSizeToFit numberOfLines={4}>{ this.props.product.title }</Text>*/}
                 <Text style={styles.price}>{this.props.product.price} €</Text>
                 {/*<TouchableOpacity style={styles.button} onPress={ ()=>{ Linking.openURL(this.props.product.link)}}><Text style={styles.buttonText}>Show</Text></TouchableOpacity>*/}
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("ProductDetail", {
-                    imageLink: this.props.product.imageLink, 
+                    imageLink: this.props.product.imgUrl, 
                     price: this.props.product.price, 
-                    link: this.props.product.link,
+                    link: this.props.product.url,
                     title: this.props.product.name,
-                    rating: 3.5,
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris nunc congue nisi vitae. Nibh cras pulvinar mattis nunc sed blandit. Sed elementum tempus egestas sed sed. Et tortor consequat id porta nibh venenatis. Tempor nec feugiat nisl pretium fusce id velit ut. Rhoncus urna neque viverra justo nec ultrices dui sapien. Nibh nisl condimentum id venenatis a. Eu lobortis elementum nibh tellus molestie nunc non blandit. Lacus vestibulum sed arcu non odio euismod lacinia at quis. Netus et malesuada fames ac. Lacus vel facilisis volutpat est. Vitae tortor condimentum lacinia quis vel eros. Libero nunc consequat interdum varius sit. Facilisis volutpat est velit egestas dui. Sed velit dignissim sodales ut eu. Tellus molestie nunc non blandit massa enim nec dui nunc. Sed augue lacus viverra vitae congue eu consequat ac. Enim nunc faucibus a pellentesque sit amet porttitor eget. Erat velit scelerisque in dictum non.",})}>
+                    id: this.props.product.id})}>
                     <Text style={styles.buttonText}>Show</Text>
                 </TouchableOpacity>
             </View>
