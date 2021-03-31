@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, ActivityIndicator, View, Dimensions, Text } from 'react-native';
+import { ScrollView, ActivityIndicator, View, Dimensions, Text, SafeAreaView, FlatList, StatusBar } from 'react-native';
 
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
@@ -17,6 +17,10 @@ export default class scraperScreen extends Component {
             dataSource: [] 
         }
     }
+
+    renderItem = ({ item }) => (
+      <Product product={item} index={item.id} key={item.id} />
+    );
 
     componentDidMount(){
         this.getApiData();
@@ -98,12 +102,18 @@ export default class scraperScreen extends Component {
         return (
           <View style={{height: '100%'}}>
             <Header/>
-            <ScrollView contentContainerStyle={{ 'flexDirection': 'row', 'flexWrap': 'wrap', 'justifyContent': 'space-around', paddingBottom: HEIGHT * 0.20, }}>
-              { this.showProducts() }
-            </ScrollView>
+              <FlatList
+                data={this.state.dataSource}
+                renderItem={this.renderItem}
+                keyExtractor={item => item.id}
+                horizontal={false}
+                numColumns={2}
+                contentContainerStyle={{paddingBottom: HEIGHT * 0.20}}
+                columnWrapperStyle={{justifyContent:'space-evenly'}}
+                showsVerticalScrollIndicator={false}
+              />
             <FooterNavigation mainText='Change filters' nextScreen='HobbiesFilter' />
           </View>
-          
         );
       }
     }

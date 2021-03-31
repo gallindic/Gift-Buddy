@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator, Linking } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator, ScrollView } from 'react-native';
 import { normalize, Rating } from 'react-native-elements';
 import { RFValue } from "react-native-responsive-fontsize";
 
 import Header from '../components/Header';
 import FooterNavigation from '../components/FooterNavigation';
-import { ScrollView } from 'react-native-gesture-handler';
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -77,9 +76,9 @@ export default class ProductDetail extends Component {
     } else {
       return (
         <View style={{height: '100%'}}>
-          <ScrollView  contentContainerStyle={{
-            paddingBottom: HEIGHT * 0.12, 
-          }}>
+          <ScrollView  
+          contentContainerStyle={{paddingBottom: HEIGHT * 0.12}}
+          showsVerticalScrollIndicator={false}>
             <Header />
             <Image source={{ uri: imageLink }} style={styles.image} resizeMode='contain'/>
             <View style={{paddingHorizontal: normalize(10)}}>
