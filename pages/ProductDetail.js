@@ -78,7 +78,8 @@ export default class ProductDetail extends Component {
         <View style={{height: '100%'}}>
           <ScrollView  
           contentContainerStyle={{paddingBottom: HEIGHT * 0.12}}
-          showsVerticalScrollIndicator={false}>
+          scrollIndicatorInsets={{ right: 1 }}
+          >
             <Header />
             <Image source={{ uri: imageLink }} style={styles.image} resizeMode='contain'/>
             <View style={{paddingHorizontal: normalize(10)}}>

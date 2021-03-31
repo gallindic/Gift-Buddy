@@ -110,7 +110,7 @@ export default class scraperScreen extends Component {
                 numColumns={2}
                 contentContainerStyle={{paddingBottom: HEIGHT * 0.20}}
                 columnWrapperStyle={{justifyContent:'space-evenly'}}
-                showsVerticalScrollIndicator={false}
+                scrollIndicatorInsets={{ right: 1 }}
               />
             <FooterNavigation mainText='Change filters' nextScreen='HobbiesFilter' />
           </View>
