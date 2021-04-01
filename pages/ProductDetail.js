@@ -29,7 +29,7 @@ export default class ProductDetail extends Component {
       const { navigation } = this.props;
       let id = navigation.getParam("id", "error");
 
-      let data = await fetch("http://demo.api.giftbuddy.si/getDetails", {
+      let data = await fetch("http://api.giftbuddy.si/getDetails", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
